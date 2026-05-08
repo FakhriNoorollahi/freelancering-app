@@ -1,13 +1,63 @@
 @import "tailwindcss";
 @import "./styles/fonts.css";
+
 @theme {
   --font-sans: Vazirmatn, sans-serif;
   --color-brand-primary: rgb(249, 148, 23);
   --color-brand-secondary: rgb(93, 56, 145);
-  --color-border: rgb(232, 226, 226);
-  --color-white: rgb(245, 245, 246);
+  --color-body-input: rgb(238, 238, 239);
+  --color-border: rgb(18, 18, 18);
+  --color-background: rgb(250, 254, 255);
   --color-success: rgb(70, 137, 102);
   --color-danger: rgb(197, 22, 5);
   --color-font-primary: rgb(31, 23, 23);
-  --color-font-secondary: rgb(236, 236, 236);
+  --color-font-secondary: rgb(157, 157, 157);
+}
+
+@layer base {
+  h1 {
+    @apply text-6xl font-black;
+  }
+  h2 {
+    @apply text-5xl font-extrabold;
+  }
+  h3 {
+    @apply text-4xl font-bold;
+  }
+  h4 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+}
+
+@layer components {
+  .textField__input {
+    @apply w-full bg-body-input py-2 px-4 rounded-lg  border-2 border-body-input border-solid hover:border-border hover:shadow-lg  placeholder:text-sm transition-all duration-300 ease-in-out;
+  }
+  .radio__input {
+    @apply cursor-pointer size-4 accent-brand-secondary;
+  }
+
+  .btn {
+    @apply px-3 py-2 font-bold rounded-lg cursor-pointer transition-all duration-300 ease-in-out;
+  }
+
+  .btn--primary {
+    @apply bg-brand-primary hover:opacity-85 hover:shadow-lg;
+  }
+}
+
+html,
+body {
+  user-select: none;
+  scroll-behavior: smooth;
+}
+
+* {
+  outline: none;
 }
