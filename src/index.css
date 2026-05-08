@@ -1,1 +1,13 @@
 @import "tailwindcss";
+@import "./styles/fonts.css";
+@theme {
+  --font-sans: Vazirmatn, sans-serif;
+  --color-brand-primary: rgb(249, 148, 23);
+  --color-brand-secondary: rgb(93, 56, 145);
+  --color-border: rgb(232, 226, 226);
+  --color-white: rgb(245, 245, 246);
+  --color-success: rgb(70, 137, 102);
+  --color-danger: rgb(197, 22, 5);
+  --color-font-primary: rgb(31, 23, 23);
+  --color-font-secondary: rgb(236, 236, 236);
+}

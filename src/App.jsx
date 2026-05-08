@@ -1,5 +1,12 @@
 function App() {
-  return <h1 className="text-green-500">پروژه فریلنسری</h1>;
+  return (
+    <div>
+      <h1 className="text-brand-primary bg-success ">
+        پروژه فریلنسری
+      </h1>
+      <h2 className="text-brand-primary bg-success">پروژه فریلنسری</h2>
+    </div>
+  );
 }
 
 export default App;
