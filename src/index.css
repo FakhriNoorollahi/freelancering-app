@@ -61,3 +61,7 @@ body {
 * {
   outline: none;
 }
+
+.spinner__item {
+  @apply rounded-full bg-brand-secondary;
+}

@@ -1,18 +1,15 @@
-import { useState } from "react";
 import TextField from "../../ui/TextField";
 import Button from "../../ui/Button";
 import AuthLayout from "./AuthLayout";
 
-function Signin() {
-  const [phoneNumber, setPhoneNumber] = useState("");
-
+function Signin({ phoneNumber, setPhoneNumber, handleSubmit, isPending }) {
   return (
     <AuthLayout>
       <div className="py-16 space-y-5 text-center">
         <h2>سلام</h2>
         <h2>خوش آمدید</h2>
       </div>
-      <form className="w-full space-y-7">
+      <form className="w-full space-y-7" onSubmit={handleSubmit}>
         <TextField
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
@@ -21,7 +18,7 @@ function Signin() {
           placeholder="شماره موبایل"
           label="لطفا شماره موبایل خود را وارد کنید"
         />
-        <Button>ارسال کد تایید</Button>
+        <Button isLoading={isPending}>ارسال کد تایید</Button>
       </form>
     </AuthLayout>
   );
