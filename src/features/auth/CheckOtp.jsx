@@ -7,19 +7,24 @@ import toast from "react-hot-toast";
 import { useCheckOtp } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-function CheckOtp({ phoneNumber, setStep, expireTime, setExpireTime }) {
+function CheckOtp({
+  phoneNumber,
+  onBack,
+  expireTime,
+  setExpireTime,
+  onResendOtp,
+}) {
   const [otp, setOtp] = useState("");
-  const { isPending, mutateAsync } = useCheckOtp();
+  const { isPending: isCheckingOtp, mutateAsync } = useCheckOtp();
   const navigate = useNavigate();
 
   useEffect(() => {
-    let intervalId = 0;
-    if (expireTime > 0) {
-      intervalId = setInterval(() => {
-        setExpireTime((t) => t - 1);
-      }, 1000);
-    }
-    return () => clearInterval(intervalId);
+    const timer =
+      expireTime > 0 && setInterval(() => setExpireTime((t) => t - 1), 1000);
+
+    return () => {
+      if (timer) clearInterval(timer);
+    };
   }, [expireTime]);
 
   const handleSubmit = async (e) => {
@@ -36,21 +41,17 @@ function CheckOtp({ phoneNumber, setStep, expireTime, setExpireTime }) {
       } = await mutateAsync({ otp, phoneNumber });
       toast.success(message);
 
-      if (isActive) {
-        if (status === 2) {
-          if (role === "ADMIN") {
-            navigate("/admin");
-          } else if (role === "FREELANCER") {
-            navigate("/freelancer");
-          } else {
-            navigate("/owner");
-          }
-        }
-      } else {
-        navigate("/complete-profile");
+      if (!isActive) return navigate("/complete-profile");
+      if (status !== 2) {
+        navigate("/");
+        toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
+        return;
       }
+      if (role === "OWNER") return navigate("/owner");
+      if (role === "ADMIN") return navigate("/admin");
+      if (role === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
-      console.log(error);
+      toast.error(error?.response?.data?.message);
     }
   };
 
@@ -59,14 +60,14 @@ function CheckOtp({ phoneNumber, setStep, expireTime, setExpireTime }) {
       <div className="flex flex-col justify-center gap-y-4 h-full">
         <div className="flex flex-col gap-y-4 text-base">
           <button
-            onClick={() => setStep(1)}
+            onClick={onBack}
             className="w-fit hover:bg-brand-primary/30 transition-all duration-300 rounded-full"
           >
             <ArrowRightIcon className="size-8 p-1 cursor-pointer" />
           </button>
           <div className="flex items-center gap-x-3">
-            <p>کد تایید برای شماره موبایل {phoneNumber} ارسال گردید</p>
-            <button onClick={() => setStep(1)}>
+            <p>تغییر شماره موبایل: {phoneNumber}</p>
+            <button onClick={onBack}>
               <PencilIcon className="size-5 cursor-pointer text-brand-primary" />
             </button>
           </div>
@@ -74,7 +75,10 @@ function CheckOtp({ phoneNumber, setStep, expireTime, setExpireTime }) {
             {expireTime ? (
               <button>{expireTime} ثانیه تا انقضای کد</button>
             ) : (
-              <button className="text-font-secondary cursor-pointer hover:text-brand-primary">
+              <button
+                onClick={onResendOtp}
+                className="text-font-secondary cursor-pointer hover:text-brand-primary"
+              >
                 ارسال مجدد کد تایید
               </button>
             )}
@@ -99,7 +103,7 @@ function CheckOtp({ phoneNumber, setStep, expireTime, setExpireTime }) {
               fontWeight: "600",
             }}
           />
-          <Button isLoading={isPending}>تایید</Button>
+          <Button isLoading={isCheckingOtp}>تایید</Button>
         </form>
       </div>
     </AuthLayout>

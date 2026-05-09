@@ -8,9 +8,9 @@ function Auth() {
   const [step, setStep] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [expireTime, setExpireTime] = useState(0);
-  const { isPending, mutateAsync } = useGetOtp();
+  const { isPending: isSendingOtp, mutateAsync } = useGetOtp();
 
-  const handleSubmit = async (e) => {
+  const sendOtpHandler = async (e) => {
     e.preventDefault();
     try {
       const { expiresIn, message } = await mutateAsync({ phoneNumber });
@@ -18,7 +18,7 @@ function Auth() {
       setExpireTime(expiresIn / 1000);
       setStep(2);
     } catch (error) {
-      console.log(error);
+      toast.error(error?.response?.data?.message);
     }
   };
 
@@ -27,9 +27,9 @@ function Auth() {
       return (
         <Signin
           phoneNumber={phoneNumber}
-          setPhoneNumber={setPhoneNumber}
-          isPending={isPending}
-          handleSubmit={handleSubmit}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          isSendingOtp={isSendingOtp}
+          sendOtpHandler={sendOtpHandler}
         />
       );
     } else {
@@ -37,12 +37,14 @@ function Auth() {
         <CheckOtp
           expireTime={expireTime}
           setExpireTime={setExpireTime}
+          onBack={() => setStep((s) => s - 1)}
+          onResendOtp={sendOtpHandler}
           phoneNumber={phoneNumber}
-          setStep={setStep}
         />
       );
     }
   };
+
   return render();
 }
 export default Auth;

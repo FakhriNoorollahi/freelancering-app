@@ -12,34 +12,29 @@ function CompleteProfile() {
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const navigate = useNavigate();
-
-  const { isPending, mutateAsync } = useCompleteProfile();
+  const { isPending: isCompleteingProfile, mutateAsync } = useCompleteProfile();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !email || !role) return;
-
     try {
       const {
         message,
-        user: { status, role },
-      } = await mutateAsync({ name, email, role: "FREELANCER" });
+        user: { status, role: userRole },
+      } = await mutateAsync({ name, email, role: role });
       toast.success(message);
 
-      if (status === 1) {
-        toast.error("اطلاعات شما هنوز تایید نشده است.");
-        navigate("/auth");
-      } else if (status === 2) {
-        if (role === "ADMIN") {
-          navigate("/admin");
-        } else if (role === "FREELANCER") {
-          navigate("/freelancer");
-        } else {
-          navigate("/owner");
-        }
+      if (status !== 2) {
+        navigate("/");
+        toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
+        return;
       }
+      if (userRole === "OWNER") return navigate("/owner");
+      if (userRole === "ADMIN") return navigate("/admin");
+      if (userRole === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
       console.log(error);
+
+      toast.error(error?.response?.data?.message);
     }
   };
 
@@ -51,7 +46,7 @@ function CompleteProfile() {
           <TextField
             value={name}
             onChange={(e) => setName(e.target.value)}
-            id="NAME"
+            id="name"
             type="text"
             placeholder="نام و نام خانوادگی"
             label="لطفا نام و نام خانوادگی خود را وارد کنید"
@@ -59,7 +54,7 @@ function CompleteProfile() {
           <TextField
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            id="EMAIL"
+            id="email"
             type="email"
             placeholder="ایمیل"
             label="لطفا ایمیل خود را وارد کنید"
@@ -68,22 +63,22 @@ function CompleteProfile() {
         <div className="flex justify-center gap-x-4">
           <RadioInput
             value="FREELANCER"
-            onChange={(e) => setRole(e.target.value)}
             label="فریلنسر"
+            onChange={(e) => setRole(e.target.value)}
             id="FREELANCER"
             name="role"
             checked={role === "FREELANCER"}
           />
           <RadioInput
             value="OWNER"
-            onChange={(e) => setRole(e.target.value)}
-            label="کارفرما"
             id="OWNER"
             name="role"
+            onChange={(e) => setRole(e.target.value)}
+            label="کارفرما"
             checked={role === "OWNER"}
           />
         </div>
-        <Button isLoading={isPending}>تایید</Button>
+        <Button isLoading={isCompleteingProfile}>تایید</Button>
       </form>
     </AuthLayout>
   );
