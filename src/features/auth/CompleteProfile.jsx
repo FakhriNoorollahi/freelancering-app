@@ -40,7 +40,7 @@ function CompleteProfile() {
 
   return (
     <AuthLayout>
-      <h2 className="py-14 text-center">ثبت نام</h2>
+      <p className="text-center font-black text-2xl lg:text-4xl">ثبت نام</p>
       <form className="w-full space-y-10" onSubmit={handleSubmit}>
         <div className="space-y-7">
           <TextField

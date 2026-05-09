@@ -5,9 +5,9 @@ import AuthLayout from "./AuthLayout";
 function Signin({ phoneNumber, onChange, sendOtpHandler, isSendingOtp }) {
   return (
     <AuthLayout>
-      <div className="py-16 space-y-5 text-center">
-        <h2>سلام</h2>
-        <h2>خوش آمدید</h2>
+      <div className="space-y-5 text-center mb-10">
+        <p className="font-black text-2xl lg:text-4xl">سلام</p>
+        <p className="font-black text-2xl lg:text-4xl">خوش آمدید</p>
       </div>
       <form className="w-full space-y-7" onSubmit={sendOtpHandler}>
         <TextField

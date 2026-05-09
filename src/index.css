@@ -2,17 +2,21 @@
 @import "./styles/fonts.css";
 
 @theme {
+  /* font */
   --font-sans: Vazirmatn, sans-serif;
+  /* color */
   --color-brand-primary: rgb(249, 148, 23);
   --color-brand-secondary: rgb(93, 56, 145);
   --color-body-input: rgb(238, 238, 239);
   --color-border: rgb(18, 18, 18);
-  --color-background: rgb(250, 254, 255);
+  --color-background: rgb(252, 252, 251);
   --color-success: rgb(70, 137, 102);
   --color-danger: rgb(197, 22, 5);
   --color-font-primary: rgb(31, 23, 23);
   --color-font-secondary: rgb(157, 157, 157);
 }
+
+/* rgb(250, 254, 255) */
 
 @layer base {
   h1 {
