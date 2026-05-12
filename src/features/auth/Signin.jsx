@@ -22,7 +22,11 @@ function Signin({ phoneNumber, onChange, sendOtpHandler, isSendingOtp }) {
           placeholder="نمونه : 09123456789"
           label="شماره همراه"
         />
-        {isSendingOtp ? <Sppiner /> : <Button>ارسال کد تایید</Button>}
+        {isSendingOtp ? (
+          <Sppiner />
+        ) : (
+          <Button classes="w-full">ارسال کد تایید</Button>
+        )}
       </form>
     </AuthLayout>
   );

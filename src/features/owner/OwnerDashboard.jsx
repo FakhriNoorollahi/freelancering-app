@@ -9,17 +9,17 @@ const ownerDashboardItems = [
   {
     id: 1,
     label: "پروژه ها",
-    icon: <FolderIcon className="size-16 text-danger/70" />,
+    icon: <FolderIcon className="size-16 text-brand-secondary" />,
   },
   {
     id: 2,
     label: "پروژه های واگذار شده",
-    icon: <CheckBadgeIcon className="size-16 text-success" />,
+    icon: <CheckBadgeIcon className="size-16 text-brand-secondary" />,
   },
   {
     id: 3,
     label: "درخواست ها",
-    icon: <ComputerDesktopIcon className="size-16 text-brand-primary/70" />,
+    icon: <ComputerDesktopIcon className="size-16 text-brand-secondary" />,
   },
 ];
 

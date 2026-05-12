@@ -11,10 +11,12 @@
   --font-sans: Vazirmatn, sans-serif;
   /* color */
   --color-brand-primary: rgb(255, 227, 26);
+  --color-brand-secondary: rgb(83, 94, 123);
   --color-border: rgb(117, 138, 147);
+  --color-border-opacity: rgb(117, 138, 147, 35%);
   --color-background: rgb(244, 246, 255);
   --color-success: rgb(0, 192, 75);
-  --color-danger: rgb(197, 22, 5);
+  --color-danger: rgb(255, 0, 0);
   --color-font-primary: rgb(34, 34, 34);
 }
 
@@ -61,6 +63,14 @@
   .btn--primary {
     @apply bg-brand-primary hover:opacity-90 hover:shadow-lg;
   }
+
+  .navlink__item {
+    @apply flex items-center font-medium gap-x-2 text-font-primary py-3 px-3 rounded-2xl hover:text-brand-primary w-full transition duration-300;
+  }
+
+  .active__navlink__item {
+    @apply focus:text-brand-secondary focus:bg-background focus:font-semibold;
+  }
 }
 
 html,
@@ -76,4 +86,32 @@ body {
 
 .spinner__item {
   @apply rounded-full bg-brand-primary;
+}
+
+table {
+  background-color: white;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 25px;
+  overflow: overlay;
+  /* table-layout: auto; */
+}
+
+th,
+td,
+tr {
+  padding: 25px;
+}
+
+th,
+tr {
+  border-bottom: 1px solid var(--color-border-opacity);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+tr {
+  font-size: 14px;
+  font-weight: 500;
 }

@@ -89,7 +89,7 @@ function CheckOtp({
           inputStyle="flex-1 border-1 border-border font-bold rounded-sm py-1 bg-white hover:border-brand-primary focus:border-brand-primary"
           shouldAutoFocus={true}
         />
-        {isCheckingOtp ? <Sppiner /> : <Button>تایید</Button>}
+        {isCheckingOtp ? <Sppiner /> : <Button classes="w-full">تایید</Button>}
       </form>
       <div className="flex justify-between items-center text-sm font-bold">
         {!!expireTime && <p>{timeFormat(expireTime)}</p>}

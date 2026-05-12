@@ -6,6 +6,7 @@ import RadioInput from "../../ui/RadioInput";
 import { useCompleteProfile } from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Sppiner from "../../ui/Sppiner";
 
 function CompleteProfile() {
   const [name, setName] = useState("");
@@ -78,7 +79,11 @@ function CompleteProfile() {
             checked={role === "OWNER"}
           />
         </div>
-        <Button isLoading={isCompleteingProfile}>تایید</Button>
+        {isCompleteingProfile ? (
+          <Sppiner />
+        ) : (
+          <Button classes="w-full">تایید</Button>
+        )}
       </form>
     </AuthLayout>
   );

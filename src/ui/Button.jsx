@@ -1,6 +1,6 @@
-function Button({ children }) {
+function Button({ children, classes }) {
   return (
-    <button type="submit" className="btn btn--primary w-full">
+    <button type="submit" className={`btn btn--primary ${classes}`}>
       {children}
     </button>
   );
