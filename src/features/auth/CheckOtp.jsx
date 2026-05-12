@@ -86,15 +86,7 @@ function CheckOtp({
           numInputs={6}
           renderInput={(props) => <input type="number" {...props} />}
           containerStyle="flex justify-center flex-row-reverse gap-x-2"
-          inputStyle={{
-            width: "3.2rem",
-            padding: "0.5rem 0.2rem",
-            border: "1px solid var(--color-border)",
-            borderRadius: "0.5rem",
-            fontWeight: "bold",
-            caretShape: "",
-            caretColor: "var(--color-success)",
-          }}
+          inputStyle="flex-1 border-1 border-border font-bold rounded-sm py-1 bg-white hover:border-brand-primary focus:border-brand-primary"
           shouldAutoFocus={true}
         />
         {isCheckingOtp ? <Sppiner /> : <Button>تایید</Button>}
