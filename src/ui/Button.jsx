@@ -1,13 +1,7 @@
-import Sppiner from "./Sppiner";
-
-function Button({ children, isLoading = false }) {
+function Button({ children }) {
   return (
-    <button
-      disabled={isLoading}
-      type="submit"
-      className="btn btn--primary w-full"
-    >
-      {isLoading ? <Sppiner cssClass="size-4" /> : children}
+    <button type="submit" className="btn btn--primary w-full">
+      {children}
     </button>
   );
 }

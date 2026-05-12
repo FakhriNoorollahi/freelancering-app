@@ -1,13 +1,17 @@
 import TextField from "../../ui/TextField";
 import Button from "../../ui/Button";
+import Sppiner from "../../ui/Sppiner";
 import AuthLayout from "./AuthLayout";
 
 function Signin({ phoneNumber, onChange, sendOtpHandler, isSendingOtp }) {
   return (
     <AuthLayout>
-      <div className="space-y-5 text-center mb-10">
-        <p className="font-black text-2xl lg:text-4xl">سلام</p>
-        <p className="font-black text-2xl lg:text-4xl">خوش آمدید</p>
+      <div className="mb-8 text-center space-y-3">
+        <p className="font-black text-lg ">به فریلنسری خوش آمدید.</p>
+        <p className="text-sm font-medium opacity-70 max-w-96">
+          برای استفاده از خدمات فریلنسری نیاز است ابتدا به حساب کاربری خود وارد
+          شوید.
+        </p>
       </div>
       <form className="w-full space-y-7" onSubmit={sendOtpHandler}>
         <TextField
@@ -15,10 +19,10 @@ function Signin({ phoneNumber, onChange, sendOtpHandler, isSendingOtp }) {
           onChange={onChange}
           type="text"
           id="phoneNumber"
-          placeholder="شماره موبایل"
-          label="لطفا شماره موبایل خود را وارد کنید"
+          placeholder="نمونه : 09123456789"
+          label="شماره همراه"
         />
-        <Button isLoading={isSendingOtp}>ارسال کد تایید</Button>
+        {isSendingOtp ? <Sppiner /> : <Button>ارسال کد تایید</Button>}
       </form>
     </AuthLayout>
   );

@@ -1,10 +1,19 @@
-function Sppiner({ cssClass }) {
+import { ThreeDots } from "react-loader-spinner";
+
+function Sppiner({ width = 75, height = 40 }) {
   return (
-    <div className="flex items-center justify-center py-1 gap-x-2">
-      <div className={`spinner__item ${cssClass}`}></div>
-      <div className={`spinner__item ${cssClass}`}></div>
-      <div className={`spinner__item ${cssClass}`}></div>
-    </div>
+    <ThreeDots
+      height={height}
+      width={width}
+      radius="9"
+      color="var(--color-success)"
+      ariaLabel="three-dots-loading"
+      wrapperStyle={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+      visible={true}
+    />
   );
 }
 

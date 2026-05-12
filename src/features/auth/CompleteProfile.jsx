@@ -40,7 +40,7 @@ function CompleteProfile() {
 
   return (
     <AuthLayout>
-      <p className="text-center font-black text-2xl lg:text-4xl">ثبت نام</p>
+      <p className="text-center font-black text-2xl mb-10">ثبت نام</p>
       <form className="w-full space-y-10" onSubmit={handleSubmit}>
         <div className="space-y-7">
           <TextField
@@ -48,16 +48,16 @@ function CompleteProfile() {
             onChange={(e) => setName(e.target.value)}
             id="name"
             type="text"
-            placeholder="نام و نام خانوادگی"
-            label="لطفا نام و نام خانوادگی خود را وارد کنید"
+            placeholder="نمونه: حنا نوری"
+            label="نام و نام خانوادگی خود را وارد کنید"
           />
           <TextField
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             id="email"
             type="email"
-            placeholder="ایمیل"
-            label="لطفا ایمیل خود را وارد کنید"
+            placeholder="نمونه: hana.noori@gmail.com"
+            label="ایمیل خود را وارد کنید"
           />
         </div>
         <div className="flex justify-center gap-x-4">

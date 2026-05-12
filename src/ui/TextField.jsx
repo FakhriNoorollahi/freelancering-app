@@ -1,7 +1,7 @@
 function TextField({ value, onChange, label, id, type, placeholder }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor="phoneNumber" className="text-sm">
+      <label htmlFor="phoneNumber" className="textField__label">
         {label}
       </label>
       <input
