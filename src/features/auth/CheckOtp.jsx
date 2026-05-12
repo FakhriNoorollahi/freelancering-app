@@ -2,10 +2,12 @@ import AuthLayout from "./AuthLayout";
 import Button from "../../ui/Button";
 import { useEffect, useState } from "react";
 import OtpInput from "react-otp-input";
-import { ArrowRightIcon, PencilIcon } from "@heroicons/react/24/solid";
+import { PencilIcon } from "@heroicons/react/24/solid";
 import toast from "react-hot-toast";
 import { useCheckOtp } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import Sppiner from "../../ui/Sppiner";
+import { timeFormat } from "../../utils/timeFormat";
 
 function CheckOtp({
   phoneNumber,
@@ -17,6 +19,8 @@ function CheckOtp({
   const [otp, setOtp] = useState("");
   const { isPending: isCheckingOtp, mutateAsync } = useCheckOtp();
   const navigate = useNavigate();
+
+  console.log(timeFormat(expireTime));
 
   useEffect(() => {
     const timer =
@@ -57,49 +61,46 @@ function CheckOtp({
 
   return (
     <AuthLayout>
-      <p className="text-center font-black text-2xl lg:text-4xl">
-        تایید کد یکبار مصرف
-      </p>
-      <div className="flex flex-col gap-y-4 text-base">
-        <button
-          onClick={onBack}
-          className="w-fit hover:bg-brand-primary/30 transition-all duration-300 rounded-full"
-        >
-          <ArrowRightIcon className="size-8 p-1 cursor-pointer" />
-        </button>
-        <div className="flex items-center gap-x-3">
-          <p>تغییر شماره موبایل: {phoneNumber}</p>
-          <button onClick={onBack}>
-            <PencilIcon className="size-5 cursor-pointer text-brand-primary" />
+      <div className="space-y-4 mb-8">
+        <div className="text-center space-y-3">
+          <p className="font-black text-lg">کد تایید</p>
+          <p className="font-medium opacity-70">
+            کد تایید ارسال شده را وارد کنید.
+          </p>
+        </div>
+        <div className="flex justify-between items-center gap-x-2 text-sm font-semibold px-7">
+          <p>{phoneNumber}</p>
+          <button
+            className="flex items-center gap-x-1 cursor-pointer hover:text-success"
+            onClick={onBack}
+          >
+            <PencilIcon className="size-3" />
+            اصلاح شماره
           </button>
         </div>
-        <div>
-          {expireTime ? (
-            <button>{expireTime} ثانیه تا انقضای کد</button>
-          ) : (
-            <button
-              onClick={onResendOtp}
-              className="text-font-secondary cursor-pointer hover:text-brand-primary"
-            >
-              ارسال مجدد کد تایید
-            </button>
-          )}
-        </div>
-        <p className="md:font-bold">لطفا کد تایید را وارد کنید</p>
       </div>
-      <form className="w-full space-y-8" onSubmit={handleSubmit}>
+      <form className="w-full space-y-5 mb-6" onSubmit={handleSubmit}>
         <OtpInput
           value={otp}
           onChange={setOtp}
           numInputs={6}
-          renderSeparator={<span>-</span>}
           renderInput={(props) => <input type="number" {...props} />}
-          containerStyle="flex flex-row-reverse gap-x-2"
-          inputStyle="flex-1 border-2 border-solid border-font-secondary focus:border-brand-primary rounded-lg font-bold"
+          containerStyle="flex justify-center flex-row-reverse gap-x-2"
+          inputStyle="flex-1 border-1 border-border font-bold rounded-sm py-1 bg-white hover:border-brand-primary focus:border-brand-primary"
           shouldAutoFocus={true}
         />
-        <Button isLoading={isCheckingOtp}>تایید</Button>
+        {isCheckingOtp ? <Sppiner /> : <Button>تایید</Button>}
       </form>
+      <div className="flex justify-between items-center text-sm font-bold">
+        {!!expireTime && <p>{timeFormat(expireTime)}</p>}
+        <button
+          onClick={onResendOtp}
+          disabled={expireTime}
+          className="cursor-pointer hover:text-success mr-auto disabled:text-font-primary/20"
+        >
+          ارسال مجدد
+        </button>
+      </div>
     </AuthLayout>
   );
 }
