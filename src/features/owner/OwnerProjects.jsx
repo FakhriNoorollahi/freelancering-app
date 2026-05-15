@@ -2,6 +2,7 @@ import { PlusIcon } from "@heroicons/react/16/solid";
 import Button from "../../ui/Button";
 import Table from "../../ui/Table";
 import { useAddProject } from "../../hooks/useOwner";
+import OwnerProjectsItem from "./ownerProjectsItem";
 
 function OwnerProjects() {
   //   const { data: allProjects, isPending: isProjecting } = useOwnerProjects();
@@ -37,48 +38,24 @@ function OwnerProjects() {
           <span className="text-sm">اضافه کردن پروژه</span>
         </Button>
       </div>
-      <div className="border border-border/35 rounded-2xl px-6 bg-white overflow-x-auto">
-        <Table>
-          <Table.Header>
-            <th>#</th>
-            <th>عنوان پروژه</th>
-            <th>دسته بندی</th>
-            <th>بودجه</th>
-            <th>ددلاین</th>
-            <th>تگ ها</th>
-            <th>فریلنسر</th>
-            <th>وضعیت</th>
-            <th>عملیات</th>
-            <th>درخواست ها</th>
-          </Table.Header>
-          <Table.Body>
-            <Table.Row>
-              <td>1</td>
-              <td>عنوان پروژه نماینده یک دو سه چهار</td>
-              <td>دسته بندی</td>
-              <td>بودجه</td>
-              <td>ددلاین</td>
-              <td>تگ ها</td>
-              <td>فریلنسر</td>
-              <td>وضعیت</td>
-              <td>عملیات</td>
-              <td>درخواست ها</td>
-            </Table.Row>
-            <Table.Row>
-              <td>2</td>
-              <td>عنوان پروژه نماینده یک دو سه چهار</td>
-              <td>دسته بندی</td>
-              <td>بودجه</td>
-              <td>ددلاین</td>
-              <td>تگ ها</td>
-              <td>فریلنسر</td>
-              <td>وضعیت</td>
-              <td>عملیات</td>
-              <td>درخواست ها</td>
-            </Table.Row>
-          </Table.Body>
-        </Table>
-      </div>
+
+      <Table>
+        <Table.Header>
+          <th>#</th>
+          <th>عنوان پروژه</th>
+          <th>دسته بندی</th>
+          <th>مبلغ</th>
+          <th>ددلاین</th>
+          <th>تگ ها</th>
+          <th>فریلنسر</th>
+          <th>وضعیت</th>
+          <th>عملیات</th>
+          <th>درخواست ها</th>
+        </Table.Header>
+        <Table.Body>
+          <OwnerProjectsItem />
+        </Table.Body>
+      </Table>
     </div>
   );
 }

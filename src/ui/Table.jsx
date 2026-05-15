@@ -1,5 +1,9 @@
 function Table({ children }) {
-  return <table>{children}</table>;
+  return (
+    <div className="border border-border/35 rounded-2xl px-7 bg-white overflow-auto shadow-lg">
+      <table>{children}</table>
+    </div>
+  );
 }
 
 export default Table;

@@ -16,7 +16,7 @@ function AppLayout({ children }) {
       </div>
       <div className="col-span-10 h-full">
         <Header />
-        <div className="bg-background h-[calc(100vh-70px)] rounded-tr-[50px] p-12 text-font-primary">
+        <div className="bg-background min-h-[calc(100vh-70px)] rounded-tr-[50px] p-12 text-font-primary">
           <Outlet />
         </div>
       </div>

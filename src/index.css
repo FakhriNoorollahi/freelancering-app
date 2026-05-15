@@ -18,9 +18,8 @@
   --color-success: rgb(0, 192, 75);
   --color-danger: rgb(255, 0, 0);
   --color-font-primary: rgb(34, 34, 34);
+  --color-tag: rgb(64, 162, 227);
 }
-
-/* rgb(250, 254, 255) */
 
 @layer base {
   h1 {
@@ -45,7 +44,7 @@
 
 @layer components {
   .textField__input {
-    @apply w-full bg-white py-2 px-4 rounded-lg border border-solid border-border hover:border-font-primary hover:shadow-lg  placeholder:text-sm transition-all duration-300 ease-in-out;
+    @apply w-full bg-white py-2 px-4 rounded-lg border border-solid border-border hover:border-font-primary focus:border-font-primary hover:shadow-lg focus:shadow-lg  placeholder:text-sm transition-all duration-300 ease-in-out;
   }
 
   .textField__label {
@@ -65,11 +64,15 @@
   }
 
   .navlink__item {
-    @apply flex items-center font-medium gap-x-2 text-font-primary py-3 px-3 rounded-2xl hover:text-brand-primary w-full transition duration-300;
+    @apply flex items-center font-medium gap-x-2 text-font-primary py-3 px-3 rounded-2xl hover:text-tag w-full transition duration-300;
   }
 
   .active__navlink__item {
     @apply focus:text-brand-secondary focus:bg-background focus:font-semibold;
+  }
+
+  .tag {
+    @apply px-4 py-1 rounded-lg bg-tag text-white font-semibold;
   }
 }
 
@@ -91,17 +94,16 @@ body {
 table {
   background-color: white;
   border-collapse: collapse;
-  width: 100%;
-  border-radius: 1rem;
+  width: 984px;
   padding: 25px;
-  overflow: overlay;
-  /* table-layout: auto; */
+  overflow: scroll;
+  table-layout: auto;
 }
 
 th,
-td,
-tr {
-  padding: 25px;
+tr,
+td {
+  padding: 25px 10px;
 }
 
 th,
@@ -112,6 +114,11 @@ tr {
 }
 
 tr {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
+  text-align: center;
+}
+
+tr:last-child {
+  border-bottom: 0px solid var(--color-border-opacity);
 }

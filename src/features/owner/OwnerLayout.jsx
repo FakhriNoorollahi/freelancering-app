@@ -22,13 +22,8 @@ function OwnerLayout() {
     <AppLayout>
       <ul className="px-4 space-y-8">
         {sidebarItems.map((item) => (
-          <li>
-            <NavLinkItem
-              key={item.id}
-              label={item.label}
-              path={item.path}
-              icon={item.icon}
-            />
+          <li key={item.id}>
+            <NavLinkItem label={item.label} path={item.path} icon={item.icon} />
           </li>
         ))}
       </ul>
