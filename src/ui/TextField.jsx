@@ -1,17 +1,27 @@
-function TextField({ value, onChange, label, id, type, placeholder }) {
+function TextField({
+  label,
+  register,
+  name,
+  placeholder,
+  validationSchema,
+  errors,
+  required,
+}) {
   return (
-    <div className="flex flex-col gap-2">
-      <label htmlFor="phoneNumber" className="textField__label">
-        {label}
-      </label>
-      <input
-        type={type}
-        id={id}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        className="textField__input"
-      />
+    <div className="flex flex-col gap-y-0.5">
+      <div className="flex flex-col gap-y-2">
+        <label htmlFor={name} className="textField__label">
+          {label} {required && <span className="text-danger">*</span>}
+        </label>
+        <input
+          {...register([name], validationSchema)}
+          placeholder={placeholder}
+          className="textField__input"
+        />
+      </div>
+      {errors && errors[name] && (
+        <span className="text-danger text-xs">{errors[name]?.message}</span>
+      )}
     </div>
   );
 }

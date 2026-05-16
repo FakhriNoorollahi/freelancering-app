@@ -5,54 +5,98 @@ import DatePickerField from "../../ui/DatePickerField";
 import TagsField from "../../ui/TagsField";
 import Button from "../../ui/Button";
 import Sppiner from "../../ui/Sppiner";
+import { useAddProject } from "../../hooks/useOwner";
+import { useQueryClient } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
-function OwnerProjectModal({
-  setBudget,
-  setCategory,
-  setDate,
-  setDescription,
-  setIsOpenModal,
-  setTitle,
-  isCreatingProject,
-  title,
-  description,
-  budget,
-  onHandleAddProject,
-  date,
-}) {
+function OwnerProjectModal({ setIsOpenModal, projectId }) {
+  const queryClient = useQueryClient();
+  const { mutateAsync: createProject, isPending: isCreatingProject } =
+    useAddProject();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onHandleSubmit = async (data) => {
+    const req = {
+      ...data,
+      deadline: new Date(),
+      tags: [],
+    };
+
+    await createProject(req, {
+      onSuccess: ({ message }) => {
+        setIsOpenModal(false);
+        queryClient.invalidateQueries({ queryKey: ["owner-projects"] });
+        toast.success(message);
+      },
+      onError: () => {
+        setIsOpenModal(false);
+      },
+    });
+  };
+
+  console.log("projectId", projectId);
+
   return (
     <Modal onClose={() => setIsOpenModal(false)} title="اضافه کردن پروژه جدید">
       <form
-        className="flex flex-col gap-y-5 max-h-96 overflow-y-auto scroll-mr-56 pl-4"
-        onSubmit={onHandleAddProject}
+        className="flex flex-col gap-y-4 max-h-96 overflow-y-auto scroll-mr-56 pl-4"
+        onSubmit={handleSubmit(onHandleSubmit)}
       >
         <TextField
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          register={register}
+          name="title"
           label="عنوان"
-          id="title"
-          type="text"
           placeholder="نمونه: فریلنسری"
+          errors={errors}
+          validationSchema={{
+            required: "عنوان ضروری است",
+            minLength: {
+              value: 10,
+              message: "طول عنوان نامعتبر است.",
+            },
+          }}
+          required
         />
         <TextField
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          register={register}
           label="توضیحات"
-          id="description"
-          type="text"
+          name="description"
           placeholder="نمونه: پروژه ساخت وب سایت"
+          errors={errors}
+          validationSchema={{
+            required: "توضیحات ضروری است",
+            minLength: {
+              value: 20,
+              message: "طول توضیحات نامعتبر است.",
+            },
+            maxLength: {
+              value: 50,
+              message: "طول توضیحات نامعتبر است.",
+            },
+          }}
+          required
         />
         <TextField
-          value={budget}
-          onChange={(e) => setBudget(e.target.value)}
+          register={register}
           label="بودجه"
-          id="budget"
-          type="number"
+          name="budget"
           placeholder="نمونه: 250000"
+          errors={errors}
+          validationSchema={{
+            required: "بودجه ضروری است",
+          }}
+          required
         />
         <Select
-          onChange={(e) => setCategory(e.target.value)}
+          register={register}
           label="دسته بندی"
+          name="category"
+          validationSchema={{ required: "دسته بندی ضروری است." }}
           options={[
             {
               id: 1,
@@ -61,9 +105,10 @@ function OwnerProjectModal({
             },
             { id: 2, title: "UI/UX", value: "6a08612d903e3da1a532003e" },
           ]}
+          required
         />
         <TagsField label="کلمات کلیدی" />
-        <DatePickerField label="ددلاین" date={date} setDate={setDate} />
+        <DatePickerField label="ددلاین" date="date" setDate={() => {}} />
         {isCreatingProject ? (
           <Sppiner />
         ) : (

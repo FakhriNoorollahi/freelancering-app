@@ -1,14 +1,35 @@
-function Select({ options, onChange, label }) {
+function Select({
+  options,
+  label,
+  register,
+  name,
+  validationSchema,
+  errors,
+  required,
+}) {
   return (
-    <div className="flex flex-col gap-2">
-      <label className="textField__label">{label}</label>
-      <select className="textField__input" onChange={onChange}>
-        {options.map((o) => (
-          <option key={o.id} value={o.value}>
-            {o.title}
+    <div className="flex flex-col gap-y-0.5">
+      <div className="flex flex-col gap-2">
+        <label className="textField__label">
+          {label} {required && <span className="text-danger">*</span>}
+        </label>
+        <select
+          className="textField__input"
+          {...register([name], validationSchema)}
+        >
+          <option disabled value={null}>
+            یک گزینه را انتخاب کنید
           </option>
-        ))}
-      </select>
+          {options.map((o) => (
+            <option key={o.id} value={o.value}>
+              {o.title}
+            </option>
+          ))}
+        </select>
+      </div>
+      {errors && errors[name] && (
+        <span className="text-danger text-xs">{errors[name]?.message}</span>
+      )}
     </div>
   );
 }

@@ -19,6 +19,7 @@ function OwnerProjectsItem({
   index,
   _id,
   setIsOpenModal,
+  setProjectId,
 }) {
   const queryClient = useQueryClient();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
@@ -38,6 +39,12 @@ function OwnerProjectsItem({
       },
       onError: () => {},
     });
+  };
+
+  const onHandleEditProject = () => {
+    setProjectId(_id);
+    console.log(_id);
+    setIsOpenModal(true);
   };
 
   return (
@@ -64,7 +71,7 @@ function OwnerProjectsItem({
           >
             <TrashIcon className="size-5 hover:text-danger" />
           </button>
-          <button className="cursor-pointer" onClick={setIsOpenModal}>
+          <button className="cursor-pointer" onClick={onHandleEditProject}>
             <PencilIcon className="size-5 hover:text-success" />
           </button>
         </div>

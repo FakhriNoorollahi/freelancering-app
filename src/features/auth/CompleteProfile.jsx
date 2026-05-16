@@ -33,8 +33,6 @@ function CompleteProfile() {
       if (userRole === "ADMIN") return navigate("/admin");
       if (userRole === "FREELANCER") return navigate("/freelancer");
     } catch (error) {
-      console.log(error);
-
       toast.error(error?.response?.data?.message);
     }
   };

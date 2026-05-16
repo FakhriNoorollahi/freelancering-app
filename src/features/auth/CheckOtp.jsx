@@ -20,8 +20,6 @@ function CheckOtp({
   const { isPending: isCheckingOtp, mutateAsync } = useCheckOtp();
   const navigate = useNavigate();
 
-  console.log(timeFormat(expireTime));
-
   useEffect(() => {
     const timer =
       expireTime > 0 && setInterval(() => setExpireTime((t) => t - 1), 1000);
