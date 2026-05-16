@@ -14,21 +14,18 @@ function OwnerProjectsItem({
   category,
   deadline,
   status,
-  tags,
+  description,
   freelancer,
   index,
   _id,
   setIsOpenModal,
-  setProjectId,
+  setEditValues,
 }) {
   const queryClient = useQueryClient();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
 
-  const {
-    data,
-    isPending: isDeletingProject,
-    mutateAsync: deleteProject,
-  } = useDeleteProject();
+  const { isPending: isDeletingProject, mutateAsync: deleteProject } =
+    useDeleteProject();
 
   const onHandleDeleteProject = async () => {
     await deleteProject(_id, {
@@ -42,8 +39,13 @@ function OwnerProjectsItem({
   };
 
   const onHandleEditProject = () => {
-    setProjectId(_id);
-    console.log(_id);
+    setEditValues({
+      title,
+      category: category._id,
+      budget,
+      description,
+      id: _id,
+    });
     setIsOpenModal(true);
   };
 

@@ -9,7 +9,7 @@ import OwnerProjectModal from "./OwnerProjectModal";
 
 function OwnerProjects() {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [projectId, setProjectId] = useState();
+  const [editValues, setEditValues] = useState(null);
 
   const { allProjects, isPending: isAllProjecting } = useOwnerProjects();
 
@@ -49,7 +49,7 @@ function OwnerProjects() {
                   {...project}
                   index={index + 1}
                   setIsOpenModal={() => setIsOpenModal(true)}
-                  setProjectId={setProjectId}
+                  setEditValues={setEditValues}
                 />
               ))}
             </Table.Body>
@@ -61,7 +61,7 @@ function OwnerProjects() {
       {isOpenModal && (
         <OwnerProjectModal
           setIsOpenModal={setIsOpenModal}
-          projectId={projectId}
+          editValues={editValues}
         />
       )}
     </div>

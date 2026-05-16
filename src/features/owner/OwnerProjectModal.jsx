@@ -5,20 +5,25 @@ import DatePickerField from "../../ui/DatePickerField";
 import TagsField from "../../ui/TagsField";
 import Button from "../../ui/Button";
 import Sppiner from "../../ui/Sppiner";
-import { useAddProject } from "../../hooks/useOwner";
+import { useAddProject, useUpdateProject } from "../../hooks/useOwner";
 import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-function OwnerProjectModal({ setIsOpenModal, projectId }) {
+function OwnerProjectModal({ setIsOpenModal, editValues }) {
+  const { id, ...editDefaultValues } = editValues;
   const queryClient = useQueryClient();
-  const { mutateAsync: createProject, isPending: isCreatingProject } =
-    useAddProject();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues: editDefaultValues });
+
+  const { mutateAsync: createProject, isPending: isCreatingProject } =
+    useAddProject();
+
+  const { mutateAsync: updateProject, isPending: isUpdatingProject } =
+    useUpdateProject();
 
   const onHandleSubmit = async (data) => {
     const req = {
@@ -27,19 +32,33 @@ function OwnerProjectModal({ setIsOpenModal, projectId }) {
       tags: [],
     };
 
-    await createProject(req, {
-      onSuccess: ({ message }) => {
-        setIsOpenModal(false);
-        queryClient.invalidateQueries({ queryKey: ["owner-projects"] });
-        toast.success(message);
-      },
-      onError: () => {
-        setIsOpenModal(false);
-      },
-    });
+    if (id) {
+      await updateProject(
+        { id, data: req },
+        {
+          onSuccess: ({ message }) => {
+            setIsOpenModal(false);
+            queryClient.invalidateQueries({ queryKey: ["owner-projects"] });
+            toast.success(message);
+          },
+          onError: () => {
+            setIsOpenModal(false);
+          },
+        },
+      );
+    } else {
+      await createProject(req, {
+        onSuccess: ({ message }) => {
+          setIsOpenModal(false);
+          queryClient.invalidateQueries({ queryKey: ["owner-projects"] });
+          toast.success(message);
+        },
+        onError: () => {
+          setIsOpenModal(false);
+        },
+      });
+    }
   };
-
-  console.log("projectId", projectId);
 
   return (
     <Modal onClose={() => setIsOpenModal(false)} title="اضافه کردن پروژه جدید">
@@ -109,7 +128,7 @@ function OwnerProjectModal({ setIsOpenModal, projectId }) {
         />
         <TagsField label="کلمات کلیدی" />
         <DatePickerField label="ددلاین" date="date" setDate={() => {}} />
-        {isCreatingProject ? (
+        {(id ? isUpdatingProject : isCreatingProject) ? (
           <Sppiner />
         ) : (
           <Button classes="w-full">تایید</Button>

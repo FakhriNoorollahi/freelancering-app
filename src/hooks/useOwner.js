@@ -2,9 +2,19 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import {
   addProject,
   deleteProject,
+  getProject,
   getProjects,
   updateProject,
 } from "../services/ownerService";
+
+export function useOwnerProject() {
+  const { data, isPending } = useQuery({
+    queryKey: ["owner-project"],
+    queryFn: getProject,
+  });
+
+  return { data, isPending };
+}
 
 export function useOwnerProjects() {
   const { data, isPending } = useQuery({
