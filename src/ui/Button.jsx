@@ -1,6 +1,10 @@
-function Button({ children, classes }) {
+function Button({ children, classes, onClick }) {
   return (
-    <button type="submit" className={`btn btn--primary ${classes}`}>
+    <button
+      onClick={onClick}
+      type="submit"
+      className={`btn btn--primary ${classes}`}
+    >
       {children}
     </button>
   );

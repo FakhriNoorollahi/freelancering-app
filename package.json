@@ -19,6 +19,7 @@
     "react-hook-form": "^7.75.0",
     "react-hot-toast": "^2.6.0",
     "react-loader-spinner": "^8.0.2",
+    "react-multi-date-picker": "^4.5.2",
     "react-otp-input": "^3.1.1",
     "react-router-dom": "^7.15.0",
     "tailwindcss": "^4.2.4"

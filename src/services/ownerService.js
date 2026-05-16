@@ -5,7 +5,13 @@ export function getProjects() {
 }
 
 export function addProject(data) {
-  console.log(data);
-
   return http.post("/project/add", data).then(({ data }) => data.data);
+}
+
+export function updateProject(data) {
+  return http.patch("/project/update", data).then(({ data }) => data.data);
+}
+
+export function deleteProject(id) {
+  return http.delete(`/project/${id}`).then(({ data }) => data.data);
 }

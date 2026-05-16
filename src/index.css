@@ -63,6 +63,10 @@
     @apply bg-brand-primary hover:opacity-90 hover:shadow-lg;
   }
 
+  .btn--secondary {
+    @apply bg-white border border-border hover:border-brand-primary hover:shadow-lg;
+  }
+
   .navlink__item {
     @apply flex items-center font-medium gap-x-2 text-font-primary py-3 px-3 rounded-2xl hover:text-tag w-full transition duration-300;
   }
@@ -73,6 +77,10 @@
 
   .tag {
     @apply px-4 py-1 rounded-lg bg-tag text-white font-semibold;
+  }
+
+  .select {
+    @apply w-full;
   }
 }
 
