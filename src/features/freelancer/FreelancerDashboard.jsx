@@ -1,34 +1,34 @@
 import {
-  ComputerDesktopIcon,
   FolderIcon,
   CheckBadgeIcon,
+  CurrencyDollarIcon,
 } from "@heroicons/react/24/solid";
 import DashboardItem from "../../ui/DashboardOtem";
 
-const ownerDashboardItems = [
+const freelancerDashboardItems = [
   {
     id: 1,
-    label: "پروژه ها",
+    label: "درخواست ها",
     icon: <FolderIcon className="size-16 text-brand-secondary" />,
   },
   {
     id: 2,
-    label: "پروژه های واگذار شده",
+    label: "درخواست های تایید شده",
     icon: <CheckBadgeIcon className="size-16 text-brand-secondary" />,
   },
   {
     id: 3,
-    label: "درخواست ها",
-    icon: <ComputerDesktopIcon className="size-16 text-brand-secondary" />,
+    label: "کیف پول",
+    icon: <CurrencyDollarIcon className="size-16 text-brand-secondary" />,
   },
 ];
 
-function OwnerDashboard() {
+function FreelancerDashboard() {
   return (
     <div className="space-y-10">
       <h3>آمار کلی</h3>
       <div className="grid grid-cols-3 gap-10">
-        {ownerDashboardItems.map((item) => (
+        {freelancerDashboardItems.map((item) => (
           <DashboardItem
             key={item.id}
             label={item.label}
@@ -41,4 +41,4 @@ function OwnerDashboard() {
   );
 }
 
-export default OwnerDashboard;
+export default FreelancerDashboard;

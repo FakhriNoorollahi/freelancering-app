@@ -1,4 +1,4 @@
-function OwnerDashboardItem({ label, icon }) {
+function DashboardItem({ label, icon }) {
   return (
     <div className="span-cols-1 rounded-xl py-5 px-3 shadow-sm bg-white border border-border/35">
       <div className="flex items-center gap-x-5">
@@ -12,4 +12,4 @@ function OwnerDashboardItem({ label, icon }) {
   );
 }
 
-export default OwnerDashboardItem;
+export default DashboardItem;
