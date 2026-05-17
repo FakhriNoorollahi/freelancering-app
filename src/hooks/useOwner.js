@@ -7,10 +7,10 @@ import {
   updateProject,
 } from "../services/ownerService";
 
-export function useOwnerProject() {
+export function useOwnerProject(id) {
   const { data, isPending } = useQuery({
-    queryKey: ["owner-project"],
-    queryFn: getProject,
+    queryKey: ["owner-projects", id],
+    queryFn: () => getProject(id),
   });
 
   return { data, isPending };

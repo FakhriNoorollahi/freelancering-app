@@ -122,7 +122,6 @@ function OwnerProjectModal({ setIsOpenModal, editValues }) {
               title: "برنامه نویسی",
               value: "6a08612d903e3da1a532003e",
             },
-            { id: 2, title: "UI/UX", value: "6a08612d903e3da1a532003e" },
           ]}
           required
         />

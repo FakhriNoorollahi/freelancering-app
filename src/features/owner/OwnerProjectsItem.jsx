@@ -7,6 +7,7 @@ import Modal from "../../ui/Modal";
 import DeleteModal from "../../ui/DeleteModal";
 import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 function OwnerProjectsItem({
   title,
@@ -22,6 +23,7 @@ function OwnerProjectsItem({
   setEditValues,
 }) {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
 
   const { isPending: isDeletingProject, mutateAsync: deleteProject } =
@@ -79,7 +81,7 @@ function OwnerProjectsItem({
         </div>
       </td>
       <td>
-        <button className="cursor-pointer">
+        <button className="cursor-pointer" onClick={() => navigate(_id)}>
           <EyeIcon className="size-5 hover:text-tag" />
         </button>
       </td>
