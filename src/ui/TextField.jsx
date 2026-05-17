@@ -19,9 +19,11 @@ function TextField({
           className="textField__input"
         />
       </div>
-      {errors && errors[name] && (
-        <span className="text-danger text-xs">{errors[name]?.message}</span>
-      )}
+      <div className="h-6">
+        {errors && errors[name] && (
+          <span className="text-danger text-xs">{errors[name]?.message}</span>
+        )}
+      </div>
     </div>
   );
 }
