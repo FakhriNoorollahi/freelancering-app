@@ -1,4 +1,3 @@
-import { useState } from "react";
 import TextField from "../../ui/TextField";
 import Button from "../../ui/Button";
 import AuthLayout from "./AuthLayout";
@@ -7,21 +6,23 @@ import { useCompleteProfile } from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Sppiner from "../../ui/Sppiner";
+import { useForm } from "react-hook-form";
 
 function CompleteProfile() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
   const navigate = useNavigate();
   const { isPending: isCompleteingProfile, mutateAsync } = useCompleteProfile();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onHandleSubmit = async (data) => {
     try {
       const {
         message,
         user: { status, role: userRole },
-      } = await mutateAsync({ name, email, role: role });
+      } = await mutateAsync(data);
       toast.success(message);
 
       if (status !== 2) {
@@ -40,43 +41,68 @@ function CompleteProfile() {
   return (
     <AuthLayout>
       <p className="text-center font-black text-2xl mb-10">ثبت نام</p>
-      <form className="w-full space-y-10" onSubmit={handleSubmit}>
-        <div className="space-y-7">
+      <form className="w-full" onSubmit={handleSubmit(onHandleSubmit)}>
+        <div className="space-y-2">
           <TextField
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            id="name"
-            type="text"
+            register={register}
+            name="name"
             placeholder="نمونه: حنا نوری"
             label="نام و نام خانوادگی خود را وارد کنید"
+            required
+            errors={errors}
+            validationSchema={{
+              required: "نام و نام خانوادگی ضروری است",
+              minLength: {
+                value: 6,
+                message: "طول نام و نام خانوادگی نامعتبر است",
+              },
+            }}
           />
           <TextField
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            id="email"
-            type="email"
+            register={register}
+            name="email"
             placeholder="نمونه: hana.noori@gmail.com"
             label="ایمیل خود را وارد کنید"
+            required
+            errors={errors}
+            validationSchema={{
+              required: "ایمیل ضروری است",
+            }}
           />
         </div>
-        <div className="flex justify-center gap-x-4">
-          <RadioInput
-            value="FREELANCER"
-            label="فریلنسر"
-            onChange={(e) => setRole(e.target.value)}
-            id="FREELANCER"
-            name="role"
-            checked={role === "FREELANCER"}
-          />
-          <RadioInput
-            value="OWNER"
-            id="OWNER"
-            name="role"
-            onChange={(e) => setRole(e.target.value)}
-            label="کارفرما"
-            checked={role === "OWNER"}
-          />
-        </div>
+        <>
+          <div className="flex justify-center gap-x-4">
+            <RadioInput
+              value="FREELANCER"
+              label="فریلنسر"
+              id="FREELANCER"
+              name="role"
+              register={register}
+              errors={errors}
+              validationSchema={{
+                required: "انتخاب کاربر ضروری است",
+              }}
+            />
+            <RadioInput
+              register={register}
+              value="OWNER"
+              id="OWNER"
+              name="role"
+              label="کارفرما"
+              errors={errors}
+              validationSchema={{
+                required: "انتخاب کاربر ضروری است",
+              }}
+            />
+          </div>
+          <div className="h-6">
+            {errors && errors["role"] && (
+              <span className="text-danger text-xs">
+                {errors["role"]?.message}
+              </span>
+            )}
+          </div>
+        </>
         {isCompleteingProfile ? (
           <Sppiner />
         ) : (

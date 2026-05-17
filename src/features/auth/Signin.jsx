@@ -3,7 +3,13 @@ import Button from "../../ui/Button";
 import Sppiner from "../../ui/Sppiner";
 import AuthLayout from "./AuthLayout";
 
-function Signin({ phoneNumber, onChange, sendOtpHandler, isSendingOtp }) {
+function Signin({
+  sendOtpHandler,
+  isSendingOtp,
+  handleSubmit,
+  register,
+  errors,
+}) {
   return (
     <AuthLayout>
       <div className="mb-8 text-center space-y-3">
@@ -13,14 +19,20 @@ function Signin({ phoneNumber, onChange, sendOtpHandler, isSendingOtp }) {
           شوید.
         </p>
       </div>
-      <form className="w-full space-y-7" onSubmit={sendOtpHandler}>
+      <form
+        className="w-full space-y-4"
+        onSubmit={handleSubmit(sendOtpHandler)}
+      >
         <TextField
-          value={phoneNumber}
-          onChange={onChange}
-          type="text"
-          id="phoneNumber"
+          register={register}
+          name="phoneNumber"
           placeholder="نمونه : 09123456789"
           label="شماره همراه"
+          validationSchema={{
+            required: "شماره تلفن ضروری است",
+          }}
+          required
+          errors={errors}
         />
         {isSendingOtp ? (
           <Sppiner />
