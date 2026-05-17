@@ -19,7 +19,7 @@ function TextField({
           className="textField__input"
         />
       </div>
-      <div className="h-6">
+      <div className="h-6 flex flex-start">
         {errors && errors[name] && (
           <span className="text-danger text-xs">{errors[name]?.message}</span>
         )}

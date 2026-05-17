@@ -2,8 +2,7 @@
 @import "./styles/fonts.css";
 
 @plugin "@tailwindcss/forms" {
-  /* strategy: "base"; only generate global styles; or */
-  strategy: "class"; /* only generate classes */
+  strategy: "class";
 }
 
 @theme {
@@ -48,7 +47,7 @@
   }
 
   .textField__label {
-    @apply text-sm font-semibold text-font-primary;
+    @apply text-sm font-semibold text-font-primary text-start;
   }
 
   .radio__input {

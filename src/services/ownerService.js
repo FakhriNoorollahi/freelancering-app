@@ -21,3 +21,7 @@ export function updateProject({ id, data }) {
 export function deleteProject(id) {
   return http.delete(`/project/${id}`).then(({ data }) => data.data);
 }
+
+export function getListProject() {
+  return http.get(`/project/list`).then(({ data }) => data.data);
+}

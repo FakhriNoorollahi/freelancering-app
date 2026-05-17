@@ -2,6 +2,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import {
   addProject,
   deleteProject,
+  getListProject,
   getProject,
   getProjects,
   updateProject,
@@ -48,4 +49,15 @@ export function useDeleteProject() {
   });
 
   return { data, isPending, mutateAsync };
+}
+
+export function useProjectLists() {
+  const { data, isPending } = useQuery({
+    queryKey: ["all-projects"],
+    queryFn: getListProject,
+  });
+
+  const { projects } = data || {};
+
+  return { projects, isPending };
 }

@@ -6,6 +6,10 @@ import CompleteProfile from "./features/auth/CompleteProfile";
 import OwnerLayout from "./features/owner/OwnerLayout";
 import OwnerProjects from "./features/owner/OwnerProjects";
 import OwenrProject from "./features/owner/ownerProject";
+import FreelancerLayout from "./features/freelancer/FreelancerLayout";
+import FreelancerPage from "./pages/FreelancerPage";
+import FreelancerProjects from "./features/freelancer/FreelancerProjects";
+import FreelancerProposalas from "./features/freelancer/FreelancerProposals";
 
 function App() {
   return (
@@ -17,6 +21,11 @@ function App() {
           <Route index path="dashboard" element={<OwnerPage />} />
           <Route path="projects" element={<OwnerProjects />} />
           <Route path="projects/:id" element={<OwenrProject />} />
+        </Route>
+        <Route path="/freelancer" element={<FreelancerLayout />}>
+          <Route index path="dashboard" element={<FreelancerPage />} />
+          <Route path="projects" element={<FreelancerProjects />} />
+          <Route path="proposals" element={<FreelancerProposalas />} />
         </Route>
       </Routes>
     </AppProvider>

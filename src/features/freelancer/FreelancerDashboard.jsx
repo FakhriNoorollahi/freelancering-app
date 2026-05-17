@@ -1,5 +1,5 @@
 import {
-  FolderIcon,
+  DocumentIcon,
   CheckBadgeIcon,
   CurrencyDollarIcon,
 } from "@heroicons/react/24/solid";
@@ -9,7 +9,7 @@ const freelancerDashboardItems = [
   {
     id: 1,
     label: "درخواست ها",
-    icon: <FolderIcon className="size-16 text-brand-secondary" />,
+    icon: <DocumentIcon className="size-16 text-brand-secondary" />,
   },
   {
     id: 2,
