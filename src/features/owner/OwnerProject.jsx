@@ -1,20 +1,23 @@
 import { useParams } from "react-router-dom";
 import Table from "../../ui/Table";
-import OwnerProjectItem from "./ownerProjectItem";
 import { useOwnerProject } from "../../hooks/useOwner";
 import Sppiner from "../../ui/Sppiner";
+import OwnerProposalItem from "./OwnerProposalItem";
+import { useState } from "react";
+import OwnerStatusChangeProposalModal from "./OwnerStatusChangeProposalModal";
 
 function OwnerProject() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [proposalId, setIsProposalId] = useState(null);
   const { id } = useParams();
-  const { data, isPending } = useOwnerProject(id);
-  const { proposals } = data || {};
+  const { project, isPending } = useOwnerProject(id);
 
   return (
     <div>
       <h4 className="mb-4">درخواست های پروژه ی شما</h4>
       {isPending ? (
         <Sppiner />
-      ) : proposals ? (
+      ) : project.proposals ? (
         <Table>
           <Table.Header>
             <th>#</th>
@@ -26,13 +29,27 @@ function OwnerProject() {
             <th>عملیات</th>
           </Table.Header>
           <Table.Body>
-            {proposals.map((proposal) => (
-              <OwnerProjectItem key={proposal._id} {...proposal} />
+            {project.proposals.map((proposal, index) => (
+              <OwnerProposalItem
+                key={proposal._id}
+                {...proposal}
+                index={index}
+                onOpenModal={() => setIsOpenModal(true)}
+                setIsProposalId={() => setIsProposalId(proposal._id)}
+              />
             ))}
           </Table.Body>
         </Table>
       ) : (
         <p>پر.پوزالی وجود ندارد</p>
+      )}
+
+      {isOpenModal && (
+        <OwnerStatusChangeProposalModal
+          setIsOpenModal={setIsOpenModal}
+          projectId={id}
+          proposalId={proposalId}
+        />
       )}
     </div>
   );

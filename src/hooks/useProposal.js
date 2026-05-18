@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { addProposal, getProposalsList } from "../services/proposalService";
+import { updateProposal } from "../services/proposalService";
 
 export function useAddProposal() {
   const { data, mutateAsync, isPending } = useMutation({
@@ -18,4 +19,12 @@ export function useProposalLists() {
   const { proposals } = data || {};
 
   return { proposals, isPending };
+}
+
+export function useUpdateProposal() {
+  const { data, mutateAsync, isPending } = useMutation({
+    mutationFn: updateProposal,
+  });
+
+  return { data, mutateAsync, isPending };
 }

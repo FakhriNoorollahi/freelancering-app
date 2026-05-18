@@ -1,11 +1,11 @@
 import { PlusIcon } from "@heroicons/react/16/solid";
 import Button from "../../ui/Button";
 import Table from "../../ui/Table";
-import OwnerProjectsItem from "./ownerProjectsItem";
 import Sppiner from "../../ui/Sppiner";
 import { useOwnerProjects } from "../../hooks/useOwner";
 import { useState } from "react";
 import OwnerProjectModal from "./OwnerProjectModal";
+import OwnerProjectsItem from "./OwnerProjectsItem";
 
 function OwnerProjects() {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -37,7 +37,6 @@ function OwnerProjects() {
               <th>بودجه</th>
               <th>ددلاین</th>
               <th>تگ ها</th>
-              <th>فریلنسر</th>
               <th>وضعیت</th>
               <th>عملیات</th>
               <th>درخواست ها</th>
@@ -62,6 +61,7 @@ function OwnerProjects() {
         <OwnerProjectModal
           setIsOpenModal={setIsOpenModal}
           editValues={editValues}
+          setEditValues={setEditValues}
         />
       )}
     </div>

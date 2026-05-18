@@ -13,3 +13,11 @@ export function completeProfile(data) {
     .post("/user/complete-profile", data)
     .then(({ data }) => data.data);
 }
+
+export function logout() {
+  return http.post("/user/logout").then(({ data }) => data.data);
+}
+
+export function profile() {
+  return http.get("/user/profile").then(({ data }) => data.data);
+}

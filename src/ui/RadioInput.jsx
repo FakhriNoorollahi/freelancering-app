@@ -1,6 +1,4 @@
 function RadioInput({ register, value, label, name, validationSchema }) {
-  console.log(name);
-
   return (
     <div className="flex gap-2">
       <label htmlFor={name} className="textField__label">

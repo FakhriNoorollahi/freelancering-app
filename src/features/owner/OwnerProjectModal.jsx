@@ -10,13 +10,13 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
-function OwnerProjectModal({ setIsOpenModal, editValues }) {
-  const { id, ...editDefaultValues } = editValues;
+function OwnerProjectModal({ setIsOpenModal, editValues, setEditValues }) {
+  const { id, ...editDefaultValues } = editValues || {};
   const queryClient = useQueryClient();
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm({ defaultValues: editDefaultValues });
 
   const { mutateAsync: createProject, isPending: isCreatingProject } =
@@ -31,6 +31,12 @@ function OwnerProjectModal({ setIsOpenModal, editValues }) {
       deadline: new Date(),
       tags: [],
     };
+
+    if (!isDirty) {
+      setIsOpenModal(false);
+      setEditValues(null);
+      return;
+    }
 
     if (id) {
       await updateProject(
@@ -58,10 +64,18 @@ function OwnerProjectModal({ setIsOpenModal, editValues }) {
         },
       });
     }
+
+    setEditValues(null);
   };
 
   return (
-    <Modal onClose={() => setIsOpenModal(false)} title="اضافه کردن پروژه جدید">
+    <Modal
+      onClose={() => {
+        setEditValues(null);
+        setIsOpenModal(false);
+      }}
+      title="اضافه کردن پروژه جدید"
+    >
       <form
         className="flex flex-col gap-y-4 max-h-96 overflow-y-auto scroll-mr-56 pl-4"
         onSubmit={handleSubmit(onHandleSubmit)}

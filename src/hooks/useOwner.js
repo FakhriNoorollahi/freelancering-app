@@ -13,8 +13,8 @@ export function useOwnerProject(id) {
     queryKey: ["owner-projects", id],
     queryFn: () => getProject(id),
   });
-
-  return { data, isPending };
+  const { project } = data || {};
+  return { project, isPending };
 }
 
 export function useOwnerProjects() {
