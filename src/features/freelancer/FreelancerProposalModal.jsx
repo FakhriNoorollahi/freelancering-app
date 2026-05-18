@@ -32,10 +32,10 @@ function FreelancerProposalModal({ onClose, projectId }) {
   return (
     <Modal onClose={onClose} title="درخواست انجام پروژه">
       <form
-        className="flex flex-col gap-y-1 max-h-96 overflow-y-auto scroll-mr-56 pl-4"
+        className="flex flex-col overflow-y-auto scroll-mr-56"
         onSubmit={handleSubmit(onHandleSubmit)}
       >
-        <div className="flex flex-col">
+        <div className="mb-2">
           <TextField
             register={register}
             label="توضیحات"
