@@ -1,3 +1,4 @@
+import { CogIcon } from "@heroicons/react/24/outline";
 import Table from "../../ui/Table";
 import Tag from "../../ui/Tag";
 
@@ -14,10 +15,12 @@ function OwnerProposalItem({
   duration,
   description,
   index,
+  onOpenModal,
+  setIsProposalId,
 }) {
   return (
     <Table.Row>
-      <td>{index}</td>
+      <td>{index + 1}</td>
       <td>{user.name}</td>
       <td>{description}</td>
       <td>{duration}</td>
@@ -27,7 +30,17 @@ function OwnerProposalItem({
           {statusOptions[status].label}
         </Tag>
       </td>
-      <td>عملیات</td>
+      <td>
+        <button
+          className="cursor-pointer group"
+          onClick={() => {
+            setIsProposalId();
+            onOpenModal();
+          }}
+        >
+          <CogIcon className="size-6 group-hover:text-tag" />
+        </button>
+      </td>
     </Table.Row>
   );
 }

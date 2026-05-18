@@ -16,7 +16,6 @@ function OwnerProjectModal({ setIsOpenModal, editValues, setEditValues }) {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isDirty },
   } = useForm({ defaultValues: editDefaultValues });
 

@@ -3,8 +3,12 @@ import Table from "../../ui/Table";
 import { useOwnerProject } from "../../hooks/useOwner";
 import Sppiner from "../../ui/Sppiner";
 import OwnerProposalItem from "./OwnerProposalItem";
+import { useState } from "react";
+import OwnerStatusChangeProposalModal from "./OwnerStatusChangeProposalModal";
 
 function OwnerProject() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [proposalId, setIsProposalId] = useState(null);
   const { id } = useParams();
   const { project, isPending } = useOwnerProject(id);
 
@@ -30,12 +34,22 @@ function OwnerProject() {
                 key={proposal._id}
                 {...proposal}
                 index={index}
+                onOpenModal={() => setIsOpenModal(true)}
+                setIsProposalId={() => setIsProposalId(proposal._id)}
               />
             ))}
           </Table.Body>
         </Table>
       ) : (
         <p>پر.پوزالی وجود ندارد</p>
+      )}
+
+      {isOpenModal && (
+        <OwnerStatusChangeProposalModal
+          setIsOpenModal={setIsOpenModal}
+          projectId={id}
+          proposalId={proposalId}
+        />
       )}
     </div>
   );

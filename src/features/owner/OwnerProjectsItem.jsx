@@ -8,6 +8,7 @@ import DeleteModal from "../../ui/DeleteModal";
 import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import ToggleButton from "../../ui/ToggleButton";
 
 function OwnerProjectsItem({
   title,
@@ -64,7 +65,10 @@ function OwnerProjectsItem({
           <Tag classes="bg-tag">Figma</Tag>
         </div>
       </td>
-      <td>{status}</td>
+      <td>
+        {status}
+        <ToggleButton />
+      </td>
       <td>
         <div className="flex items-center justify-between gap-x-3">
           <button
