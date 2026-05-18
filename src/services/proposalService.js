@@ -8,6 +8,6 @@ export function addProposal(data) {
   return http.post("/proposal/add", data).then(({ data }) => data.data);
 }
 
-export function getProposalsList() {
-  return http.get("/proposal/list").then(({ data }) => data.data);
+export function getProposalsList(qs) {
+  return http.get(`/proposal/list?${qs}`).then(({ data }) => data.data);
 }

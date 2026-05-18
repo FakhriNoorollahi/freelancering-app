@@ -1,9 +1,14 @@
+import { ArchiveBoxArrowDownIcon } from "@heroicons/react/24/outline";
 import { useProjectLists } from "../../hooks/useOwner";
+import ButtonSecondary from "../../ui/ButtonSecondary";
 import Sppiner from "../../ui/Sppiner";
 import Table from "../../ui/Table";
 import FreelancerProjectsItem from "./FreelancerProjectsItem";
+import { useState } from "react";
+import FreelancerFiltersModal from "./FreelancerFiltersModal";
 
 function FreelancerProjects() {
+  const [isOpenFilterModal, setIsOpenFilterModal] = useState(false);
   const { projects, isPending: isAllProjecting } = useProjectLists();
 
   return (
@@ -11,7 +16,18 @@ function FreelancerProjects() {
       <>
         <div className="flex justify-between items-center">
           <h3>لیست پروژه ها</h3>
-          <div>فیلترها</div>
+          <ButtonSecondary
+            classes="flex items-center text-sm gap-x-3 border-border-opacity"
+            onClick={() => setIsOpenFilterModal(true)}
+          >
+            <ArchiveBoxArrowDownIcon className="size-5" />
+            فیلتر
+          </ButtonSecondary>
+          {isOpenFilterModal && (
+            <FreelancerFiltersModal
+              onClose={() => setIsOpenFilterModal(false)}
+            />
+          )}
         </div>
         {isAllProjecting ? (
           <Sppiner />

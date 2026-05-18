@@ -6,6 +6,7 @@ import FreelancerProposalsItem from "./FreelancerProposalsItem";
 function FreelancerProposalas() {
   const { proposals, isPending: isGettingProposals } = useProposalLists();
 
+
   return (
     <div className="flex flex-col gap-y-10">
       <>
