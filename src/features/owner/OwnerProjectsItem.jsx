@@ -16,7 +16,6 @@ function OwnerProjectsItem({
   deadline,
   status,
   description,
-  freelancer,
   index,
   _id,
   setIsOpenModal,
@@ -65,7 +64,6 @@ function OwnerProjectsItem({
           <Tag classes="bg-tag">Figma</Tag>
         </div>
       </td>
-      <td>{freelancer ? freelancer : "***"}</td>
       <td>{status}</td>
       <td>
         <div className="flex items-center justify-between gap-x-3">
