@@ -2,8 +2,7 @@
 @import "./styles/fonts.css";
 
 @plugin "@tailwindcss/forms" {
-  /* strategy: "base"; only generate global styles; or */
-  strategy: "class"; /* only generate classes */
+  strategy: "class"; /
 }
 
 @theme {

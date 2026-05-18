@@ -1,8 +1,24 @@
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/solid";
-import { useLogout } from "../hooks/useAuth";
+import { useLogout, useProfile } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
+const userRoles = {
+  ADMIN: {
+    id: 1,
+    label: "ادمین",
+  },
+  OWNER: {
+    id: 2,
+    label: "کارفرما",
+  },
+  FREELANCER: {
+    id: 3,
+    label: "فریلنسر",
+  },
+};
+
 function Header() {
+  const { user, isPending: isProfiling } = useProfile();
   const { mutateAsync: logout } = useLogout();
   const navigate = useNavigate();
 
@@ -13,10 +29,17 @@ function Header() {
 
   return (
     <div className="col-span-12 flex items-center justify-between py-3 px-7">
-      <div className="flex items-center gap-x-2">
-        <h4 className="text-font-primary">سلام فخری نوراللهی</h4>
-        <span className="text-brand-secondary">|</span>
-        <h6 className="text-brand-secondary">عصر بخیر</h6>
+      <div
+        className={`flex items-center gap-x-2 ${isProfiling && "bg-border-opacity blur-md"}`}
+      >
+        <div className="flex items-center text-font-primary">
+          <h4 className="pl-1">سلام {user?.name}</h4>
+          <span className="text-brand-secondary text-sm">
+            ({userRoles[user?.role]?.label})
+          </span>
+        </div>
+        <span>|</span>
+        <h6>خوش آمدید</h6>
       </div>
       <div>
         <button
