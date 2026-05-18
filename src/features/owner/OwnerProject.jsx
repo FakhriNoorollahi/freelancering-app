@@ -1,20 +1,19 @@
 import { useParams } from "react-router-dom";
 import Table from "../../ui/Table";
-import OwnerProjectItem from "./ownerProjectItem";
 import { useOwnerProject } from "../../hooks/useOwner";
 import Sppiner from "../../ui/Sppiner";
+import OwnerProposalItem from "./OwnerProposalItem";
 
 function OwnerProject() {
   const { id } = useParams();
-  const { data, isPending } = useOwnerProject(id);
-  const { proposals } = data || {};
+  const { project, isPending } = useOwnerProject(id);
 
   return (
     <div>
       <h4 className="mb-4">درخواست های پروژه ی شما</h4>
       {isPending ? (
         <Sppiner />
-      ) : proposals ? (
+      ) : project.proposals ? (
         <Table>
           <Table.Header>
             <th>#</th>
@@ -26,8 +25,12 @@ function OwnerProject() {
             <th>عملیات</th>
           </Table.Header>
           <Table.Body>
-            {proposals.map((proposal) => (
-              <OwnerProjectItem key={proposal._id} {...proposal} />
+            {project.proposals.map((proposal, index) => (
+              <OwnerProposalItem
+                key={proposal._id}
+                {...proposal}
+                index={index}
+              />
             ))}
           </Table.Body>
         </Table>

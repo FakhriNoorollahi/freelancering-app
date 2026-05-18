@@ -2,7 +2,7 @@
 @import "./styles/fonts.css";
 
 @plugin "@tailwindcss/forms" {
-  strategy: "class"; /
+  strategy: "class";
 }
 
 @theme {
@@ -75,7 +75,7 @@
   }
 
   .tag {
-    @apply px-4 py-1 rounded-lg bg-tag text-white font-semibold;
+    @apply w-fit px-2 py-1 rounded-lg text-white font-semibold;
   }
 
   .select {

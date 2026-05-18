@@ -58,11 +58,11 @@ function OwnerProjectsItem({
       <td>{category.title}</td>
       <td>{budget}</td>
       <td>{new Date(deadline).toLocaleDateString("fa")}</td>
-      <td className="w-max-40">
-        <div className="flex items-center gap-x-2">
-          <Tag>Html</Tag>
-          <Tag>Css</Tag>
-          <Tag>Figma</Tag>
+      <td className="w-max-40 ">
+        <div className="flex items-center justify-center gap-x-1">
+          <Tag classes="bg-tag">Html</Tag>
+          <Tag classes="bg-tag">Css</Tag>
+          <Tag classes="bg-tag">Figma</Tag>
         </div>
       </td>
       <td>{freelancer ? freelancer : "***"}</td>
