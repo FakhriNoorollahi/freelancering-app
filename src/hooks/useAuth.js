@@ -1,5 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
-import { checkOtp, completeProfile, getOtp } from "../services/authService";
+import {
+  checkOtp,
+  completeProfile,
+  getOtp,
+  logout,
+} from "../services/authService";
 
 export function useGetOtp() {
   const { data, mutateAsync, isPending } = useMutation({
@@ -23,4 +28,12 @@ export function useCompleteProfile() {
   });
 
   return { data, isPending, mutateAsync };
+}
+
+export function useLogout() {
+  const { mutateAsync } = useMutation({
+    mutationFn: logout,
+  });
+
+  return { mutateAsync };
 }
