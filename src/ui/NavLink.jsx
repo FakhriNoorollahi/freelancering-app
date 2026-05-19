@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
 
-function NavLinkItem({ label, icon, path }) {
+function NavLinkItem({ children, to }) {
   return (
     <NavLink
-      to={path}
+      to={to}
       className={({ isActive }) =>
         isActive ? "navlink__item  active__navlink__item" : "navlink__item"
       }
     >
-      {icon} {label}
+      {children}
     </NavLink>
   );
 }

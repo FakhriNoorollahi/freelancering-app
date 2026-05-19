@@ -43,6 +43,7 @@ export function useProfile() {
   const { data, isPending } = useQuery({
     queryKey: ["profile"],
     queryFn: profile,
+    retry: false,
   });
 
   const { user } = data || {};

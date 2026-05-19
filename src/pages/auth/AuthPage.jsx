@@ -1,4 +1,4 @@
-import Auth from "../features/auth/Auth";
+import Auth from "../../features/auth/Auth";
 
 function AuthPage() {
   return <Auth />;
