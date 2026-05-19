@@ -6,6 +6,7 @@ function TextField({
   validationSchema,
   errors,
   required,
+  type = "text",
 }) {
   return (
     <div className="flex flex-col gap-y-0.5">
@@ -17,6 +18,7 @@ function TextField({
           {...register([name], validationSchema)}
           placeholder={placeholder}
           className="textField__input"
+          type={type}
         />
       </div>
       <div className="h-6">

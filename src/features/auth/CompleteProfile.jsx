@@ -12,6 +12,7 @@ function CompleteProfile() {
   const {
     handleSubmit,
     register,
+    watch,
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
@@ -82,6 +83,7 @@ function CompleteProfile() {
               validationSchema={{
                 required: "انتخاب کاربر ضروری است",
               }}
+              watch={watch}
             />
             <RadioInput
               register={register}
@@ -93,6 +95,7 @@ function CompleteProfile() {
               validationSchema={{
                 required: "انتخاب کاربر ضروری است",
               }}
+              watch={watch}
             />
           </div>
           <div className="h-6">

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Table from "../../ui/Table";
-import { useOwnerProject } from "../../hooks/useOwner";
+import { useOwnerProject } from "../../hooks/useOwnerProjects";
 import Sppiner from "../../ui/Sppiner";
 import OwnerProposalItem from "./OwnerProposalItem";
 import { useState } from "react";

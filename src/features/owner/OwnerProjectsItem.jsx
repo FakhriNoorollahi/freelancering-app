@@ -1,54 +1,27 @@
 import Table from "../../ui/Table";
 import { EyeIcon, TrashIcon, PencilIcon } from "@heroicons/react/24/outline";
 import Tag from "../../ui/Tag";
-import { useDeleteProject } from "../../hooks/useOwner";
 import { useState } from "react";
 import Modal from "../../ui/Modal";
 import DeleteModal from "../../ui/DeleteModal";
-import toast from "react-hot-toast";
-import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import ToggleButton from "../../ui/ToggleButton";
+import { useDeleteProject } from "./hooks/useDeleteProject";
+import OwnerProjectModal from "./OwnerProjectModal";
 
-function OwnerProjectsItem({
-  title,
-  budget,
-  category,
-  deadline,
-  status,
-  description,
-  index,
-  _id,
-  setIsOpenModal,
-  setEditValues,
-}) {
-  const queryClient = useQueryClient();
+function OwnerProjectsItem({ project, index }) {
+  const { title, budget, category, deadline, status, _id } = project;
   const navigate = useNavigate();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
-
-  const { isPending: isDeletingProject, mutateAsync: deleteProject } =
-    useDeleteProject();
+  const [isOpenEditModal, setIsOpenEditeModal] = useState(false);
+  const { isDeleting, deleteProject } = useDeleteProject();
 
   const onHandleDeleteProject = async () => {
     await deleteProject(_id, {
-      onSuccess: ({ message }) => {
+      onSuccess: () => {
         setIsOpenDeleteModal(false);
-        toast.success(message);
-        queryClient.invalidateQueries({ queryKey: ["owner-projects"] });
       },
-      onError: () => {},
     });
-  };
-
-  const onHandleEditProject = () => {
-    setEditValues({
-      title,
-      category: category._id,
-      budget,
-      description,
-      id: _id,
-    });
-    setIsOpenModal(true);
   };
 
   return (
@@ -58,10 +31,9 @@ function OwnerProjectsItem({
       <td>{category.title}</td>
       <td>{budget}</td>
       <td>{new Date(deadline).toLocaleDateString("fa")}</td>
-      <td className="w-max-40 ">
-        <div className="flex items-center justify-center gap-x-1">
+      <td>
+        <div className="flex items-center justify-center flex-wrap gap-1 max-w-40 mx-auto">
           <Tag classes="bg-tag">Html</Tag>
-          <Tag classes="bg-tag">Css</Tag>
           <Tag classes="bg-tag">Figma</Tag>
         </div>
       </td>
@@ -77,9 +49,34 @@ function OwnerProjectsItem({
           >
             <TrashIcon className="size-5 hover:text-danger" />
           </button>
-          <button className="cursor-pointer" onClick={onHandleEditProject}>
+          <Modal
+            open={isOpenDeleteModal}
+            title={`حذف ${title}`}
+            onClose={() => setIsOpenDeleteModal(false)}
+          >
+            <DeleteModal
+              onClose={() => setIsOpenDeleteModal(false)}
+              onConfirm={onHandleDeleteProject}
+              disabled={isDeleting}
+              title={title}
+            />
+          </Modal>
+          <button
+            className="cursor-pointer"
+            onClick={() => setIsOpenEditeModal(true)}
+          >
             <PencilIcon className="size-5 hover:text-success" />
           </button>
+          <Modal
+            open={isOpenEditModal}
+            title={`ویرایش ${title}`}
+            onClose={() => setIsOpenEditeModal(false)}
+          >
+            <OwnerProjectModal
+              onClose={() => setIsOpenEditeModal(false)}
+              projectToEdit={project}
+            />
+          </Modal>
         </div>
       </td>
       <td>
@@ -87,20 +84,6 @@ function OwnerProjectsItem({
           <EyeIcon className="size-5 hover:text-tag" />
         </button>
       </td>
-
-      {isOpenDeleteModal && (
-        <Modal
-          title={`حذف پروژه ${title}`}
-          onClose={() => setIsOpenDeleteModal(false)}
-        >
-          <DeleteModal
-            onClose={() => setIsOpenDeleteModal(false)}
-            description={`آیا از حذف پروژه ${title} مطمئن هستید؟`}
-            onClick={onHandleDeleteProject}
-            isLoading={isDeletingProject}
-          />
-        </Modal>
-      )}
     </Table.Row>
   );
 }

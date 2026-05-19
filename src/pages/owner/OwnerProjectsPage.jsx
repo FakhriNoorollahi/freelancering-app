@@ -1,7 +1,7 @@
-import OwnerProjects from "../../features/owner/OwnerProjects";
+import OwnerProjectsTable from "../../features/owner/OwnerProjectsTable";
 
 function OwnerProjectsPage() {
-  return <OwnerProjects />;
+  return <OwnerProjectsTable />;
 }
 
 export default OwnerProjectsPage;

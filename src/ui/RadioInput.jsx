@@ -1,15 +1,24 @@
-function RadioInput({ register, value, label, name, validationSchema }) {
+function RadioInput({
+  register,
+  value,
+  label,
+  name,
+  watch,
+  validationSchema,
+  id,
+}) {
   return (
     <div className="flex gap-2">
-      <label htmlFor={name} className="textField__label">
+      <label htmlFor={id} className="textField__label">
         {label}
       </label>
       <input
         {...register([name], validationSchema)}
         type="radio"
-        id={name}
+        id={id}
         className="radio__input"
         value={value}
+        checked={watch(name) === value}
       />
     </div>
   );
