@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import ToggleButton from "../../../ui/ToggleButton";
 import { useDeleteProject } from "../hooks/useDeleteProject";
 import OwnerProjectModal from "./OwnerProjectModal";
+import toLoaclDateShort from "../../../utils/toLocalDateShort";
 
 function OwnerProjectsItem({ project, index }) {
   const { title, budget, category, deadline, status, _id } = project;
@@ -29,7 +30,7 @@ function OwnerProjectsItem({ project, index }) {
       <td className="w-max-60">{title}</td>
       <td>{category.title}</td>
       <td>{budget}</td>
-      <td>{new Date(deadline).toLocaleDateString("fa")}</td>
+      <td>{toLoaclDateShort(deadline)}</td>
       <td>
         <div className="center-all flex-wrap gap-1 max-w-40 mx-auto">
           <Tag classes="bg-tag">Html</Tag>
