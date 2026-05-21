@@ -1,4 +1,4 @@
-import OwnerProject from "../../features/owner/OwnerProject";
+import OwnerProject from "../../features/owner/components/OwnerProject";
 
 function OwnerProjectPage() {
   return <OwnerProject />;

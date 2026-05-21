@@ -1,9 +1,9 @@
 import { CogIcon } from "@heroicons/react/24/outline";
-import Table from "../../ui/Table";
-import Tag from "../../ui/Tag";
-import Modal from "../../ui/Modal";
-import OwnerStatusChangeProposalModal from "./OwnerStatusChangeProposalModal";
 import { useState } from "react";
+import Table from "../../../ui/Table";
+import Modal from "../../../ui/Modal";
+import Tag from "../../../ui/Tag";
+import OwnerStatusChangeProposalModal from "./OwnerStatusChangeProposalModal";
 
 const statusOptions = [
   { id: 0, label: "رد شده", classes: "bg-danger" },
@@ -33,18 +33,16 @@ function OwnerProposalItem({ proposal, index }) {
         >
           <CogIcon className="size-6 group-hover:text-tag" />
         </button>
-        {
-          <Modal
-            open={isOpenModal}
+        <Modal
+          open={isOpenModal}
+          onClose={() => setIsOpenModal(false)}
+          title="تغییر وضعیت پروپوزال"
+        >
+          <OwnerStatusChangeProposalModal
             onClose={() => setIsOpenModal(false)}
-            title="تغییر وضعیت پروپوزال"
-          >
-            <OwnerStatusChangeProposalModal
-              onClose={() => setIsOpenModal(false)}
-              proposalId={proposal._id}
-            />
-          </Modal>
-        }
+            proposalId={proposal._id}
+          />
+        </Modal>
       </td>
     </Table.Row>
   );

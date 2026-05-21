@@ -1,4 +1,4 @@
-import OwnerDashboard from "../../features/owner/OwnerDashboard";
+import OwnerDashboard from "../../features/owner/components/OwnerDashboard";
 
 function OwnerDashboardPage() {
   return <OwnerDashboard />;

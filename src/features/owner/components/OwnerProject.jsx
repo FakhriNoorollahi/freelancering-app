@@ -1,8 +1,7 @@
 import Table from "../../../ui/Table";
 import Sppiner from "../../../ui/Sppiner";
-import OwnerProposalItem from "../OwnerProposalItem";
-
 import { useProject } from "../hooks/useProject";
+import OwnerProposalItem from "./OwnerProposalItem";
 
 function OwnerProject() {
   const { project, isProjecting } = useProject();
