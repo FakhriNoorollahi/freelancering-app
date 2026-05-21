@@ -10,6 +10,10 @@ import { useDeleteProject } from "../hooks/useDeleteProject";
 import OwnerProjectModal from "./OwnerProjectModal";
 import toLoaclDateShort from "../../../utils/toLocalDateShort";
 import truncateText from "../../../utils/truncateText";
+import {
+  toPersianNumbers,
+  toPersianNumberWithComma,
+} from "../../../utils/toPersianNumber";
 
 function OwnerProjectsItem({ project, index }) {
   const { title, budget, category, deadline, status, _id } = project;
@@ -27,10 +31,10 @@ function OwnerProjectsItem({ project, index }) {
 
   return (
     <Table.Row>
-      <td>{index}</td>
+      <td>{toPersianNumbers(index)}</td>
       <td className="w-max-60">{truncateText(title, 30)}</td>
       <td>{category.title}</td>
-      <td>{budget}</td>
+      <td>{toPersianNumberWithComma(budget)}</td>
       <td>{toLoaclDateShort(deadline)}</td>
       <td>
         <div className="center-all flex-wrap gap-1 max-w-40 mx-auto">
