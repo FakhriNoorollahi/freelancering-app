@@ -63,10 +63,7 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
   };
 
   return (
-    <form
-      className="flex flex-col gap-y-4 max-h-96 overflow-y-auto scroll-mr-56 pl-4"
-      onSubmit={handleSubmit(onHandleSubmit)}
-    >
+    <form className="form" onSubmit={handleSubmit(onHandleSubmit)}>
       <TextField
         register={register}
         name="title"

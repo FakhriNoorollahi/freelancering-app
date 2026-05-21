@@ -33,7 +33,7 @@ function OwnerStatusChangeProposalModal({ proposalId, onClose }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-7">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
       <Select
         errors={errors}
         label="تغییر وضعیت"

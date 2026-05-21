@@ -21,7 +21,7 @@ function TextField({
           type={type}
         />
       </div>
-      <div className="h-6">
+      <div className="h-6  text-start">
         {errors && errors[name] && (
           <span className="text-danger text-xs">{errors[name]?.message}</span>
         )}

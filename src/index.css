@@ -43,11 +43,11 @@
 
 @layer components {
   .textField__input {
-    @apply w-full bg-white py-2 px-4 rounded-lg border border-solid border-border hover:border-font-primary focus:border-font-primary hover:shadow-lg focus:shadow-lg  placeholder:text-sm transition-all duration-300 ease-in-out;
+    @apply w-full bg-white py-2 px-4 text-base rounded-lg border border-solid border-border hover:border-font-primary focus:border-font-primary hover:shadow-lg focus:shadow-lg  placeholder:text-sm! transition-all duration-300 ease-in-out;
   }
 
   .textField__label {
-    @apply text-sm font-semibold text-font-primary;
+    @apply text-start! text-sm! font-semibold text-font-primary;
   }
 
   .radio__input {
@@ -55,7 +55,7 @@
   }
 
   .btn {
-    @apply px-3 py-2 font-semibold rounded-lg cursor-pointer transition-all duration-300 ease-in-out text-font-primary;
+    @apply px-3 py-2 font-semibold text-base rounded-lg cursor-pointer transition-all duration-300 ease-in-out text-font-primary;
   }
 
   .btn--primary {
@@ -98,6 +98,8 @@ body {
   @apply rounded-full bg-brand-primary;
 }
 
+/* table */
+
 table {
   background-color: white;
   border-collapse: collapse;
@@ -107,25 +109,80 @@ table {
   table-layout: auto;
 }
 
-th,
-tr,
-td {
+table th,
+table tr,
+table td {
   padding: 25px 10px;
 }
 
-th,
-tr {
+table th,
+table tr {
   border-bottom: 1px solid var(--color-border-opacity);
   font-size: 14px;
   font-weight: 700;
 }
 
-tr {
+table tr {
   font-size: 12px;
   font-weight: 500;
   text-align: center;
 }
 
-tr:last-child {
+table tr:last-child {
   border-bottom: 0px solid var(--color-border-opacity);
+}
+
+/* dashboard */
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* card */
+
+.card {
+  border: 1px solid var(--color-border-opacity);
+  border-radius: 12px;
+  padding: 12px 20px;
+  background-color: #ffffff;
+}
+
+.card__content {
+  display: flex;
+  align-items: center;
+  gap: 0 20px;
+}
+
+.card-icon-wrapper {
+  padding: 12px;
+  border-radius: 50%;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-font-primary);
+}
+
+.card-icon-wrapper__icon {
+  width: 64px;
+  height: 64px;
+  color: var(--color-brand-secondary);
+}
+
+/* form */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 384px;
+  overflow-y: auto;
+  padding-left: 16px;
 }

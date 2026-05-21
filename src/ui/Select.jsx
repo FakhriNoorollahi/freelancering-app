@@ -14,7 +14,7 @@ function Select({
           {label} {required && <span className="text-danger">*</span>}
         </label>
         <select
-          className="textField__input"
+          className="textField__input text-sm!"
           {...register([name], validationSchema)}
         >
           <option value="" disabled selected hidden>
@@ -27,9 +27,11 @@ function Select({
           ))}
         </select>
       </div>
-      {errors && errors[name] && (
-        <span className="text-danger text-xs">{errors[name]?.message}</span>
-      )}
+      <div className="h-6 text-start">
+        {errors && errors[name] && (
+          <span className="text-danger text-xs">{errors[name]?.message}</span>
+        )}
+      </div>
     </div>
   );
 }

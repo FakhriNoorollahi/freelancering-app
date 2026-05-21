@@ -8,7 +8,7 @@ function OwnerProject() {
 
   return (
     <div>
-      <h4 className="mb-4">درخواست های پروژه ی شما</h4>
+      <h3 className="mb-10">درخواست های پروژه ی شما</h3>
       {isProjecting ? (
         <Sppiner />
       ) : project.proposals.length ? (
