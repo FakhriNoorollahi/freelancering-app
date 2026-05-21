@@ -31,7 +31,7 @@ function OwnerProjectsItem({ project, index }) {
       <td>{budget}</td>
       <td>{new Date(deadline).toLocaleDateString("fa")}</td>
       <td>
-        <div className="flex items-center justify-center flex-wrap gap-1 max-w-40 mx-auto">
+        <div className="center-all flex-wrap gap-1 max-w-40 mx-auto">
           <Tag classes="bg-tag">Html</Tag>
           <Tag classes="bg-tag">Figma</Tag>
         </div>

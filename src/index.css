@@ -190,3 +190,11 @@ table tr:last-child {
   overflow-y: auto;
   padding-left: 16px;
 }
+
+/* center */
+
+.center-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

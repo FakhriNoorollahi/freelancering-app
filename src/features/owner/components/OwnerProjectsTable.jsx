@@ -7,27 +7,32 @@ import OwnerProjectModal from "./OwnerProjectModal";
 import OwnerProjectsItem from "./OwnerProjectsItem";
 import { useOwnerProjects } from "../../../hooks/useOwnerProjects";
 import Modal from "../../../ui/Modal";
+import Empty from "../../../ui/Empty";
 
 function OwnerProjectsTable() {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const { allProjects, isPending: isAllProjecting } = useOwnerProjects();
 
-  if (isAllProjecting) return <Sppiner />;
-  if (!allProjects.length) return <p> پروژه ای وجود ندارد</p>;
+  if (isAllProjecting)
+    return (
+      <div className="center-all h-full">
+        <Sppiner />
+      </div>
+    );
 
   return (
-    <div className="flex flex-col gap-y-10">
-      <>
-        <div className="flex justify-between items-center">
-          <h3>پروژه های شما</h3>
-          <Button
-            classes="flex justify-between items-center gap-x-2"
-            onClick={() => setIsOpenModal((is) => !is)}
-          >
-            <PlusIcon className="size-5" />
-            <span className="text-sm">اضافه کردن پروژه</span>
-          </Button>
-        </div>
+    <div className="flex flex-col gap-y-10 h-full">
+      <div className="flex justify-between items-center">
+        <h3>پروژه های شما</h3>
+        <Button
+          classes="flex justify-between items-center gap-x-2"
+          onClick={() => setIsOpenModal((is) => !is)}
+        >
+          <PlusIcon className="size-5" />
+          <span className="text-sm">اضافه کردن پروژه</span>
+        </Button>
+      </div>
+      {allProjects.length ? (
         <Table>
           <Table.Header>
             <th>#</th>
@@ -50,7 +55,11 @@ function OwnerProjectsTable() {
             ))}
           </Table.Body>
         </Table>
-      </>
+      ) : (
+        <div className="center-all flex-1">
+          <Empty title="پروژه ای" />
+        </div>
+      )}
       <Modal
         open={isOpenModal}
         title="اضافه کردن پروژه جدید"

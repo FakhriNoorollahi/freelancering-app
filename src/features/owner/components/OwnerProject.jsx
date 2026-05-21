@@ -5,13 +5,14 @@ import OwnerProposalItem from "./OwnerProposalItem";
 import ButtonIcon from "../../../ui/ButtonIcon";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import useMoveBack from "../../../hooks/useMoveBack";
+import Empty from "../../../ui/Empty";
 
 function OwnerProject() {
   const { project, isProjecting } = useProject();
   const moveBack = useMoveBack();
 
   return (
-    <div>
+    <div className="flex flex-col h-full">
       <div className="flex items-center gap-x-4 mb-10">
         <ButtonIcon
           onClick={moveBack}
@@ -45,7 +46,9 @@ function OwnerProject() {
           </Table.Body>
         </Table>
       ) : (
-        <p>پر.پوزالی وجود ندارد</p>
+        <div className="center-all flex-1">
+          <Empty title="پروپوزالی" />
+        </div>
       )}
     </div>
   );

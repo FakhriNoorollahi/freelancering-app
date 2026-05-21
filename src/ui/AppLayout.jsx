@@ -16,8 +16,10 @@ function AppLayout({ children }) {
       </div>
       <div className="col-span-10 h-full">
         <Header />
-        <div className="bg-background min-h-[calc(100vh-70px)] rounded-tr-[50px] p-12 text-font-primary">
-          <Outlet />
+        <div className="flex flex-col bg-background h-[calc(100vh-70px)] rounded-tr-[50px] text-font-primary overflow-y-auto">
+          <div className="p-12 flex-1">
+            <Outlet />
+          </div>
         </div>
       </div>
     </div>
