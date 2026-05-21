@@ -1,17 +1,16 @@
-import Table from "../../ui/Table";
+import Table from "../../../ui/Table";
 import { EyeIcon, TrashIcon, PencilIcon } from "@heroicons/react/24/outline";
-import Tag from "../../ui/Tag";
+import Tag from "../../../ui/Tag";
 import { useState } from "react";
-import Modal from "../../ui/Modal";
-import DeleteModal from "../../ui/DeleteModal";
-import { useNavigate } from "react-router-dom";
-import ToggleButton from "../../ui/ToggleButton";
-import { useDeleteProject } from "./hooks/useDeleteProject";
+import Modal from "../../../ui/Modal";
+import DeleteModal from "../../../ui/DeleteModal";
+import { Link } from "react-router-dom";
+import ToggleButton from "../../../ui/ToggleButton";
+import { useDeleteProject } from "../hooks/useDeleteProject";
 import OwnerProjectModal from "./OwnerProjectModal";
 
 function OwnerProjectsItem({ project, index }) {
   const { title, budget, category, deadline, status, _id } = project;
-  const navigate = useNavigate();
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditeModal] = useState(false);
   const { isDeleting, deleteProject } = useDeleteProject();
@@ -80,9 +79,9 @@ function OwnerProjectsItem({ project, index }) {
         </div>
       </td>
       <td>
-        <button className="cursor-pointer" onClick={() => navigate(_id)}>
-          <EyeIcon className="size-5 hover:text-tag" />
-        </button>
+        <Link to={_id}>
+          <EyeIcon className="size-5 cursor-pointer mx-auto hover:text-tag" />
+        </Link>
       </td>
     </Table.Row>
   );

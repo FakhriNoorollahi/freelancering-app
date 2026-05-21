@@ -1,6 +1,9 @@
 import { CogIcon } from "@heroicons/react/24/outline";
 import Table from "../../ui/Table";
 import Tag from "../../ui/Tag";
+import Modal from "../../ui/Modal";
+import OwnerStatusChangeProposalModal from "./OwnerStatusChangeProposalModal";
+import { useState } from "react";
 
 const statusOptions = [
   { id: 0, label: "رد شده", classes: "bg-danger" },
@@ -8,16 +11,9 @@ const statusOptions = [
   { id: 2, label: "تایید شده", classes: "bg-success" },
 ];
 
-function OwnerProposalItem({
-  user,
-  status,
-  price,
-  duration,
-  description,
-  index,
-  onOpenModal,
-  setIsProposalId,
-}) {
+function OwnerProposalItem({ proposal, index }) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const { user, status, price, duration, description } = proposal;
   return (
     <Table.Row>
       <td>{index + 1}</td>
@@ -33,13 +29,22 @@ function OwnerProposalItem({
       <td>
         <button
           className="cursor-pointer group"
-          onClick={() => {
-            setIsProposalId();
-            onOpenModal();
-          }}
+          onClick={() => setIsOpenModal(true)}
         >
           <CogIcon className="size-6 group-hover:text-tag" />
         </button>
+        {
+          <Modal
+            open={isOpenModal}
+            onClose={() => setIsOpenModal(false)}
+            title="تغییر وضعیت پروپوزال"
+          >
+            <OwnerStatusChangeProposalModal
+              onClose={() => setIsOpenModal(false)}
+              proposalId={proposal._id}
+            />
+          </Modal>
+        }
       </td>
     </Table.Row>
   );

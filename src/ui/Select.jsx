@@ -17,7 +17,7 @@ function Select({
           className="textField__input"
           {...register([name], validationSchema)}
         >
-          <option disabled value={null}>
+          <option value="" disabled selected hidden>
             یک گزینه را انتخاب کنید
           </option>
           {options.map((o) => (

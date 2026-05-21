@@ -1,12 +1,12 @@
 import { PlusIcon } from "@heroicons/react/16/solid";
-import Button from "../../ui/Button";
-import Table from "../../ui/Table";
-import Sppiner from "../../ui/Sppiner";
+import Button from "../../../ui/Button";
+import Table from "../../../ui/Table";
+import Sppiner from "../../../ui/Sppiner";
 import { useState } from "react";
 import OwnerProjectModal from "./OwnerProjectModal";
 import OwnerProjectsItem from "./OwnerProjectsItem";
-import { useOwnerProjects } from "../../hooks/useOwnerProjects";
-import Modal from "../../ui/Modal";
+import { useOwnerProjects } from "../../../hooks/useOwnerProjects";
+import Modal from "../../../ui/Modal";
 
 function OwnerProjectsTable() {
   const [isOpenModal, setIsOpenModal] = useState(false);

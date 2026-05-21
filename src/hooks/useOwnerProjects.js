@@ -1,19 +1,5 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
-import {
-  addProjectApi,
-  getOwnerProjectsApi,
-  getProjectApi,
-  updateProjectApi,
-} from "../services/projectService";
-
-export function useOwnerProject(id) {
-  const { data, isPending } = useQuery({
-    queryKey: ["owner-projects", id],
-    queryFn: () => getProjectApi(id),
-  });
-  const { project } = data || {};
-  return { project, isPending };
-}
+import { useQuery } from "@tanstack/react-query";
+import { getOwnerProjectsApi } from "../services/projectService";
 
 export function useOwnerProjects() {
   const { data, isPending } = useQuery({

@@ -1,6 +1,6 @@
 import { FolderIcon, HomeIcon } from "@heroicons/react/24/solid";
-import AppLayout from "../../ui/AppLayout";
-import NavLinkItem from "../../ui/NavLink";
+import AppLayout from "../../../ui/AppLayout";
+import NavLinkItem from "../../../ui/NavLink";
 
 const sidebarItems = [
   {
