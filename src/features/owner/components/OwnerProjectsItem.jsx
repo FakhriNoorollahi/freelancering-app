@@ -9,6 +9,7 @@ import ToggleButton from "../../../ui/ToggleButton";
 import { useDeleteProject } from "../hooks/useDeleteProject";
 import OwnerProjectModal from "./OwnerProjectModal";
 import toLoaclDateShort from "../../../utils/toLocalDateShort";
+import truncateText from "../../../utils/truncateText";
 
 function OwnerProjectsItem({ project, index }) {
   const { title, budget, category, deadline, status, _id } = project;
@@ -27,7 +28,7 @@ function OwnerProjectsItem({ project, index }) {
   return (
     <Table.Row>
       <td>{index}</td>
-      <td className="w-max-60">{title}</td>
+      <td className="w-max-60">{truncateText(title, 30)}</td>
       <td>{category.title}</td>
       <td>{budget}</td>
       <td>{toLoaclDateShort(deadline)}</td>

@@ -5,6 +5,7 @@ import Modal from "../../../ui/Modal";
 import Tag from "../../../ui/Tag";
 import OwnerStatusChangeProposalModal from "./OwnerStatusChangeProposalModal";
 import proposalStatusData from "../../../constants/proposalStatusData";
+import truncateText from "../../../utils/truncateText";
 
 function OwnerProposalItem({ proposal, index }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -13,7 +14,7 @@ function OwnerProposalItem({ proposal, index }) {
     <Table.Row>
       <td>{index + 1}</td>
       <td>{user.name}</td>
-      <td>{description}</td>
+      <td>{truncateText(description, 40)}</td>
       <td>{duration}</td>
       <td>{price}</td>
       <td>
