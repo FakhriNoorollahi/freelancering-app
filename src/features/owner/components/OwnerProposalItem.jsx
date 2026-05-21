@@ -4,12 +4,7 @@ import Table from "../../../ui/Table";
 import Modal from "../../../ui/Modal";
 import Tag from "../../../ui/Tag";
 import OwnerStatusChangeProposalModal from "./OwnerStatusChangeProposalModal";
-
-const statusOptions = [
-  { id: 0, label: "رد شده", classes: "bg-danger" },
-  { id: 1, label: "در انتظار تایید", classes: "bg-border" },
-  { id: 2, label: "تایید شده", classes: "bg-success" },
-];
+import proposalStatusData from "../../../constants/proposalStatusData";
 
 function OwnerProposalItem({ proposal, index }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -22,8 +17,8 @@ function OwnerProposalItem({ proposal, index }) {
       <td>{duration}</td>
       <td>{price}</td>
       <td>
-        <Tag classes={`mx-auto ${statusOptions[status].classes}`}>
-          {statusOptions[status].label}
+        <Tag classes={`mx-auto ${proposalStatusData[status].classes}`}>
+          {proposalStatusData[status].label}
         </Tag>
       </td>
       <td>

@@ -5,12 +5,7 @@ import { useChangeProposalStatus } from "../../../hooks/useProposal";
 import Sppiner from "../../../ui/Sppiner";
 import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-
-const statusOptions = [
-  { id: 0, value: 0, title: "رد شده" },
-  { id: 1, value: 1, title: "در انتظار تایید" },
-  { id: 2, value: 2, title: "تایید شده" },
-];
+import proposalStatusData from "../../../constants/proposalStatusData";
 
 function OwnerStatusChangeProposalModal({ proposalId, onClose }) {
   const { id: projectId } = useParams();
@@ -44,7 +39,7 @@ function OwnerStatusChangeProposalModal({ proposalId, onClose }) {
         label="تغییر وضعیت"
         register={register}
         name="status"
-        options={statusOptions}
+        options={proposalStatusData}
         required
         validationSchema={{
           required: "یکی از گزینه ها را انتخاب کنید",

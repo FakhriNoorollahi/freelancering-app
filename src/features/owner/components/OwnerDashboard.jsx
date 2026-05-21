@@ -1,41 +1,22 @@
-import {
-  ComputerDesktopIcon,
-  FolderIcon,
-  CheckBadgeIcon,
-} from "@heroicons/react/24/solid";
+import ownerDashboardData from "../constants/ownerDashboradData";
 import OwnerDashboardItem from "./OwnerDashboardItem";
-
-const ownerDashboardItems = [
-  {
-    id: 1,
-    label: "پروژه ها",
-    icon: <FolderIcon className="size-16 text-brand-secondary" />,
-  },
-  {
-    id: 2,
-    label: "پروژه های واگذار شده",
-    icon: <CheckBadgeIcon className="size-16 text-brand-secondary" />,
-  },
-  {
-    id: 3,
-    label: "درخواست ها",
-    icon: <ComputerDesktopIcon className="size-16 text-brand-secondary" />,
-  },
-];
 
 function OwnerDashboard() {
   return (
     <div className="space-y-10">
       <h3>آمار کلی</h3>
       <div className="grid grid-cols-3 gap-10">
-        {ownerDashboardItems.map((item) => (
-          <OwnerDashboardItem
-            key={item.id}
-            label={item.label}
-            icon={item.icon}
-            itemClass={item.itemClass}
-          />
-        ))}
+        {ownerDashboardData.map((item) => {
+          const IconComponent = item.icon;
+          return (
+            <OwnerDashboardItem
+              key={item.id}
+              label={item.label}
+              IconComponent={IconComponent}
+              itemClass={item.itemClass}
+            />
+          );
+        })}
       </div>
     </div>
   );
