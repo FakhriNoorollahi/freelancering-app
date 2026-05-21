@@ -18,7 +18,7 @@ function OwnerProposalItem({ proposal, index }) {
       <td>{price}</td>
       <td>
         <Tag classes={`mx-auto ${proposalStatusData[status].classes}`}>
-          {proposalStatusData[status].label}
+          {proposalStatusData[status].title}
         </Tag>
       </td>
       <td>
