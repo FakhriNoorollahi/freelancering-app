@@ -2,13 +2,25 @@ import Table from "../../../ui/Table";
 import Sppiner from "../../../ui/Sppiner";
 import { useProject } from "../hooks/useProject";
 import OwnerProposalItem from "./OwnerProposalItem";
+import ButtonIcon from "../../../ui/ButtonIcon";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import useMoveBack from "../../../hooks/useMoveBack";
 
 function OwnerProject() {
   const { project, isProjecting } = useProject();
+  const moveBack = useMoveBack();
 
   return (
     <div>
-      <h3 className="mb-10">درخواست های پروژه ی شما</h3>
+      <div className="flex items-center gap-x-4 mb-10">
+        <ButtonIcon
+          onClick={moveBack}
+          IconComponent={ArrowRightIcon}
+          iconClasses="size-6 group-hover:text-tag"
+          buttonClasses="hover:bg-tag/5 hover:border-tag/5"
+        />
+        <h3>درخواست های پروژه ی شما</h3>
+      </div>
       {isProjecting ? (
         <Sppiner />
       ) : project.proposals.length ? (

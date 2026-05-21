@@ -94,6 +94,10 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+button {
+  cursor: pointer;
+}
+
 .spinner__item {
   @apply rounded-full bg-brand-primary;
 }

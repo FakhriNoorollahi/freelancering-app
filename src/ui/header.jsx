@@ -1,6 +1,7 @@
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/solid";
 import { useLogout, useProfile } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import ButtonIcon from "./ButtonIcon";
 
 const userRoles = {
   ADMIN: {
@@ -42,12 +43,12 @@ function Header() {
         <h6>خوش آمدید</h6>
       </div>
       <div>
-        <button
+        <ButtonIcon
           onClick={onHandleLogout}
-          className="border border-solid border-border-opacity hover:bg-danger/5 hover:border-danger/5 p-1 rounded-2xl cursor-pointer group"
-        >
-          <ArrowLeftEndOnRectangleIcon className="size-8 text-brand-secondary group-hover:text-danger" />
-        </button>
+          IconComponent={ArrowLeftEndOnRectangleIcon}
+          iconClasses="size-8 group-hover:text-danger"
+          buttonClasses="hover:bg-danger/5 hover:border-danger/5"
+        />
       </div>
     </div>
   );
