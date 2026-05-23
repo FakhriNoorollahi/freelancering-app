@@ -7,9 +7,11 @@ import Sppiner from "../../../ui/Sppiner";
 import { useForm } from "react-hook-form";
 import useAddProject from "../hooks/useAddProject";
 import useEditProject from "../hooks/useEditProject";
+import useGetCategory from "../../../hooks/useCategory";
 
 function OwnerProjectModal({ onClose, projectToEdit = {} }) {
   const { _id: editId } = projectToEdit;
+  const { transformedCategories, isCategoring } = useGetCategory();
 
   const isEditSession = Boolean(editId);
   const { title, description, budget, category } = projectToEdit; //ADD TAGS AND DEADLIN AFTER
@@ -114,13 +116,11 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
         label="دسته بندی"
         name="category"
         validationSchema={{ required: "دسته بندی ضروری است." }}
-        options={[
-          {
-            id: 1,
-            title: "برنامه نویسی",
-            value: "6a08612d903e3da1a532003e",
-          },
-        ]}
+        options={
+          isCategoring
+            ? [{ id: "1", value: "", title: "در حال بارگذاری..." }]
+            : transformedCategories
+        }
         required
       />
       <TagsField label="کلمات کلیدی" />

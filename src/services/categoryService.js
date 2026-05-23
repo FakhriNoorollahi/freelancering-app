@@ -1,5 +1,5 @@
 import http from "./httpService";
 
-export function addCategoryApi(data) {
-  return http.post("/project/add", data).then(({ data }) => data.data);
+export function getCategoryList() {
+  return http.get("/category/list").then(({ data }) => data.data);
 }
