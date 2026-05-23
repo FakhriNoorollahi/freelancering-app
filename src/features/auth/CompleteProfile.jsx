@@ -1,7 +1,6 @@
 import TextField from "../../ui/TextField";
 import Button from "../../ui/Button";
 import AuthLayout from "./AuthLayout";
-import RadioInput from "../../ui/RadioInput";
 import { useCompleteProfile } from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
