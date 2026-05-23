@@ -1,20 +1,20 @@
 import TextField from "../../../ui/TextField";
 import Select from "../../../ui/Select";
 import DatePickerField from "../../../ui/DatePickerField";
-import TagsField from "../../../ui/TagsField";
 import Button from "../../../ui/Button";
 import Sppiner from "../../../ui/Sppiner";
 import { useForm } from "react-hook-form";
 import useAddProject from "../hooks/useAddProject";
 import useEditProject from "../hooks/useEditProject";
 import useGetCategory from "../../../hooks/useCategory";
+import { useState } from "react";
 
 function OwnerProjectModal({ onClose, projectToEdit = {} }) {
   const { _id: editId } = projectToEdit;
   const { transformedCategories, isCategoring } = useGetCategory();
 
   const isEditSession = Boolean(editId);
-  const { title, description, budget, category } = projectToEdit; //ADD TAGS AND DEADLIN AFTER
+  const { title, description, budget, category, deadline } = projectToEdit; //ADD TAGS AND DEADLIN AFTER
   let editValues = {};
   if (isEditSession) {
     editValues = {
@@ -22,14 +22,17 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
       description,
       budget,
       category: category._id,
+      deadline,
     };
   }
+
+  const [date, setDate] = useState(new Date(deadline || ""));
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isDirty },
+    formState: { errors },
   } = useForm({ defaultValues: editValues });
 
   const { addProject, isAdding } = useAddProject();
@@ -38,11 +41,9 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
   const onHandleSubmit = async (data) => {
     const newProject = {
       ...data,
-      deadline: new Date(),
+      deadline: new Date(date).toISOString(),
       tags: [],
     };
-
-    if (!isDirty) return onClose();
 
     if (editId) {
       await editProject(
@@ -100,6 +101,7 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
         }}
         required
       />
+      <DatePickerField label="ددلاین" date={date} setDate={setDate} />
       <TextField
         register={register}
         label="بودجه"
@@ -123,8 +125,7 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
         }
         required
       />
-      <TagsField label="کلمات کلیدی" />
-      <DatePickerField label="ددلاین" date="date" setDate={() => {}} />
+      {/* <TagsField label="کلمات کلیدی" /> */}
       {(editId ? isEditting : isAdding) ? (
         <Sppiner />
       ) : (
