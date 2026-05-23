@@ -15,7 +15,7 @@ function TextField({
           {label} {required && <span className="text-danger">*</span>}
         </label>
         <input
-          {...register([name], validationSchema)}
+          {...register(name, validationSchema)}
           placeholder={placeholder}
           className="textField__input"
           type={type}

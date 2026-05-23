@@ -15,9 +15,10 @@ function Select({
         </label>
         <select
           className="textField__input text-sm!"
-          {...register([name], validationSchema)}
+          {...register(name, validationSchema)}
+          defaultValue=""
         >
-          <option value="" disabled selected hidden>
+          <option value="" disabled>
             یک گزینه را انتخاب کنید
           </option>
           {options.map((o) => (

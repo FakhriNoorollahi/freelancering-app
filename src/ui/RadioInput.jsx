@@ -13,7 +13,7 @@ function RadioInput({
         {label}
       </label>
       <input
-        {...register([name], validationSchema)}
+        {...register(name, validationSchema)}
         type="radio"
         id={id}
         className="radio__input"
