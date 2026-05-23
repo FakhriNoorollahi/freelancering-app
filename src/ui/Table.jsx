@@ -1,7 +1,9 @@
 function Table({ children }) {
   return (
-    <div className="border border-border/35 rounded-2xl px-7 bg-white overflow-auto shadow-lg">
-      <table>{children}</table>
+    <div className="border border-border/35 rounded-2xl px-7 bg-white shadow-lg">
+      <div className="overflow-auto">
+        <table>{children}</table>
+      </div>
     </div>
   );
 }
