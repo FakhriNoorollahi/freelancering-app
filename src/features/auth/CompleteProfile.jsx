@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Sppiner from "../../ui/Sppiner";
 import { useForm } from "react-hook-form";
+import RadioInputGroup from "../../ui/RadioInputGroup";
 
 function CompleteProfile() {
   const {
@@ -71,41 +72,19 @@ function CompleteProfile() {
             }}
           />
         </div>
-        <>
-          <div className="flex justify-center gap-x-4">
-            <RadioInput
-              value="FREELANCER"
-              label="فریلنسر"
-              id="FREELANCER"
-              name="role"
-              register={register}
-              errors={errors}
-              validationSchema={{
-                required: "انتخاب کاربر ضروری است",
-              }}
-              watch={watch}
-            />
-            <RadioInput
-              register={register}
-              value="OWNER"
-              id="OWNER"
-              name="role"
-              label="کارفرما"
-              errors={errors}
-              validationSchema={{
-                required: "انتخاب کاربر ضروری است",
-              }}
-              watch={watch}
-            />
-          </div>
-          <div className="h-6">
-            {errors && errors["role"] && (
-              <span className="text-danger text-xs">
-                {errors["role"]?.message}
-              </span>
-            )}
-          </div>
-        </>
+        <RadioInputGroup
+          register={register}
+          errors={errors}
+          watch={watch}
+          configs={{
+            name: "role",
+            validationSchema: { required: "انتخاب نقش ضروری است" },
+            options: [
+              { value: "FREELANCER", label: "فریلنسر" },
+              { label: "کارفرما", value: "OWNER" },
+            ],
+          }}
+        />
         {isCompleteingProfile ? (
           <Sppiner />
         ) : (
