@@ -198,3 +198,23 @@ table tr:last-child {
   align-items: center;
   justify-content: center;
 }
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(117, 138, 147, 50%);
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(117, 138, 147, 70%);
+  cursor: pointer;
+}
