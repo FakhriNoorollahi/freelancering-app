@@ -2,7 +2,7 @@ import {
   ComputerDesktopIcon,
   FolderIcon,
   CheckBadgeIcon,
-} from "@heroicons/react/24/solid";
+} from "@heroicons/react/24/outline";
 
 const ownerDashboardData = [
   {

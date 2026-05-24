@@ -22,8 +22,10 @@ function OwnerProjectsTable() {
 
   return (
     <div className="flex flex-col gap-y-10 h-full">
-      <div className="flex justify-between items-center">
-        <h3>پروژه های شما</h3>
+      <div className="flex justify-between items-center flex-wrap gap-y-2">
+        <p className="text-xl font-semibold lg:text-4xl lg:font-bold">
+          پروژه های شما
+        </p>
         <Button
           classes="flex justify-between items-center gap-x-2"
           onClick={() => setIsOpenModal((is) => !is)}

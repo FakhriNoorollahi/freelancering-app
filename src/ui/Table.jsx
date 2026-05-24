@@ -1,8 +1,10 @@
 function Table({ children }) {
   return (
     <div className="border border-border/35 rounded-2xl px-7 bg-white shadow-lg">
-      <div className="overflow-auto">
-        <table>{children}</table>
+      <div className="overflow-x-auto">
+        <div className="grid grid-cols-1 min-w-0">
+          <table>{children}</table>
+        </div>
       </div>
     </div>
   );

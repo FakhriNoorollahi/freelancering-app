@@ -13,14 +13,16 @@ function OwnerProject() {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex items-center gap-x-4 mb-10">
+      <div className="flex items-center flex-wrap gap-y-2  gap-x-4 mb-10">
         <ButtonIcon
           onClick={moveBack}
           IconComponent={ArrowRightIcon}
           iconClasses="size-6 group-hover:text-tag"
           buttonClasses="hover:bg-tag/5 hover:border-tag/5"
         />
-        <h3>درخواست های پروژه ی شما</h3>
+        <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
+          درخواست های پروژه ی شما
+        </p>
       </div>
       {isProjecting ? (
         <Sppiner />
