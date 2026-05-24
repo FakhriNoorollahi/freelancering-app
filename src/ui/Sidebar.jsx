@@ -13,7 +13,7 @@ function Sidebar({ children, onClose }) {
         <img src="/public/images/logo.jpg" className="size-20 rounded-full" />
       </div>
       <h4 className="text-center text-font-primary font-black mb-5">
-        فریلنس تو
+        فریلنستو
       </h4>
       <hr className="text-font-primary/50 mb-8" />
       {children}
