@@ -33,10 +33,10 @@
   h4 {
     @apply text-3xl;
   }
-  h3 {
+  h5 {
     @apply text-2xl;
   }
-  h4 {
+  h6 {
     @apply text-xl;
   }
 }
@@ -59,7 +59,7 @@
   }
 
   .btn--primary {
-    @apply bg-brand-primary hover:opacity-90 hover:shadow-lg;
+    @apply border border-brand-primary bg-brand-primary hover:opacity-90 hover:shadow-lg;
   }
 
   .btn--secondary {
@@ -86,46 +86,92 @@
 html,
 body {
   user-select: none;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 * {
   outline: none;
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
+}
+
+button {
+  cursor: pointer;
 }
 
 .spinner__item {
   @apply rounded-full bg-brand-primary;
 }
 
+/* table */
+
 table {
   background-color: white;
   border-collapse: collapse;
   width: 984px;
   padding: 25px;
-  overflow: scroll;
+  /* overflow: scroll; */
   table-layout: auto;
 }
 
-th,
-tr,
-td {
+table th,
+table tr,
+table td {
   padding: 25px 10px;
 }
 
-th,
-tr {
+table th,
+table tr {
   border-bottom: 1px solid var(--color-border-opacity);
   font-size: 14px;
   font-weight: 700;
 }
 
-tr {
+table tr {
   font-size: 12px;
   font-weight: 500;
   text-align: center;
 }
 
-tr:last-child {
+table tr:last-child {
   border-bottom: 0px solid var(--color-border-opacity);
+}
+
+/* form */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 384px;
+  overflow-y: auto;
+  padding-left: 16px;
+}
+
+/* center */
+
+.center-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(64, 162, 227, 35%);
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(64, 162, 227, 50%);
+  cursor: pointer;
 }

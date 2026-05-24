@@ -6,7 +6,6 @@ function Select({
   validationSchema,
   errors,
   required,
-  classes,
 }) {
   return (
     <div className="flex flex-col gap-y-0.5">
@@ -15,9 +14,13 @@ function Select({
           {label} {required && <span className="text-danger">*</span>}
         </label>
         <select
-          className={`textField__input ${classes}`}
-          {...register([name], validationSchema)}
+          className="textField__input text-sm!"
+          {...register(name, validationSchema)}
+          defaultValue=""
         >
+          <option value="" disabled>
+            یک گزینه را انتخاب کنید
+          </option>
           {options.map((o) => (
             <option key={o.id} value={o.value}>
               {o.title}
@@ -25,9 +28,11 @@ function Select({
           ))}
         </select>
       </div>
-      {errors && errors[name] && (
-        <span className="text-danger text-xs">{errors[name]?.message}</span>
-      )}
+      <div className="h-6 text-start">
+        {errors && errors[name] && (
+          <span className="text-danger text-xs">{errors[name]?.message}</span>
+        )}
+      </div>
     </div>
   );
 }

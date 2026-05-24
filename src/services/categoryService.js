@@ -1,5 +1,5 @@
 import http from "./httpService";
 
-export default function getCategories() {
+export function getCategoryList() {
   return http.get("/category/list").then(({ data }) => data.data);
 }

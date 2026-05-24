@@ -1,7 +1,6 @@
 import http from "./httpService";
 
-export function updateProposal(req) {
-  const { proposalId, ...data } = req;
+export function changeProposalStatusApi({ proposalId, data }) {
   return http
     .patch(`/proposal/${proposalId}`, data)
     .then(({ data }) => data.data);
