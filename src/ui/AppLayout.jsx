@@ -7,6 +7,7 @@ import useOutsideClick from "../hooks/useOutsideClick";
 function AppLayout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useOutsideClick(() => setIsOpen(false));
+  console.log("isOpen", isOpen);
 
   return (
     <div className="flex bg-white">
