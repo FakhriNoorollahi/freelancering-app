@@ -3,7 +3,7 @@ function ButtonSecondary({ children, classes, onClick, disabled }) {
     <button
       onClick={onClick}
       type="submit"
-      className={`btn btn--secondary hover:border-danger! hover:text-danger! ${classes}`}
+      className={`btn btn--secondary ${classes}`}
       disabled={disabled}
     >
       {children}

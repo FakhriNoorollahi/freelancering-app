@@ -10,7 +10,9 @@ function FreelancerProposalas() {
     <div className="flex flex-col gap-y-10">
       <>
         <div className="flex justify-between items-center">
-          <h3>لیست درخواست ها</h3>
+          <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
+            لیست درخواست ها
+          </p>
         </div>
         {isGettingProposals ? (
           <Sppiner />

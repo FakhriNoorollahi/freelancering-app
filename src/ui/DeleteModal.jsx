@@ -11,7 +11,11 @@ function DeleteModal({ onClose, onConfirm, title, disabled }) {
         <Button classes="w-full" onClick={onConfirm} disabled={disabled}>
           حذف
         </Button>
-        <ButtonSecondary classes="w-full" onClick={onClose} disabled={disabled}>
+        <ButtonSecondary
+          classes="w-full hover:text-danger hover:border-danger"
+          onClick={onClose}
+          disabled={disabled}
+        >
           لغو
         </ButtonSecondary>
       </div>

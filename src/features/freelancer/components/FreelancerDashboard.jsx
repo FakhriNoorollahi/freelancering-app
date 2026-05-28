@@ -4,7 +4,7 @@ import FREELANCER_DASHBOARD_DATA from "../constants/freelancerDashboardData";
 function FreelancerDashboard() {
   return (
     <div className="space-y-10">
-      <h3>آمار کلی</h3>
+      <p className="text-xl font-semibold lg:text-2xl lg:font-bold">آمار کلی</p>
       <div className="grid grid-cols-3 gap-10">
         {FREELANCER_DASHBOARD_DATA.map((item) => {
           const IconComponent = item.icon;

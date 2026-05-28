@@ -1,4 +1,4 @@
-import { ArchiveBoxArrowDownIcon } from "@heroicons/react/24/outline";
+import { BarsArrowDownIcon } from "@heroicons/react/24/outline";
 import { useProjectLists } from "../../../hooks/useOwner";
 import ButtonSecondary from "../../../ui/ButtonSecondary";
 import Sppiner from "../../../ui/Sppiner";
@@ -15,13 +15,15 @@ function FreelancerProjects() {
   return (
     <div className="flex flex-col gap-y-10">
       <>
-        <div className="flex justify-between items-center">
-          <h3>لیست پروژه ها</h3>
+        <div className="flex justify-between items-center flex-wrap gap-y-2">
+          <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
+            پروژه های شما
+          </p>
           <ButtonSecondary
-            classes="flex items-center text-sm gap-x-3 border-border-opacity"
+            classes="flex items-center text-sm gap-x-3 border-border-opacity hover:border-brand-primary"
             onClick={() => setIsOpenFilterModal(true)}
           >
-            <ArchiveBoxArrowDownIcon className="size-5" />
+            <BarsArrowDownIcon className="size-5" />
             فیلتر
           </ButtonSecondary>
           <Modal
