@@ -47,7 +47,10 @@ function FreelancerFiltersModal({ onClose }) {
           />
           <div className="flex items-center justify-between gap-x-3">
             <Button classes="w-full">تایید</Button>
-            <ButtonSecondary classes="w-full" onClick={onDeleteFilter}>
+            <ButtonSecondary
+              classes="w-full hover:text-danger hover:border-danger"
+              onClick={onDeleteFilter}
+            >
               حذف فیلتر
             </ButtonSecondary>
           </div>
