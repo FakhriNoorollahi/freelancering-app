@@ -6,10 +6,10 @@ export function changeProposalStatusApi({ proposalId, data }) {
     .then(({ data }) => data.data);
 }
 
-export function addProposal(data) {
+export function addProposalApi(data) {
   return http.post("/proposal/add", data).then(({ data }) => data.data);
 }
 
-export function getProposalsList(qs) {
+export function getProposalsListApi(qs) {
   return http.get(`/proposal/list?${qs}`).then(({ data }) => data.data);
 }

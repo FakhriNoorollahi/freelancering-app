@@ -6,6 +6,7 @@ import Table from "../../../ui/Table";
 import FreelancerProjectsItem from "./FreelancerProjectsItem";
 import { useState } from "react";
 import FreelancerFiltersModal from "./FreelancerFiltersModal";
+import Modal from "../../../ui/Modal";
 
 function FreelancerProjects() {
   const [isOpenFilterModal, setIsOpenFilterModal] = useState(false);
@@ -23,11 +24,15 @@ function FreelancerProjects() {
             <ArchiveBoxArrowDownIcon className="size-5" />
             فیلتر
           </ButtonSecondary>
-          {isOpenFilterModal && (
+          <Modal
+            onClose={() => setIsOpenFilterModal(false)}
+            title="فیلتر پروژه ها"
+            open={isOpenFilterModal}
+          >
             <FreelancerFiltersModal
               onClose={() => setIsOpenFilterModal(false)}
             />
-          )}
+          </Modal>
         </div>
         {isAllProjecting ? (
           <Sppiner />

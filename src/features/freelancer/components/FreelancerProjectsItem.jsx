@@ -6,6 +6,7 @@ import ProjectStatusData from "../../../constants/projectStatusData";
 import Tag from "../../../ui/Tag";
 import { toPersianNumberWithComma } from "../../../utils/toPersianNumber";
 import toLoaclDateShort from "../../../utils/toLocalDateShort";
+import Modal from "../../../ui/Modal";
 
 function FreelancerProjectsItem({
   title,
@@ -36,12 +37,16 @@ function FreelancerProjectsItem({
         <button className="cursor-pointer" onClick={() => setIsOpenModal(true)}>
           <DocumentPlusIcon className="size-5 hover:text-tag" />
         </button>
-        {isOpenModal && (
+        <Modal
+          onClose={() => setIsOpenModal(false)}
+          title="درخواست انجام پروژه"
+          open={isOpenModal}
+        >
           <FreelancerProposalModal
             onClose={() => setIsOpenModal(false)}
             projectId={_id}
           />
-        )}
+        </Modal>
       </td>
     </Table.Row>
   );
