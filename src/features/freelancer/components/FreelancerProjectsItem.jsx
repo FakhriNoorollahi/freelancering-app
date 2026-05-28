@@ -1,18 +1,11 @@
 import { DocumentPlusIcon } from "@heroicons/react/24/outline";
-import Table from "../../ui/Table";
+import Table from "../../../ui/Table";
 import FreelancerProposalModal from "./FreelancerProposalModal";
 import { useState } from "react";
-
-const projectStatus = {
-  OPEN: {
-    label: "باز",
-    className: "bg-success",
-  },
-  CLOSE: {
-    label: "بسته",
-    className: "bg-danger",
-  },
-};
+import ProjectStatusData from "../../../constants/projectStatusData";
+import Tag from "../../../ui/Tag";
+import { toPersianNumberWithComma } from "../../../utils/toPersianNumber";
+import toLoaclDateShort from "../../../utils/toLocalDateShort";
 
 function FreelancerProjectsItem({
   title,
@@ -32,14 +25,12 @@ function FreelancerProjectsItem({
       <td className="w-max-60">{title}</td>
       <td className="w-max-60">{description}</td>
       <td>{category.title}</td>
-      <td>{budget}</td>
-      <td>{new Date(deadline).toLocaleDateString("fa")}</td>
+      <td>{toPersianNumberWithComma(budget)}</td>
+      <td>{toLoaclDateShort(deadline)}</td>
       <td>
-        <span
-          className={`py-1 px-4 rounded-xl font-semibold ${projectStatus[status].className}`}
-        >
-          {projectStatus[status].label}
-        </span>
+        <Tag classes={`mx-auto ${ProjectStatusData[status].classes}`}>
+          {ProjectStatusData[status].title}
+        </Tag>
       </td>
       <td>
         <button className="cursor-pointer" onClick={() => setIsOpenModal(true)}>

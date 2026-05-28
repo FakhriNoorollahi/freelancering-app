@@ -1,23 +1,15 @@
 import { useForm } from "react-hook-form";
-import Select from "../../ui/Select";
-import Modal from "../../ui/Modal";
-import Button from "../../ui/Button";
-import Sppiner from "../../ui/Sppiner";
-import { useGetCategory } from "../../hooks/useCategory";
-import ButtonSecondary from "../../ui/ButtonSecondary";
+import Select from "../../../ui/Select";
+import Modal from "../../../ui/Modal";
+import Button from "../../../ui/Button";
+import Sppiner from "../../../ui/Sppiner";
+import ButtonSecondary from "../../../ui/ButtonSecondary";
 import { createSearchParams } from "react-router-dom";
-
-const statusOptions = [
-  { id: 1, title: "همه", value: "all" },
-  { id: 2, title: "باز", value: "open" },
-  { id: 3, title: "بسته", value: "بسته" },
-];
-
-const orderOptions = [
-  { id: 1, title: "همه", value: "all" },
-  { id: 2, title: "جدیدترین", value: "newest" },
-  { id: 3, title: "قدیمی ترین", value: "latest" },
-];
+import useGetCategory from "../../../hooks/useCategory";
+import {
+  ORDER_OPTIONS,
+  STATUS_OPTIONS,
+} from "../../../constants/filterStatusData";
 
 function FreelancerFiltersModal({ onClose }) {
   let categoriesOption;
@@ -47,13 +39,13 @@ function FreelancerFiltersModal({ onClose }) {
           <Select
             register={register}
             name="status"
-            options={statusOptions}
+            options={STATUS_OPTIONS}
             label="وضعیت"
           />
           <Select
             register={register}
             name="order"
-            options={orderOptions}
+            options={ORDER_OPTIONS}
             label="مرتب سازی"
           />
           <Select

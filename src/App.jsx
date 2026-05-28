@@ -1,15 +1,15 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import AppProvider from "./providers/AppProvider";
-import FreelancerLayout from "./features/freelancer/FreelancerLayout";
-import FreelancerPage from "./pages/FreelancerPage";
-import FreelancerProjects from "./features/freelancer/FreelancerProjects";
-import FreelancerProposalas from "./features/freelancer/FreelancerProposals";
 import AuthPage from "./pages/auth/AuthPage";
 import CompleteProfilePage from "./pages/auth/CompleteProfilePage";
 import OwnerLayoutPage from "./pages/owner/OwnerLayoutPage";
 import OwnerProjectsPage from "./pages/owner/OwnerProjectsPage";
 import OwnerDashboardPage from "./pages/owner/OwnerDashboardPage";
 import OwnerProjectPage from "./pages/owner/OwnerProjectPage";
+import FreelancerPageLayout from "./pages/freelancer/FreelancerLayoutPage";
+import FreelancerDashboardPage from "./pages/freelancer/FreelancerDashboardPage";
+import FreelancerProposalsPage from "./pages/freelancer/FreelancerProposalsPage";
+import FreelancerProjectsPage from "./pages/freelancer/FreelancerProjectsPage";
 
 function App() {
   return (
@@ -23,10 +23,11 @@ function App() {
           <Route path="projects" element={<OwnerProjectsPage />} />
           <Route path="projects/:id" element={<OwnerProjectPage />} />
         </Route>
-        <Route path="/freelancer" element={<FreelancerLayout />}>
-          <Route index path="dashboard" element={<FreelancerPage />} />
-          <Route path="projects" element={<FreelancerProjects />} />
-          <Route path="proposals" element={<FreelancerProposalas />} />
+        <Route path="/freelancer" element={<FreelancerPageLayout />}>
+          <Route index element={<Navigate to="dashboard" />} />
+          <Route path="dashboard" element={<FreelancerDashboardPage />} />
+          <Route path="projects" element={<FreelancerProjectsPage />} />
+          <Route path="proposals" element={<FreelancerProposalsPage />} />
         </Route>
       </Routes>
     </AppProvider>

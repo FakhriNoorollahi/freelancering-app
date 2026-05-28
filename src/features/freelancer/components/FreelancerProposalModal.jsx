@@ -1,10 +1,10 @@
-import Modal from "../../ui/Modal";
-import TextField from "../../ui/TextField";
-import Button from "../../ui/Button";
-import Sppiner from "../../ui/Sppiner";
+import Modal from "../../../ui/Modal";
+import TextField from "../../../ui/TextField";
+import Button from "../../../ui/Button";
+import Sppiner from "../../../ui/Sppiner";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useAddProposal } from "../../hooks/useProposal";
+import { useAddProposal } from "../../../hooks/useProposal";
 
 function FreelancerProposalModal({ onClose, projectId }) {
   const {

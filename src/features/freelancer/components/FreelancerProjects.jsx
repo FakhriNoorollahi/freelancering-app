@@ -1,8 +1,8 @@
 import { ArchiveBoxArrowDownIcon } from "@heroicons/react/24/outline";
-import { useProjectLists } from "../../hooks/useOwner";
-import ButtonSecondary from "../../ui/ButtonSecondary";
-import Sppiner from "../../ui/Sppiner";
-import Table from "../../ui/Table";
+import { useProjectLists } from "../../../hooks/useOwner";
+import ButtonSecondary from "../../../ui/ButtonSecondary";
+import Sppiner from "../../../ui/Sppiner";
+import Table from "../../../ui/Table";
 import FreelancerProjectsItem from "./FreelancerProjectsItem";
 import { useState } from "react";
 import FreelancerFiltersModal from "./FreelancerFiltersModal";
