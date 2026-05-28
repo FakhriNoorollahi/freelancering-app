@@ -4,14 +4,14 @@ import { changeProposalStatusApi } from "../services/proposalService";
 import toast from "react-hot-toast";
 
 export function useProposalLists() {
-  const { data, isPending } = useQuery({
+  const { data: allProposals, isPending: isProposaling } = useQuery({
     queryKey: ["all-proposals"],
     queryFn: getProposalsListApi,
   });
 
-  const { proposals } = data || {};
+  const { proposals } = allProposals || {};
 
-  return { proposals, isPending };
+  return { proposals, isProposaling };
 }
 
 export function useChangeProposalStatus() {

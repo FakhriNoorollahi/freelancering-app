@@ -13,7 +13,6 @@ function OwnerDashboard() {
               key={item.id}
               label={item.label}
               IconComponent={IconComponent}
-              cardClasses="col-span-3 md:col-span-2 lg:col-span-1"
             />
           );
         })}
