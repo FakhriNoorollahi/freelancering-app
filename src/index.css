@@ -175,3 +175,12 @@ table tr:last-child {
   background: rgb(64, 162, 227, 50%);
   cursor: pointer;
 }
+
+/* neon-text */
+.text-shadow {
+  text-shadow:
+    1px 1px 0px rgba(51, 65, 85, 1),
+    2px 2px 0px rgba(51, 65, 85, 1),
+    3px 3px 0px rgba(51, 65, 85, 1),
+    4px 4px 0px rgba(51, 65, 85, 1);
+}
