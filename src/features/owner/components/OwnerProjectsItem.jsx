@@ -14,12 +14,16 @@ import {
   toPersianNumbers,
   toPersianNumberWithComma,
 } from "../../../utils/toPersianNumber";
+import useUpdateStatusProject from "../hooks/useUpdateStatusProject";
+import Sppiner from "../../../ui/Sppiner";
 
 function OwnerProjectsItem({ project, index }) {
   const { title, budget, category, deadline, status, _id } = project;
+  const projectStatus = status === "OPEN" ? true : false;
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditeModal] = useState(false);
   const { isDeleting, deleteProject } = useDeleteProject();
+  const { isUpdatingStatus, updateStatusProject } = useUpdateStatusProject();
 
   const onHandleDeleteProject = async () => {
     await deleteProject(_id, {
@@ -27,6 +31,11 @@ function OwnerProjectsItem({ project, index }) {
         setIsOpenDeleteModal(false);
       },
     });
+  };
+
+  const onHandleUpdateStatusProject = async () => {
+    const newStatus = status === "OPEN" ? "CLOSED" : "OPEN";
+    updateStatusProject({ id: _id, data: { status: newStatus } });
   };
 
   return (
@@ -43,8 +52,17 @@ function OwnerProjectsItem({ project, index }) {
         </div>
       </td>
       <td>
-        {status}
-        <ToggleButton />
+        {isUpdatingStatus ? (
+          <Sppiner width="30" height="20" />
+        ) : (
+          <div className="flex items-center gap-2 justify-center">
+            <span>{status === "OPEN" ? "باز" : "بسته"}</span>
+            <ToggleButton
+              checked={projectStatus}
+              onChange={onHandleUpdateStatusProject}
+            />
+          </div>
+        )}
       </td>
       <td>
         <div className="flex items-center justify-between gap-x-3">

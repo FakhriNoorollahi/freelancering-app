@@ -6,10 +6,13 @@ import ButtonIcon from "../../../ui/ButtonIcon";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import useMoveBack from "../../../hooks/useMoveBack";
 import Empty from "../../../ui/Empty";
+import { Navigate } from "react-router-dom";
 
 function OwnerProject() {
   const { project, isProjecting } = useProject();
   const moveBack = useMoveBack();
+
+  if (!isProjecting && !project) return <Navigate to="/404" />;
 
   return (
     <div className="flex flex-col h-full">

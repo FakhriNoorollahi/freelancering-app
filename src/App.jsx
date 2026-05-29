@@ -10,6 +10,7 @@ import FreelancerPageLayout from "./pages/freelancer/FreelancerLayoutPage";
 import FreelancerDashboardPage from "./pages/freelancer/FreelancerDashboardPage";
 import FreelancerProposalsPage from "./pages/freelancer/FreelancerProposalsPage";
 import FreelancerProjectsPage from "./pages/freelancer/FreelancerProjectsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <Route path="projects" element={<FreelancerProjectsPage />} />
           <Route path="proposals" element={<FreelancerProposalsPage />} />
         </Route>
+        <Route path="/404" element={<NotFoundPage />} />
+        <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
     </AppProvider>
   );
