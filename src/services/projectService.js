@@ -18,6 +18,10 @@ export function updateProjectApi({ id, newProject }) {
     .then(({ data }) => data.data);
 }
 
+export function updateStatusProjectApi({ id, data }) {
+  return http.patch(`/project/${id}`, data).then(({ data }) => data.data);
+}
+
 export function deleteProjectApi(id) {
   return http.delete(`/project/${id}`).then(({ data }) => data.data);
 }
