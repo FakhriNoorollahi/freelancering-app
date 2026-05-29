@@ -16,7 +16,7 @@ function FreelancerProposalas() {
         </div>
         {isGettingProposals ? (
           <Sppiner />
-        ) : proposals.length > 0 ? (
+        ) : proposals?.length > 0 ? (
           <Table>
             <Table.Header>
               <th>#</th>

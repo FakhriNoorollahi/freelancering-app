@@ -16,6 +16,7 @@ function FreelancerDashboard() {
   const accpetedProposals = proposals?.filter((p) => p.status === 2);
   const price = accpetedProposals?.reduce((acc, cur) => acc + cur.price, 0);
 
+ 
   return (
     <div className="space-y-10">
       <p className="text-xl font-semibold lg:text-2xl lg:font-bold">آمار کلی</p>
@@ -24,12 +25,12 @@ function FreelancerDashboard() {
           <Card
             label="درخواست ها"
             IconComponent={DocumentIcon}
-            data={toPersianNumbers(proposals.length)}
+            data={toPersianNumbers(proposals?.length)}
           />
           <Card
             label="درخواست های تایید شده"
             IconComponent={CheckBadgeIcon}
-            data={toPersianNumbers(accpetedProposals.length)}
+            data={toPersianNumbers(accpetedProposals?.length)}
           />
           <Card
             label="کیف پول"

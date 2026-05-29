@@ -3,7 +3,7 @@ const ProjectStatusData = {
     title: "باز",
     classes: "bg-success",
   },
-  CLOSE: {
+  CLOSED: {
     title: "بسته",
     classes: "bg-danger",
   },

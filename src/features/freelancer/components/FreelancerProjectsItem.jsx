@@ -34,8 +34,12 @@ function FreelancerProjectsItem({
         </Tag>
       </td>
       <td>
-        <button className="cursor-pointer" onClick={() => setIsOpenModal(true)}>
-          <DocumentPlusIcon className="size-5 hover:text-tag" />
+        <button
+          disabled={status === "OPEN" ? false : true}
+          className={`cursor-pointer group ${status !== "OPEN" ? "pointer-events-none" : ""}`}
+          onClick={() => setIsOpenModal(true)}
+        >
+          <DocumentPlusIcon className="size-5 hover:text-tag group-disabled:text-border-opacity" />
         </button>
         <Modal
           onClose={() => setIsOpenModal(false)}
