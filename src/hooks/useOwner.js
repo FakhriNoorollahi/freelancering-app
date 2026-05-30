@@ -22,6 +22,7 @@ export function useProjectLists() {
     queryKey: ["all-projects", search],
     queryFn: () => getListProject(search),
   });
+
   const { projects } = data || {};
 
   return { projects, isPending };

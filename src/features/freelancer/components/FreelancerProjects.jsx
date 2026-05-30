@@ -24,6 +24,11 @@ function FreelancerProjects() {
     setIsOpenFilterModal(false);
   };
 
+  const onDeleteFilter = () => {
+    setSearchParams({});
+    setIsOpenFilterModal(false);
+  };
+
   return (
     <div className="flex flex-col gap-y-10">
       <>
@@ -46,7 +51,7 @@ function FreelancerProjects() {
             <FreelancerFiltersModal
               searchParams={searchParams}
               onHandleFilter={onHandleFilter}
-              onClose={() => setIsOpenFilterModal(false)}
+              onDeleteFilter={onDeleteFilter}
             />
           </Modal>
         </div>

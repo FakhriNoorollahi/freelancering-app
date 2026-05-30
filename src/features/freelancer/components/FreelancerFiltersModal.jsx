@@ -9,21 +9,23 @@ import {
   STATUS_OPTIONS,
 } from "../../../constants/filterStatusData";
 
-function FreelancerFiltersModal({ onClose, searchParams, onHandleFilter }) {
-  const { register, handleSubmit } = useForm({ defaultValues: paramsValue() });
+function FreelancerFiltersModal({
+  onDeleteFilter,
+  searchParams,
+  onHandleFilter,
+}) {
+  const { register, handleSubmit } = useForm({
+    defaultValues: getDefaultValues(),
+  });
   const { transformedEnglisCategories, isCategoring } = useGetCategory();
 
-  function paramsValue() {
-    const category = searchParams.get("category") || "";
-    const sort = searchParams.get("sort") || "";
-    const status = searchParams.get("status") || "";
-    const value = { status, category, sort };
-    return value;
+  function getDefaultValues() {
+    return {
+      category: searchParams.get("category") || "",
+      sort: searchParams.get("sort") || "",
+      status: searchParams.get("status") || "",
+    };
   }
-
-  const onDeleteFilter = () => {
-    onClose();
-  };
 
   return (
     <>
