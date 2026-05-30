@@ -3,6 +3,7 @@ import {
   getListProject,
   getOwnerProjectsApi,
 } from "../services/projectService";
+import { useLocation } from "react-router-dom";
 
 export function useOwnerProjects() {
   const { data, isPending } = useQuery({
@@ -15,11 +16,12 @@ export function useOwnerProjects() {
 }
 
 export function useProjectLists() {
-  const { data, isPending } = useQuery({
-    queryKey: ["all-projects"],
-    queryFn: getListProject,
-  });
+  const { search } = useLocation();
 
+  const { data, isPending } = useQuery({
+    queryKey: ["all-projects", search],
+    queryFn: () => getListProject(search),
+  });
   const { projects } = data || {};
 
   return { projects, isPending };

@@ -13,5 +13,14 @@ export default function useGetCategory() {
     return { id: c._id, title: c.title, value: c._id };
   });
 
-  return { categoriesRaw, isCategoring, transformedCategories };
+  const transformedEnglisCategories = categoriesRaw?.map((c) => {
+    return { id: c._id, title: c.title, value: c.englishTitle };
+  });
+
+  return {
+    categoriesRaw,
+    isCategoring,
+    transformedCategories,
+    transformedEnglisCategories,
+  };
 }

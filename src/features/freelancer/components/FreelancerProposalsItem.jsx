@@ -5,6 +5,7 @@ import {
   toPersianNumbers,
   toPersianNumberWithComma,
 } from "../../../utils/toPersianNumber";
+import truncateText from "../../../utils/truncateText";
 
 function FreelancerProposalsItem({
   price,
@@ -16,7 +17,7 @@ function FreelancerProposalsItem({
   return (
     <Table.Row>
       <td>{index}</td>
-      <td className="w-max-60">{description}</td>
+      <td className="w-max-60">{truncateText(description, 60)}</td>
       <td>{toPersianNumbers(duration)} روز</td>
       <td>{toPersianNumberWithComma(price)}</td>
       <td>

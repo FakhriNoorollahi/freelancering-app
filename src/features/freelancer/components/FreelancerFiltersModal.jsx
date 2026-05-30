@@ -3,21 +3,23 @@ import Select from "../../../ui/Select";
 import Button from "../../../ui/Button";
 import Sppiner from "../../../ui/Sppiner";
 import ButtonSecondary from "../../../ui/ButtonSecondary";
-import { createSearchParams } from "react-router-dom";
 import useGetCategory from "../../../hooks/useCategory";
 import {
   ORDER_OPTIONS,
   STATUS_OPTIONS,
 } from "../../../constants/filterStatusData";
 
-function FreelancerFiltersModal({ onClose }) {
-  const { register, handleSubmit } = useForm();
-  const { transformedCategories, isCategoring } = useGetCategory();
+function FreelancerFiltersModal({ onClose, searchParams, onHandleFilter }) {
+  const { register, handleSubmit } = useForm({ defaultValues: paramsValue() });
+  const { transformedEnglisCategories, isCategoring } = useGetCategory();
 
-  const onHandleSubmit = (data) => {
-    const c = createSearchParams(data);
-    console.log(data, c);
-  };
+  function paramsValue() {
+    const category = searchParams.get("category") || "";
+    const sort = searchParams.get("sort") || "";
+    const status = searchParams.get("status") || "";
+    const value = { status, category, sort };
+    return value;
+  }
 
   const onDeleteFilter = () => {
     onClose();
@@ -26,7 +28,7 @@ function FreelancerFiltersModal({ onClose }) {
   return (
     <>
       {!isCategoring ? (
-        <form onSubmit={handleSubmit(onHandleSubmit)}>
+        <form onSubmit={handleSubmit(onHandleFilter)}>
           <Select
             register={register}
             name="status"
@@ -35,14 +37,17 @@ function FreelancerFiltersModal({ onClose }) {
           />
           <Select
             register={register}
-            name="order"
+            name="sort"
             options={ORDER_OPTIONS}
             label="مرتب سازی"
           />
           <Select
             register={register}
             name="category"
-            options={transformedCategories}
+            options={[
+              { id: 1, title: "همه", value: "ALL" },
+              ...transformedEnglisCategories,
+            ]}
             label="دسته بندی"
           />
           <div className="flex items-center justify-between gap-x-3">

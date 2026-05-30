@@ -26,6 +26,6 @@ export function deleteProjectApi(id) {
   return http.delete(`/project/${id}`).then(({ data }) => data.data);
 }
 
-export function getListProject() {
-  return http.get(`/project/list`).then(({ data }) => data.data);
+export function getListProject(qs) {
+  return http.get(`/project/list${qs}`).then(({ data }) => data.data);
 }

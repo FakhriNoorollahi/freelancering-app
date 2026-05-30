@@ -7,6 +7,7 @@ import Tag from "../../../ui/Tag";
 import { toPersianNumberWithComma } from "../../../utils/toPersianNumber";
 import toLoaclDateShort from "../../../utils/toLocalDateShort";
 import Modal from "../../../ui/Modal";
+import truncateText from "../../../utils/truncateText";
 
 function FreelancerProjectsItem({
   title,
@@ -23,8 +24,8 @@ function FreelancerProjectsItem({
   return (
     <Table.Row>
       <td>{index}</td>
-      <td className="w-max-60">{title}</td>
-      <td className="w-max-60">{description}</td>
+      <td className="w-max-60">{truncateText(title, 30)}</td>
+      <td className="w-max-60">{truncateText(description, 60)}</td>
       <td>{category.title}</td>
       <td>{toPersianNumberWithComma(budget)}</td>
       <td>{toLoaclDateShort(deadline)}</td>
@@ -43,7 +44,7 @@ function FreelancerProjectsItem({
         </button>
         <Modal
           onClose={() => setIsOpenModal(false)}
-          title="درخواست انجام پروژه"
+          title={`درخواست انجام پروژه ${title}`}
           open={isOpenModal}
         >
           <FreelancerProposalModal

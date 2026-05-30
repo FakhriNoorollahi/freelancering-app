@@ -56,6 +56,7 @@ function FreelancerProposalModal({ onClose, projectId }) {
           validationSchema={{
             required: "قیمت ضروری است",
           }}
+          type="number"
           required
         />
         <TextField
@@ -64,6 +65,7 @@ function FreelancerProposalModal({ onClose, projectId }) {
           name="duration"
           placeholder="نمونه: 30 روز "
           errors={errors}
+          type="number"
           validationSchema={{
             required: "مدت زمان ضروری است",
           }}

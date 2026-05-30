@@ -7,10 +7,22 @@ import FreelancerProjectsItem from "./FreelancerProjectsItem";
 import { useState } from "react";
 import FreelancerFiltersModal from "./FreelancerFiltersModal";
 import Modal from "../../../ui/Modal";
+import { useSearchParams } from "react-router-dom";
 
 function FreelancerProjects() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [isOpenFilterModal, setIsOpenFilterModal] = useState(false);
   const { projects, isPending: isAllProjecting } = useProjectLists();
+
+  const onHandleFilter = (data) => {
+    const { sort, status, category } = data;
+    if (category) searchParams.set("category", category);
+    if (status) searchParams.set("status", status);
+    if (sort) searchParams.set("sort", sort);
+
+    setSearchParams(searchParams);
+    setIsOpenFilterModal(false);
+  };
 
   return (
     <div className="flex flex-col gap-y-10">
@@ -32,6 +44,8 @@ function FreelancerProjects() {
             open={isOpenFilterModal}
           >
             <FreelancerFiltersModal
+              searchParams={searchParams}
+              onHandleFilter={onHandleFilter}
               onClose={() => setIsOpenFilterModal(false)}
             />
           </Modal>
