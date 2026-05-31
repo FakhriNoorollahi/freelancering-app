@@ -11,6 +11,11 @@ import FreelancerDashboardPage from "./pages/freelancer/FreelancerDashboardPage"
 import FreelancerProposalsPage from "./pages/freelancer/FreelancerProposalsPage";
 import FreelancerProjectsPage from "./pages/freelancer/FreelancerProjectsPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
+import AdminLayoutPage from "./pages/admin/AdminLayoutPage";
+import AdminProjectsPage from "./pages/admin/AdminProjectsPage";
+import AdminProposalsPage from "./pages/admin/AdminProposalsPage";
+import AdminUsersPage from "./pages/admin/AdminUsersPage";
 
 function App() {
   return (
@@ -29,6 +34,13 @@ function App() {
           <Route path="dashboard" element={<FreelancerDashboardPage />} />
           <Route path="projects" element={<FreelancerProjectsPage />} />
           <Route path="proposals" element={<FreelancerProposalsPage />} />
+        </Route>
+        <Route path="/admin" element={<AdminLayoutPage />}>
+          <Route index element={<Navigate to="dashboard" />} />
+          <Route path="dashboard" element={<AdminDashboardPage />} />
+          <Route path="projects" element={<AdminProjectsPage />} />
+          <Route path="proposals" element={<AdminProposalsPage />} />
+          <Route path="users" element={<AdminUsersPage />} />
         </Route>
         <Route path="/404" element={<NotFoundPage />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
