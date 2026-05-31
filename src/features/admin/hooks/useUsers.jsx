@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { userListApi } from "../../../services/authService";
 
-function useUser() {
+function useUsers() {
   const { data, isPending: isUsering } = useQuery({
     queryKey: ["users"],
     queryFn: userListApi,
@@ -10,4 +10,4 @@ function useUser() {
   const { users } = data || {};
   return { users, isUsering };
 }
-export default useUser;
+export default useUsers;

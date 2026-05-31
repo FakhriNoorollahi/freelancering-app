@@ -25,3 +25,9 @@ export function profile() {
 export function userListApi() {
   return http.get("admin/user/list").then(({ data }) => data.data);
 }
+
+export function userChangeUserStatusApi({ userId, data }) {
+  return http
+    .patch(`admin/user/verify/${userId}`, data)
+    .then(({ data }) => data.data);
+}

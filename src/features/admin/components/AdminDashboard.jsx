@@ -4,7 +4,7 @@ import {
   UsersIcon,
 } from "@heroicons/react/16/solid";
 import { useProposalLists } from "../../../hooks/useProposal";
-import useUser from "../hooks/useUser";
+import useUsers from "../hooks/useUsers";
 import Card from "../../../ui/Card";
 import { toPersianNumbers } from "../../../utils/toPersianNumber";
 import Sppiner from "../../../ui/Sppiner";
@@ -13,7 +13,7 @@ import { useProjectLists } from "../../../hooks/useOwner";
 function AdminDashboard() {
   const { projects, isPending: isProjecting } = useProjectLists();
   const { isProposaling, proposals } = useProposalLists();
-  const { users, isUsering } = useUser();
+  const { users, isUsering } = useUsers();
 
   const isLoading = isProjecting || isProposaling || isUsering;
 
