@@ -1,22 +1,33 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useOutsideClick from "../hooks/useOutsideClick";
 
 function AppLayout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useOutsideClick(() => setIsOpen(false));
-  console.log("isOpen", isOpen);
+
+  useEffect(() => {
+    function handleWindowResize(e) {
+      const windowWidth = e.target.innerWidth;
+      if (windowWidth > 1024) {
+        setIsOpen(false);
+      }
+    }
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
 
   return (
-    <div className="flex bg-white">
+    <div className="relative flex bg-white max-w-360 mx-auto">
       {isOpen && (
-        <div className="fixed top-0 left-0 h-screen w-full bg-brand-secondary/40 backdrop-blur-xs"></div>
+        <div className="absolute inset-0 bg-brand-secondary/70 blur-xs z-50"></div>
       )}
       <div
         ref={ref}
-        className={`transition-all duration-300 ease-in-out w-68 fixed top-0 z-40 lg:static lg:block bg-white h-full lg:translate-x-0 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`transition-all duration-300 ease-in-out w-68 fixed top-0 z-100 lg:z-0 lg:static lg:block bg-white h-full lg:translate-x-0 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <Sidebar onClose={() => setIsOpen(false)}>{children}</Sidebar>
       </div>
