@@ -6,7 +6,6 @@ import {
 import { useProposalLists } from "../../../hooks/useProposal";
 import useUsers from "../hooks/useUsers";
 import Card from "../../../ui/Card";
-import { toPersianNumbers } from "../../../utils/toPersianNumber";
 import Sppiner from "../../../ui/Sppiner";
 import { useProjectLists } from "../../../hooks/useOwner";
 
@@ -21,21 +20,21 @@ function AdminDashboard() {
     <div className="space-y-10">
       <p className="text-xl font-semibold lg:text-2xl lg:font-bold">آمار کلی</p>
       {!isLoading ? (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 gap-3">
           <Card
             label="کاربران"
             IconComponent={UsersIcon}
-            data={toPersianNumbers(users?.length)}
+            data={users?.length}
           />
           <Card
             label="پروژه ها"
             IconComponent={FolderIcon}
-            data={toPersianNumbers(projects?.length)}
+            data={projects?.length}
           />
           <Card
             label="درخواست ها"
             IconComponent={ComputerDesktopIcon}
-            data={toPersianNumbers(proposals?.length)}
+            data={proposals?.length}
           />
         </div>
       ) : (
