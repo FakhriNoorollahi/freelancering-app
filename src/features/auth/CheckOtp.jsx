@@ -2,12 +2,12 @@ import AuthLayout from "./AuthLayout";
 import Button from "../../ui/Button";
 import { useEffect, useState } from "react";
 import OtpInput from "react-otp-input";
-import { PencilIcon } from "@heroicons/react/24/solid";
 import toast from "react-hot-toast";
 import { useCheckOtp } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Sppiner from "../../ui/Sppiner";
 import { timeFormat } from "../../utils/timeFormat";
+import { PencilIcon } from "@heroicons/react/24/solid";
 
 function CheckOtp({
   phoneNumber,
@@ -72,7 +72,7 @@ function CheckOtp({
             className="flex items-center gap-x-1 cursor-pointer hover:text-success"
             onClick={onBack}
           >
-            <PencilIcon className="size-3" />
+            <PencilIcon className="size-4" />
             اصلاح شماره
           </button>
         </div>

@@ -1,5 +1,9 @@
 import Table from "../../../ui/Table";
-import { EyeIcon, TrashIcon, PencilIcon } from "@heroicons/react/24/outline";
+import {
+  EyeIcon,
+  TrashIcon,
+  PencilSquareIcon,
+} from "@heroicons/react/24/outline";
 import Tag from "../../../ui/Tag";
 import { useState } from "react";
 import Modal from "../../../ui/Modal";
@@ -70,7 +74,7 @@ function OwnerProjectsItem({ project, index }) {
         )}
       </td>
       <td>
-        <div className="flex items-center justify-between gap-x-3">
+        <div className="flex items-center justify-between gap-1">
           <button
             className="cursor-pointer"
             onClick={() => setIsOpenDeleteModal((is) => !is)}
@@ -93,7 +97,7 @@ function OwnerProjectsItem({ project, index }) {
             className="cursor-pointer"
             onClick={() => setIsOpenEditeModal(true)}
           >
-            <PencilIcon className="size-5 hover:text-success" />
+            <PencilSquareIcon className="size-5 hover:text-success" />
           </button>
           <Modal
             open={isOpenEditModal}
