@@ -107,9 +107,8 @@ button {
 table {
   background-color: white;
   border-collapse: collapse;
-  width: 984px;
+  min-width: 925px;
   padding: 25px;
-  /* overflow: scroll; */
   table-layout: auto;
 }
 

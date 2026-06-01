@@ -11,7 +11,9 @@ function AdminProposalsRow({ price, duration, status, index, description }) {
   return (
     <Table.Row>
       <td>{index}</td>
-      <td className="w-max-60">{truncateText(description, 60)}</td>
+      <td className="w-max-60">
+        <p title={description}>{truncateText(description, 60)}</p>
+      </td>
       <td>{toPersianNumbers(duration)} روز</td>
       <td>{toPersianNumberWithComma(price)}</td>
       <td>

@@ -24,8 +24,12 @@ function FreelancerProjectsItem({
   return (
     <Table.Row>
       <td>{index}</td>
-      <td className="w-max-60">{truncateText(title, 30)}</td>
-      <td className="w-max-60">{truncateText(description, 60)}</td>
+      <td className="w-max-60">
+        <p title={title}>{truncateText(title, 30)}</p>
+      </td>
+      <td className="w-max-60">
+        <p title={description}>{truncateText(description, 60)}</p>
+      </td>
       <td>{category.title}</td>
       <td>{toPersianNumberWithComma(budget)}</td>
       <td>{toLoaclDateShort(deadline)}</td>

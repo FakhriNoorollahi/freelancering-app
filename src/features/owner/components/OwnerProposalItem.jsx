@@ -18,7 +18,9 @@ function OwnerProposalItem({ proposal, index }) {
     <Table.Row>
       <td>{toPersianNumbers(index + 1)}</td>
       <td>{user.name}</td>
-      <td>{truncateText(description, 40)}</td>
+      <td>
+        <p title={description}>{truncateText(description, 40)}</p>
+      </td>
       <td>{duration}</td>
       <td>{toPersianNumberWithComma(price)}</td>
       <td>

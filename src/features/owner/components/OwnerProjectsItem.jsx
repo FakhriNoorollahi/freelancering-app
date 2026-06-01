@@ -45,7 +45,9 @@ function OwnerProjectsItem({ project, index }) {
   return (
     <Table.Row>
       <td>{toPersianNumbers(index)}</td>
-      <td className="w-max-60">{truncateText(title, 30)}</td>
+      <td className="w-max-60">
+        <p title={title}>{truncateText(title, 30)}</p>
+      </td>
       <td>{category.title}</td>
       <td>{toPersianNumberWithComma(budget)}</td>
       <td>{toLoaclDateShort(deadline)}</td>
