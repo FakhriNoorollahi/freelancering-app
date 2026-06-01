@@ -18,7 +18,7 @@ import useUpdateStatusProject from "../hooks/useUpdateStatusProject";
 import Sppiner from "../../../ui/Sppiner";
 
 function OwnerProjectsItem({ project, index }) {
-  const { title, budget, category, deadline, status, _id } = project;
+  const { title, budget, category, deadline, status, _id, tags } = project;
   const projectStatus = status === "OPEN" ? true : false;
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const [isOpenEditModal, setIsOpenEditeModal] = useState(false);
@@ -47,8 +47,13 @@ function OwnerProjectsItem({ project, index }) {
       <td>{toLoaclDateShort(deadline)}</td>
       <td>
         <div className="center-all flex-wrap gap-1 max-w-40 mx-auto">
-          <Tag classes="bg-tag">Html</Tag>
-          <Tag classes="bg-tag">Figma</Tag>
+          {tags.length
+            ? tags.map((t) => (
+                <Tag key={t} classes="bg-tag">
+                  {t}
+                </Tag>
+              ))
+            : "__"}
         </div>
       </td>
       <td>

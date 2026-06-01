@@ -8,13 +8,15 @@ import useAddProject from "../hooks/useAddProject";
 import useEditProject from "../hooks/useEditProject";
 import useGetCategory from "../../../hooks/useCategory";
 import { useState } from "react";
+import TagInput from "../../../ui/TagInput";
 
 function OwnerProjectModal({ onClose, projectToEdit = {} }) {
   const { _id: editId } = projectToEdit;
   const { transformedCategories, isCategoring } = useGetCategory();
 
   const isEditSession = Boolean(editId);
-  const { title, description, budget, category, deadline } = projectToEdit; //ADD TAGS AND DEADLIN AFTER
+  const { title, description, budget, category, deadline, tags } =
+    projectToEdit;
   let editValues = {};
   if (isEditSession) {
     editValues = {
@@ -23,10 +25,14 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
       budget,
       category: category._id,
       deadline,
+      tags,
     };
   }
 
   const [date, setDate] = useState(new Date(deadline || ""));
+  const [selectedTags, setSelectedTags] = useState(
+    tags?.map((t) => ({ id: t, text: t })) || [],
+  );
 
   const {
     register,
@@ -42,7 +48,7 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
     const newProject = {
       ...data,
       deadline: new Date(date).toISOString(),
-      tags: [],
+      tags: selectedTags.map((t) => t.text),
     };
 
     if (editId) {
@@ -125,7 +131,12 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
         }
         required
       />
-      {/* <TagsField label="کلمات کلیدی" /> */}
+      <TagInput
+        tags={selectedTags}
+        setTags={setSelectedTags}
+        label="تگ ها"
+        placeholder="نمونه : برنامه نویسی یا UI/UX"
+      />
       {(editId ? isEditting : isAdding) ? (
         <Sppiner />
       ) : (
