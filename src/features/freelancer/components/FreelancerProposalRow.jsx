@@ -7,7 +7,7 @@ import {
 } from "../../../utils/toPersianNumber";
 import truncateText from "../../../utils/truncateText";
 
-function FreelancerProposalsItem({
+function FreelancerProposalRow({
   price,
   duration,
   status,
@@ -31,4 +31,4 @@ function FreelancerProposalsItem({
   );
 }
 
-export default FreelancerProposalsItem;
+export default FreelancerProposalRow;

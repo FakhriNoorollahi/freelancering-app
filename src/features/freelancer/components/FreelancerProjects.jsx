@@ -3,7 +3,7 @@ import { useProjectLists } from "../../../hooks/useOwner";
 import ButtonSecondary from "../../../ui/ButtonSecondary";
 import Sppiner from "../../../ui/Sppiner";
 import Table from "../../../ui/Table";
-import FreelancerProjectsItem from "./FreelancerProjectsItem";
+import FreelancerProjectRow from "./FreelancerProjectRow";
 import { useState } from "react";
 import FreelancerFiltersModal from "./FreelancerFiltersModal";
 import Modal from "../../../ui/Modal";
@@ -71,7 +71,7 @@ function FreelancerProjects() {
             </Table.Header>
             <Table.Body>
               {projects.map((project, index) => (
-                <FreelancerProjectsItem
+                <FreelancerProjectRow
                   key={project._id}
                   {...project}
                   index={index + 1}

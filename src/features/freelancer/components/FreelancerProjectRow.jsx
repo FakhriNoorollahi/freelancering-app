@@ -9,7 +9,7 @@ import toLoaclDateShort from "../../../utils/toLocalDateShort";
 import Modal from "../../../ui/Modal";
 import truncateText from "../../../utils/truncateText";
 
-function FreelancerProjectsItem({
+function FreelancerProjectRow({
   title,
   budget,
   deadline,
@@ -61,4 +61,4 @@ function FreelancerProjectsItem({
   );
 }
 
-export default FreelancerProjectsItem;
+export default FreelancerProjectRow;

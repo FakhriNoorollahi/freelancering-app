@@ -1,7 +1,7 @@
 import { useProposalLists } from "../../../hooks/useProposal";
 import Sppiner from "../../../ui/Sppiner";
 import Table from "../../../ui/Table";
-import FreelancerProposalsItem from "./FreelancerProposalsItem";
+import FreelancerProposalRow from "./FreelancerProposalRow";
 
 function FreelancerProposalas() {
   const { proposals, isPending: isGettingProposals } = useProposalLists();
@@ -27,7 +27,7 @@ function FreelancerProposalas() {
             </Table.Header>
             <Table.Body>
               {proposals.map((project, index) => (
-                <FreelancerProposalsItem
+                <FreelancerProposalRow
                   key={project._id}
                   {...project}
                   index={index + 1}
