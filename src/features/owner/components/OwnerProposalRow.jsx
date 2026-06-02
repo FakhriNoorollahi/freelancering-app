@@ -3,7 +3,7 @@ import { useState } from "react";
 import Table from "../../../ui/Table";
 import Modal from "../../../ui/Modal";
 import Tag from "../../../ui/Tag";
-import OwnerStatusChangeProposalModal from "./OwnerStatusChangeProposalModal";
+import OwnerProposalStateChangeModal from "./OwnerProposalStateChangeModal";
 import proposalStatusData from "../../../constants/proposalStatusData";
 import truncateText from "../../../utils/truncateText";
 import {
@@ -11,7 +11,7 @@ import {
   toPersianNumberWithComma,
 } from "../../../utils/toPersianNumber";
 
-function OwnerProposalItem({ proposal, index }) {
+function OwnerProposalRow({ proposal, index }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const { user, status, price, duration, description } = proposal;
   return (
@@ -40,7 +40,7 @@ function OwnerProposalItem({ proposal, index }) {
           onClose={() => setIsOpenModal(false)}
           title="تغییر وضعیت پروپوزال"
         >
-          <OwnerStatusChangeProposalModal
+          <OwnerProposalStateChangeModal
             onClose={() => setIsOpenModal(false)}
             proposalId={proposal._id}
           />
@@ -50,4 +50,4 @@ function OwnerProposalItem({ proposal, index }) {
   );
 }
 
-export default OwnerProposalItem;
+export default OwnerProposalRow;

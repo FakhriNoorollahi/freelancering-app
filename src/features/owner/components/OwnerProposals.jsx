@@ -1,14 +1,14 @@
 import Table from "../../../ui/Table";
 import Sppiner from "../../../ui/Sppiner";
 import { useProject } from "../hooks/useProject";
-import OwnerProposalItem from "./OwnerProposalItem";
+import OwnerProposalRow from "./OwnerProposalRow";
 import ButtonIcon from "../../../ui/ButtonIcon";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import useMoveBack from "../../../hooks/useMoveBack";
 import Empty from "../../../ui/Empty";
 import { Navigate } from "react-router-dom";
 
-function OwnerProject() {
+function OwnerProposals() {
   const { project, isProjecting } = useProject();
   const moveBack = useMoveBack();
 
@@ -42,7 +42,7 @@ function OwnerProject() {
           </Table.Header>
           <Table.Body>
             {project.proposals.map((proposal, index) => (
-              <OwnerProposalItem
+              <OwnerProposalRow
                 key={proposal._id}
                 proposal={proposal}
                 index={index}
@@ -58,4 +58,4 @@ function OwnerProject() {
     </div>
   );
 }
-export default OwnerProject;
+export default OwnerProposals;

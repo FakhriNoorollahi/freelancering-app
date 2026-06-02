@@ -7,7 +7,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import proposalStatusData from "../../../constants/proposalStatusData";
 
-function OwnerStatusChangeProposalModal({ proposalId, onClose }) {
+function OwnerProposalStateChangeModal({ proposalId, onClose }) {
   const { id: projectId } = useParams();
   const {
     register,
@@ -50,4 +50,4 @@ function OwnerStatusChangeProposalModal({ proposalId, onClose }) {
   );
 }
 
-export default OwnerStatusChangeProposalModal;
+export default OwnerProposalStateChangeModal;

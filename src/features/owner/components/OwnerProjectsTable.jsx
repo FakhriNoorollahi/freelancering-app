@@ -4,7 +4,7 @@ import Table from "../../../ui/Table";
 import Sppiner from "../../../ui/Sppiner";
 import { useState } from "react";
 import OwnerProjectModal from "./OwnerProjectModal";
-import OwnerProjectsItem from "./OwnerProjectsItem";
+import OwnerProjectRow from "./OwnerProjectRow";
 import { useOwnerProjects } from "../../../hooks/useOwnerProjects";
 import Modal from "../../../ui/Modal";
 import Empty from "../../../ui/Empty";
@@ -49,7 +49,7 @@ function OwnerProjectsTable() {
           </Table.Header>
           <Table.Body>
             {allProjects.map((project, index) => (
-              <OwnerProjectsItem
+              <OwnerProjectRow
                 key={project._id}
                 project={project}
                 index={index + 1}

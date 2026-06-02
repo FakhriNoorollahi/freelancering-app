@@ -5,7 +5,7 @@ import CompleteProfilePage from "./pages/auth/CompleteProfilePage";
 import OwnerLayoutPage from "./pages/owner/OwnerLayoutPage";
 import OwnerProjectsPage from "./pages/owner/OwnerProjectsPage";
 import OwnerDashboardPage from "./pages/owner/OwnerDashboardPage";
-import OwnerProjectPage from "./pages/owner/OwnerProjectPage";
+import OwnerProposalsPage from "./pages/owner/OwnerProposalsPage";
 import FreelancerPageLayout from "./pages/freelancer/FreelancerLayoutPage";
 import FreelancerDashboardPage from "./pages/freelancer/FreelancerDashboardPage";
 import FreelancerProposalsPage from "./pages/freelancer/FreelancerProposalsPage";
@@ -27,7 +27,7 @@ function App() {
           <Route index element={<Navigate to="dashboard" />} />
           <Route path="dashboard" element={<OwnerDashboardPage />} />
           <Route path="projects" element={<OwnerProjectsPage />} />
-          <Route path="projects/:id" element={<OwnerProjectPage />} />
+          <Route path="projects/:id" element={<OwnerProposalsPage />} />
         </Route>
         <Route path="/freelancer" element={<FreelancerPageLayout />}>
           <Route index element={<Navigate to="dashboard" />} />

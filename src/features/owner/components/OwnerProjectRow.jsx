@@ -21,7 +21,7 @@ import {
 import useUpdateStatusProject from "../hooks/useUpdateStatusProject";
 import Sppiner from "../../../ui/Sppiner";
 
-function OwnerProjectsItem({ project, index }) {
+function OwnerProjectRow({ project, index }) {
   const { title, budget, category, deadline, status, _id, tags } = project;
   const projectStatus = status === "OPEN" ? true : false;
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
@@ -122,4 +122,4 @@ function OwnerProjectsItem({ project, index }) {
   );
 }
 
-export default OwnerProjectsItem;
+export default OwnerProjectRow;
