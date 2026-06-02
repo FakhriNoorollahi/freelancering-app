@@ -1,12 +1,12 @@
 import AppLayout from "../../../ui/AppLayout";
 import NavLinkItem from "../../../ui/NavLink";
-import ownerSidebarData from "../constants/ownerSidebarData";
+import OWNER_SIDEBAR_DATA from "../constants/ownerSidebarData";
 
 function OwnerLayout() {
   return (
     <AppLayout>
       <ul className="px-4 space-y-8">
-        {ownerSidebarData.map((item) => {
+        {OWNER_SIDEBAR_DATA.map((item) => {
           const IconComponent = item.icon;
           return (
             <li key={item.id}>

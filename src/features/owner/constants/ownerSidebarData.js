@@ -1,6 +1,6 @@
 import { FolderIcon, HomeIcon } from "@heroicons/react/24/solid";
 
-const ownerSidebarData = [
+const OWNER_SIDEBAR_DATA = [
   {
     id: 1,
     label: "داشبورد",
@@ -15,4 +15,4 @@ const ownerSidebarData = [
   },
 ];
 
-export default ownerSidebarData;
+export default OWNER_SIDEBAR_DATA;
