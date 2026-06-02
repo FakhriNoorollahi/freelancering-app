@@ -1,4 +1,4 @@
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/proposalStatusData";
+import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
 import Table from "../../../ui/Table";
 import Tag from "../../../ui/Tag";
 import {

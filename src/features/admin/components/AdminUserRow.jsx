@@ -6,7 +6,7 @@ import { toPersianNumbers } from "../../../utils/toPersianNumber";
 import Modal from "../../../ui/Modal";
 import { useState } from "react";
 import AdminChangeUserStatusModal from "./AdminChangeUserStatusModal";
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/proposalStatusData";
+import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
 
 function AdminUserRow({ name, email, phoneNumber, role, status, index, _id }) {
   const [isOpenModal, setIsOpenModal] = useState(false);

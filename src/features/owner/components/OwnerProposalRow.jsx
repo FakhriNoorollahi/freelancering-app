@@ -9,7 +9,7 @@ import {
   toPersianNumbers,
   toPersianNumberWithComma,
 } from "../../../utils/toPersianNumber";
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/proposalStatusData";
+import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
 
 function OwnerProposalRow({ proposal, index }) {
   const [isOpenModal, setIsOpenModal] = useState(false);

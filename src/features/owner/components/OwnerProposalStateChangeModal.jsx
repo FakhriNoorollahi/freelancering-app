@@ -5,7 +5,7 @@ import { useChangeProposalStatus } from "../../../hooks/useProposal";
 import Sppiner from "../../../ui/Sppiner";
 import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/proposalStatusData";
+import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
 
 function OwnerProposalStateChangeModal({ proposalId, onClose }) {
   const { id: projectId } = useParams();

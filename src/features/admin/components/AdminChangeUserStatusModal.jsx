@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import Select from "../../../ui/Select";
-import USER_STATUS from "../constants/usersStatusData";
 import Sppiner from "../../../ui/Sppiner";
 import Button from "../../../ui/Button";
 import useChangeUserStatus from "../hooks/useChangeUserStatus";
+import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
 
 function AdminChangeUserStatusModal({ userId, onClose }) {
   const {
@@ -34,7 +34,7 @@ function AdminChangeUserStatusModal({ userId, onClose }) {
         label="تغییر وضعیت"
         register={register}
         name="status"
-        options={USER_STATUS}
+        options={USER_PROPOSAL_STATUS_DATA}
         required
         validationSchema={{
           required: "یکی از گزینه ها را انتخاب کنید",
