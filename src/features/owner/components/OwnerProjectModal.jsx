@@ -1,14 +1,14 @@
-import TextField from "../../../ui/TextField";
-import Select from "../../../ui/Select";
-import DatePickerField from "../../../ui/DatePickerField";
-import Button from "../../../ui/Button";
-import Sppiner from "../../../ui/Sppiner";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import useGetCategory from "@/hooks/useCategory";
 import useAddProject from "../hooks/useAddProject";
 import useEditProject from "../hooks/useEditProject";
-import useGetCategory from "../../../hooks/useCategory";
-import { useState } from "react";
-import TagInput from "../../../ui/TagInput";
+import TextField from "@/ui/TextField";
+import DatePickerField from "@/ui/DatePickerField";
+import Select from "@/ui/Select";
+import TagInput from "@/ui/TagInput";
+import Sppiner from "@/ui/Sppiner";
+import Button from "@/ui/Button";
 
 function OwnerProjectModal({ onClose, projectToEdit = {} }) {
   const { _id: editId } = projectToEdit;

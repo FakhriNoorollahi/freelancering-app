@@ -1,6 +1,6 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { userChangeUserStatusApi } from "../../../services/authService";
 import toast from "react-hot-toast";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { userChangeUserStatusApi } from "@/services/authService";
 
 function useChangeUserStatus() {
   const queryClient = useQueryClient();

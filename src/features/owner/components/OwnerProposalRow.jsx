@@ -1,15 +1,15 @@
-import { CogIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import Table from "../../../ui/Table";
-import Modal from "../../../ui/Modal";
-import Tag from "../../../ui/Tag";
+import { CogIcon } from "@heroicons/react/24/outline";
 import OwnerProposalStateChangeModal from "./OwnerProposalStateChangeModal";
-import truncateText from "../../../utils/truncateText";
 import {
   toPersianNumbers,
   toPersianNumberWithComma,
-} from "../../../utils/toPersianNumber";
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
+} from "@/utils/toPersianNumber";
+import truncateText from "@/utils/truncateText";
+import USER_PROPOSAL_STATUS_DATA from "@/constants/userProposalStatusData";
+import Table from "@/ui/Table";
+import Modal from "@/ui/Modal";
+import Tag from "@/ui/Tag";
 
 function OwnerProposalRow({ proposal, index }) {
   const [isOpenModal, setIsOpenModal] = useState(false);

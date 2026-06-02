@@ -1,12 +1,12 @@
-import Table from "../../../ui/Table";
-import Sppiner from "../../../ui/Sppiner";
+import { Navigate } from "react-router-dom";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { useProject } from "../hooks/useProject";
 import OwnerProposalRow from "./OwnerProposalRow";
-import ButtonIcon from "../../../ui/ButtonIcon";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import useMoveBack from "../../../hooks/useMoveBack";
-import Empty from "../../../ui/Empty";
-import { Navigate } from "react-router-dom";
+import useMoveBack from "@/hooks/useMoveBack";
+import ButtonIcon from "@/ui/ButtonIcon";
+import Table from "@/ui/Table";
+import Empty from "@/ui/Empty";
+import Sppiner from "@/ui/Sppiner";
 
 function OwnerProposals() {
   const { project, isProjecting } = useProject();

@@ -1,13 +1,13 @@
-import { BarsArrowDownIcon } from "@heroicons/react/24/outline";
-import { useProjectLists } from "../../../hooks/useOwner";
-import ButtonSecondary from "../../../ui/ButtonSecondary";
-import Sppiner from "../../../ui/Sppiner";
-import Table from "../../../ui/Table";
 import { useState } from "react";
-import Modal from "../../../ui/Modal";
 import { useSearchParams } from "react-router-dom";
+import { BarsArrowDownIcon } from "@heroicons/react/24/outline";
 import AdminProjectRow from "./AdminProjectRow";
 import AdminFiltersModal from "./AdminFiltersModal";
+import { useProjectLists } from "@/hooks/useOwner";
+import ButtonSecondary from "@/ui/ButtonSecondary";
+import Modal from "@/ui/Modal";
+import Sppiner from "@/ui/Sppiner";
+import Table from "@/ui/Table";
 
 function AdminProjects() {
   const [searchParams, setSearchParams] = useSearchParams();

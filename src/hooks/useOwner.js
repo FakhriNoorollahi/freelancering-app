@@ -1,8 +1,5 @@
+import { getListProject, getOwnerProjectsApi } from "@/services/projectService";
 import { useQuery } from "@tanstack/react-query";
-import {
-  getListProject,
-  getOwnerProjectsApi,
-} from "../services/projectService";
 import { useLocation } from "react-router-dom";
 
 export function useOwnerProjects() {

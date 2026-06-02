@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Signin from "./Signin";
-import CheckOtp from "./CheckOtp";
-import { useGetOtp } from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import Signin from "./Signin";
+import CheckOtp from "./CheckOtp";
+import { useGetOtp } from "@/hooks/useAuth";
 
 function Auth() {
   const [step, setStep] = useState(1);

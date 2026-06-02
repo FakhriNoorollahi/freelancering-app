@@ -1,7 +1,7 @@
-import Sppiner from "../../../ui/Sppiner";
-import Table from "../../../ui/Table";
+import Sppiner from "@/ui/Sppiner";
 import useUsers from "../hooks/useUsers";
 import AdminUserRow from "./AdminUserRow";
+import Table from "@/ui/Table";
 
 function AdminUsers() {
   const { isUsering, users } = useUsers();

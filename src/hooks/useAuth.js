@@ -5,7 +5,7 @@ import {
   getOtp,
   logout,
   profile,
-} from "../services/authService";
+} from "@/services/authService";
 
 export function useGetOtp() {
   const { data, mutateAsync, isPending } = useMutation({

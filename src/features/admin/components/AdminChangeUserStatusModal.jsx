@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import Select from "../../../ui/Select";
-import Sppiner from "../../../ui/Sppiner";
-import Button from "../../../ui/Button";
 import useChangeUserStatus from "../hooks/useChangeUserStatus";
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
+import Select from "@/ui/Select";
+import USER_PROPOSAL_STATUS_DATA from "@/constants/userProposalStatusData";
+import Sppiner from "@/ui/Sppiner";
+import Button from "@/ui/Button";
 
 function AdminChangeUserStatusModal({ userId, onClose }) {
   const {

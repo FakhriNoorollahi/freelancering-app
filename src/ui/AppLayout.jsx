@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
 import { useEffect, useState } from "react";
-import useOutsideClick from "../hooks/useOutsideClick";
+import useOutsideClick from "@/hooks/useOutsideClick";
+import Sidebar from "./Sidebar";
+import Header from "./header";
 
 function AppLayout({ children }) {
   const [isOpen, setIsOpen] = useState(false);

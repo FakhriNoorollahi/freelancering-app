@@ -1,20 +1,20 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import AuthPage from "../pages/auth/AuthPage";
-import CompleteProfilePage from "../pages/auth/CompleteProfilePage";
-import OwnerLayoutPage from "../pages/owner/OwnerLayoutPage";
-import OwnerDashboardPage from "../pages/owner/OwnerDashboardPage";
-import OwnerProjectsPage from "../pages/owner/OwnerProjectsPage";
-import OwnerProposalsPage from "../pages/owner/OwnerProposalsPage";
-import FreelancerDashboardPage from "../pages/freelancer/FreelancerDashboardPage";
-import FreelancerProjectsPage from "../pages/freelancer/FreelancerProjectsPage";
-import FreelancerProposalsPage from "../pages/freelancer/FreelancerProposalsPage";
-import AdminLayoutPage from "../pages/admin/AdminLayoutPage";
-import AdminDashboardPage from "../pages/admin/AdminDashboardPage";
-import AdminProjectsPage from "../pages/admin/AdminProjectsPage";
-import AdminProposalsPage from "../pages/admin/AdminProposalsPage";
-import AdminUsersPage from "../pages/admin/AdminUsersPage";
-import NotFoundPage from "../pages/NotFoundPage";
-import FreelancerLayoutPage from "../pages/freelancer/FreelancerLayoutPage";
+import AuthPage from "@/pages/auth/AuthPage";
+import CompleteProfilePage from "@/pages/auth/CompleteProfilePage";
+import FreelancerDashboardPage from "@/pages/freelancer/FreelancerDashboardPage";
+import FreelancerLayoutPage from "@/pages/freelancer/FreelancerLayoutPage";
+import FreelancerProjectsPage from "@/pages/freelancer/FreelancerProjectsPage";
+import FreelancerProposalsPage from "@/pages/freelancer/FreelancerProposalsPage";
+import OwnerDashboardPage from "@/pages/owner/OwnerDashboardPage";
+import OwnerLayoutPage from "@/pages/owner/OwnerLayoutPage";
+import OwnerProjectsPage from "@/pages/owner/OwnerProjectsPage";
+import OwnerProposalsPage from "@/pages/owner/OwnerProposalsPage";
+import AdminDashboardPage from "@/pages/admin/AdminDashboardPage";
+import AdminLayoutPage from "@/pages/admin/AdminLayoutPage";
+import AdminProjectsPage from "@/pages/admin/AdminProjectsPage";
+import AdminProposalsPage from "@/pages/admin/AdminProposalsPage";
+import AdminUsersPage from "@/pages/admin/AdminUsersPage";
+import NotFoundPage from "@/pages/NotFoundPage";
 
 function Router() {
   return (

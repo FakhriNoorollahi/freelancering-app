@@ -2,10 +2,10 @@ import {
   AdjustmentsHorizontalIcon,
   ArrowLeftEndOnRectangleIcon,
 } from "@heroicons/react/24/solid";
-import { useLogout, useProfile } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import ButtonIcon from "./ButtonIcon";
-import USER_ROLES from "../constants/userRolesData";
+import { useLogout, useProfile } from "@/hooks/useAuth";
+import USER_ROLES from "@/constants/userRolesData";
 
 function Header({ onOpen }) {
   const { user, isPending: isProfiling } = useProfile();

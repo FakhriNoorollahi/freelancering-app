@@ -3,11 +3,11 @@ import {
   FolderIcon,
   UsersIcon,
 } from "@heroicons/react/16/solid";
-import { useProposalLists } from "../../../hooks/useProposal";
 import useUsers from "../hooks/useUsers";
-import Card from "../../../ui/Card";
-import Sppiner from "../../../ui/Sppiner";
-import { useProjectLists } from "../../../hooks/useOwner";
+import { useProjectLists } from "@/hooks/useOwner";
+import { useProposalLists } from "@/hooks/useProposal";
+import Card from "@/ui/Card";
+import Sppiner from "@/ui/Sppiner";
 
 function AdminDashboard() {
   const { projects, isPending: isProjecting } = useProjectLists();

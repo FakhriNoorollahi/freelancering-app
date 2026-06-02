@@ -1,12 +1,12 @@
-import { CogIcon } from "@heroicons/react/24/outline";
-import USER_ROLES from "../../../constants/userRolesData";
-import Table from "../../../ui/Table";
-import Tag from "../../../ui/Tag";
-import { toPersianNumbers } from "../../../utils/toPersianNumber";
-import Modal from "../../../ui/Modal";
 import { useState } from "react";
+import { CogIcon } from "@heroicons/react/24/outline";
 import AdminChangeUserStatusModal from "./AdminChangeUserStatusModal";
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
+import Table from "@/ui/Table";
+import { toPersianNumbers } from "@/utils/toPersianNumber";
+import USER_ROLES from "@/constants/userRolesData";
+import Tag from "@/ui/Tag";
+import USER_PROPOSAL_STATUS_DATA from "@/constants/userProposalStatusData";
+import Modal from "@/ui/Modal";
 
 function AdminUserRow({ name, email, phoneNumber, role, status, index, _id }) {
   const [isOpenModal, setIsOpenModal] = useState(false);

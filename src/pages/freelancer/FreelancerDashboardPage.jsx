@@ -1,5 +1,4 @@
-import FreelancerDashboard from "../../features/freelancer/components/FreelancerDashboard";
-
+import FreelancerDashboard from "@/features/freelancer/components/FreelancerDashboard";
 
 function FreelancerDashboardPage() {
   return <FreelancerDashboard />;

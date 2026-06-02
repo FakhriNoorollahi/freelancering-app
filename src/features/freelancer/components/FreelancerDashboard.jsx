@@ -3,10 +3,10 @@ import {
   CurrencyDollarIcon,
   DocumentIcon,
 } from "@heroicons/react/24/solid";
-import { useProposalLists } from "../../../hooks/useProposal";
-import Card from "../../../ui/Card";
-import Sppiner from "../../../ui/Sppiner";
-import { toPersianNumberWithComma } from "../../../utils/toPersianNumber";
+import { useProposalLists } from "@/hooks/useProposal";
+import Card from "@/ui/Card";
+import Sppiner from "@/ui/Sppiner";
+import { toPersianNumberWithComma } from "@/utils/toPersianNumber";
 
 function FreelancerDashboard() {
   const { isProposaling, proposals } = useProposalLists();

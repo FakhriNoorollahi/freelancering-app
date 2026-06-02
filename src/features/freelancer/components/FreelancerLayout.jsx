@@ -1,6 +1,6 @@
-import AppLayout from "../../../ui/AppLayout";
-import NavLinkItem from "../../../ui/NavLink";
+import AppLayout from "@/ui/AppLayout";
 import FREELANSER_SIDEBAR_DATA from "../constants/freelancerSidebarData";
+import NavLinkItem from "@/ui/NavLink";
 
 function FreelancerLayout() {
   return (

@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateStatusProjectApi } from "../../../services/projectService";
 import toast from "react-hot-toast";
+import { updateStatusProjectApi } from "@/services/projectService";
 
 export default function useUpdateStatusProject() {
   const queryClient = useQueryClient();

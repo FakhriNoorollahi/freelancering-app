@@ -1,4 +1,4 @@
-import NotFound from "../ui/NotFound";
+import NotFound from "@/ui/NotFound";
 
 function NotFoundPage() {
   return <NotFound />;

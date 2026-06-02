@@ -1,11 +1,11 @@
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
-import Table from "../../../ui/Table";
-import Tag from "../../../ui/Tag";
+import USER_PROPOSAL_STATUS_DATA from "@/constants/userProposalStatusData";
+import Table from "@/ui/Table";
+import Tag from "@/ui/Tag";
 import {
   toPersianNumbers,
   toPersianNumberWithComma,
-} from "../../../utils/toPersianNumber";
-import truncateText from "../../../utils/truncateText";
+} from "@/utils/toPersianNumber";
+import truncateText from "@/utils/truncateText";
 
 function AdminProposalsRow({ price, duration, status, index, description }) {
   return (

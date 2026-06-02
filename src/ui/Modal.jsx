@@ -1,5 +1,5 @@
+import useOutsideClick from "@/hooks/useOutsideClick";
 import { XCircleIcon } from "@heroicons/react/24/outline";
-import useOutsideClick from "../hooks/useOutsideClick";
 
 function Modal({ open, children, title, onClose }) {
   const ref = useOutsideClick(onClose);

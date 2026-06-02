@@ -1,13 +1,13 @@
-import { BarsArrowDownIcon } from "@heroicons/react/24/outline";
-import { useProjectLists } from "../../../hooks/useOwner";
-import ButtonSecondary from "../../../ui/ButtonSecondary";
-import Sppiner from "../../../ui/Sppiner";
-import Table from "../../../ui/Table";
-import FreelancerProjectRow from "./FreelancerProjectRow";
 import { useState } from "react";
-import FreelancerFiltersModal from "./FreelancerFiltersModal";
-import Modal from "../../../ui/Modal";
 import { useSearchParams } from "react-router-dom";
+import { BarsArrowDownIcon } from "@heroicons/react/24/outline";
+import FreelancerFiltersModal from "./FreelancerFiltersModal";
+import FreelancerProjectRow from "./FreelancerProjectRow";
+import { useProjectLists } from "@/hooks/useOwner";
+import ButtonSecondary from "@/ui/ButtonSecondary";
+import Modal from "@/ui/Modal";
+import Sppiner from "@/ui/Sppiner";
+import Table from "@/ui/Table";
 
 function FreelancerProjects() {
   const [searchParams, setSearchParams] = useSearchParams();

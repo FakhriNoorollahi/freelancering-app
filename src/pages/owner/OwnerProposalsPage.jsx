@@ -1,4 +1,4 @@
-import OwnerProposals from "../../features/owner/components/OwnerProposals";
+import OwnerProposals from "@/features/owner/components/OwnerProposals";
 
 function OwnerProposalsPage() {
   return <OwnerProposals />;

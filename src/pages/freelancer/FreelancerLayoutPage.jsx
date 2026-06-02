@@ -1,4 +1,4 @@
-import FreelancerLayout from "../../features/freelancer/components/FreelancerLayout";
+import FreelancerLayout from "@/features/freelancer/components/FreelancerLayout";
 
 function FreelancerLayoutPage() {
   return <FreelancerLayout />;

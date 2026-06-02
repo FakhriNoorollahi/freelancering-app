@@ -1,4 +1,4 @@
-import CompleteProfile from "../../features/auth/CompleteProfile";
+import CompleteProfile from "@/features/auth/components/CompleteProfile";
 
 function CompleteProfilePage() {
   return <CompleteProfile />;

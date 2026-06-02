@@ -1,4 +1,4 @@
-import FreelancerProjects from "../../features/freelancer/components/FreelancerProjects";
+import FreelancerProjects from "@/features/freelancer/components/FreelancerProjects";
 
 function FreelancerProjectsPage() {
   return <FreelancerProjects />;

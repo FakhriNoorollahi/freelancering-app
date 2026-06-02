@@ -1,4 +1,4 @@
-import { toPersianNumbers } from "../utils/toPersianNumber";
+import { toPersianNumbers } from "@/utils/toPersianNumber";
 
 function Card({ IconComponent, label, data, cardClasses }) {
   return (

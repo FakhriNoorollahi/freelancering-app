@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import Select from "../../../ui/Select";
-import Button from "../../../ui/Button";
-import { useChangeProposalStatus } from "../../../hooks/useProposal";
-import Sppiner from "../../../ui/Sppiner";
-import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import USER_PROPOSAL_STATUS_DATA from "../../../constants/userProposalStatusData";
+import { useQueryClient } from "@tanstack/react-query";
+import { useChangeProposalStatus } from "@/hooks/useProposal";
+import Select from "@/ui/Select";
+import USER_PROPOSAL_STATUS_DATA from "@/constants/userProposalStatusData";
+import Button from "@/ui/Button";
+import Sppiner from "@/ui/Sppiner";
 
 function OwnerProposalStateChangeModal({ proposalId, onClose }) {
   const { id: projectId } = useParams();

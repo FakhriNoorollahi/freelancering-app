@@ -1,4 +1,4 @@
-import AdminProjects from "../../features/admin/components/AdminProjects";
+import AdminProjects from "@/features/admin/components/AdminProjects";
 
 function AdminProjectsPage() {
   return <AdminProjects />;

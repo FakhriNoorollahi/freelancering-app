@@ -1,25 +1,25 @@
-import Table from "../../../ui/Table";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   EyeIcon,
   TrashIcon,
   PencilSquareIcon,
 } from "@heroicons/react/24/outline";
-import Tag from "../../../ui/Tag";
-import { useState } from "react";
-import Modal from "../../../ui/Modal";
-import DeleteModal from "../../../ui/DeleteModal";
-import { Link } from "react-router-dom";
-import ToggleButton from "../../../ui/ToggleButton";
 import { useDeleteProject } from "../hooks/useDeleteProject";
-import OwnerProjectModal from "./OwnerProjectModal";
-import toLoaclDateShort from "../../../utils/toLocalDateShort";
-import truncateText from "../../../utils/truncateText";
+import useUpdateStatusProject from "../hooks/useUpdateStatusProject";
 import {
   toPersianNumbers,
   toPersianNumberWithComma,
-} from "../../../utils/toPersianNumber";
-import useUpdateStatusProject from "../hooks/useUpdateStatusProject";
-import Sppiner from "../../../ui/Sppiner";
+} from "@/utils/toPersianNumber";
+import truncateText from "@/utils/truncateText";
+import toLoaclDateShort from "@/utils/toLocalDateShort";
+import Modal from "@/ui/Modal";
+import OwnerProjectModal from "./OwnerProjectModal";
+import DeleteModal from "@/ui/DeleteModal";
+import Sppiner from "@/ui/Sppiner";
+import ToggleButton from "@/ui/ToggleButton";
+import Table from "@/ui/Table";
+import Tag from "@/ui/Tag";
 
 function OwnerProjectRow({ project, index }) {
   const { title, budget, category, deadline, status, _id, tags } = project;

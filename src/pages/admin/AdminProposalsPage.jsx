@@ -1,4 +1,4 @@
-import AdminProposals from "../../features/admin/components/AdminProposals";
+import AdminProposals from "@/features/admin/components/AdminProposals";
 
 function AdminProposalsPage() {
   return <AdminProposals />;

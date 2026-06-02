@@ -1,12 +1,12 @@
-import TextField from "../../ui/TextField";
-import Button from "../../ui/Button";
-import AuthLayout from "./AuthLayout";
-import { useCompleteProfile } from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import Sppiner from "../../ui/Sppiner";
 import { useForm } from "react-hook-form";
-import RadioInputGroup from "../../ui/RadioInputGroup";
+import { useCompleteProfile } from "@/hooks/useAuth";
+import TextField from "@/ui/TextField";
+import RadioInputGroup from "@/ui/RadioInputGroup";
+import Sppiner from "@/ui/Sppiner";
+import Button from "@/ui/Button";
+import AuthLayout from "./AuthLayout";
 
 function CompleteProfile() {
   const {

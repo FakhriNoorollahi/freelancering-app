@@ -1,9 +1,9 @@
-import Table from "../../../ui/Table";
-import Tag from "../../../ui/Tag";
-import { toPersianNumberWithComma } from "../../../utils/toPersianNumber";
-import toLoaclDateShort from "../../../utils/toLocalDateShort";
-import truncateText from "../../../utils/truncateText";
-import PROJECT_STATUS_DATA from "../../../constants/projectStatusData";
+import PROJECT_STATUS_DATA from "@/constants/projectStatusData";
+import Table from "@/ui/Table";
+import Tag from "@/ui/Tag";
+import toLoaclDateShort from "@/utils/toLocalDateShort";
+import { toPersianNumberWithComma } from "@/utils/toPersianNumber";
+import truncateText from "@/utils/truncateText";
 
 function AdminProjectRow({
   title,

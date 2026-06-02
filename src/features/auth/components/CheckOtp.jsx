@@ -1,13 +1,13 @@
-import AuthLayout from "./AuthLayout";
-import Button from "../../ui/Button";
 import { useEffect, useState } from "react";
 import OtpInput from "react-otp-input";
 import toast from "react-hot-toast";
-import { useCheckOtp } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import Sppiner from "../../ui/Sppiner";
-import { timeFormat } from "../../utils/timeFormat";
 import { PencilIcon } from "@heroicons/react/24/solid";
+import AuthLayout from "./AuthLayout";
+import { useCheckOtp } from "@/hooks/useAuth";
+import Sppiner from "@/ui/Sppiner";
+import Button from "@/ui/Button";
+import { timeFormat } from "@/utils/timeFormat";
 
 function CheckOtp({
   phoneNumber,

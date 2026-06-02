@@ -1,4 +1,4 @@
-import OwnerLayout from "../../features/owner/components/OwnerLayout";
+import OwnerLayout from "@/features/owner/components/OwnerLayout";
 
 function OwnerLayoutPage() {
   return <OwnerLayout />;

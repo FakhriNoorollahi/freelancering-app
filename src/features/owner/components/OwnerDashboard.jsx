@@ -3,9 +3,9 @@ import {
   ComputerDesktopIcon,
   FolderIcon,
 } from "@heroicons/react/24/outline";
-import Card from "../../../ui/Card";
-import { useOwnerProjects } from "../../../hooks/useOwnerProjects";
-import Sppiner from "../../../ui/Sppiner";
+import { useOwnerProjects } from "@/hooks/useOwner";
+import Card from "@/ui/Card";
+import Sppiner from "@/ui/Sppiner";
 
 function OwnerDashboard() {
   const { allProjects, isPending } = useOwnerProjects();

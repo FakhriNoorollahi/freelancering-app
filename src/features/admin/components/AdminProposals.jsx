@@ -1,7 +1,7 @@
-import { useProposalLists } from "../../../hooks/useProposal";
-import Sppiner from "../../../ui/Sppiner";
-import Table from "../../../ui/Table";
+import { useProposalLists } from "@/hooks/useProposal";
 import AdminProposalsRow from "./AdminProposalsRow";
+import Sppiner from "@/ui/Sppiner";
+import Table from "@/ui/Table";
 
 function AdminProposals() {
   const { proposals, isPending: isGettingProposals } = useProposalLists();

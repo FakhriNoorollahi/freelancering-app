@@ -1,5 +1,5 @@
-import AppLayout from "../../../ui/AppLayout";
-import NavLinkItem from "../../../ui/NavLink";
+import AppLayout from "@/ui/AppLayout";
+import NavLinkItem from "@/ui/NavLink";
 import OWNER_SIDEBAR_DATA from "../constants/ownerSidebarData";
 
 function OwnerLayout() {

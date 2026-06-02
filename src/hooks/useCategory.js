@@ -1,5 +1,5 @@
+import { getCategoryListApi } from "@/services/categoryService";
 import { useQuery } from "@tanstack/react-query";
-import { getCategoryListApi } from "../services/categoryService";
 
 export default function useGetCategory() {
   const { data, isPending: isCategoring } = useQuery({

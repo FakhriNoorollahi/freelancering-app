@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { userListApi } from "../../../services/authService";
+import { userListApi } from "@/services/authService";
 
 function useUsers() {
   const { data, isPending: isUsering } = useQuery({

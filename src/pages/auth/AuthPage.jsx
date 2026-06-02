@@ -1,4 +1,4 @@
-import Auth from "../../features/auth/Auth";
+import Auth from "@/features/auth/components/Auth";
 
 function AuthPage() {
   return <Auth />;

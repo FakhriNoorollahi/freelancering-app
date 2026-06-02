@@ -1,13 +1,10 @@
 import { useForm } from "react-hook-form";
-import Select from "../../../ui/Select";
-import Button from "../../../ui/Button";
-import Sppiner from "../../../ui/Sppiner";
-import ButtonSecondary from "../../../ui/ButtonSecondary";
-import useGetCategory from "../../../hooks/useCategory";
-import {
-  ORDER_OPTIONS,
-  STATUS_OPTIONS,
-} from "../../../constants/filterStatusData";
+import { ORDER_OPTIONS, STATUS_OPTIONS } from "@/constants/filterStatusData";
+import useGetCategory from "@/hooks/useCategory";
+import Button from "@/ui/Button";
+import ButtonSecondary from "@/ui/ButtonSecondary";
+import Select from "@/ui/Select";
+import Sppiner from "@/ui/Sppiner";
 
 function FreelancerFiltersModal({
   onDeleteFilter,

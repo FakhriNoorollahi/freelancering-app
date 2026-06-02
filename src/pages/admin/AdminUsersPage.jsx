@@ -1,4 +1,4 @@
-import AdminUsers from "../../features/admin/components/AdminUsers";
+import AdminUsers from "@/features/admin/components/AdminUsers";
 
 function AdminUsersPage() {
   return <AdminUsers />;

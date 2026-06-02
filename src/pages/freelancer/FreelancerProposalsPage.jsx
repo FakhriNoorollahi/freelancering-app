@@ -1,4 +1,4 @@
-import FreelancerProposalas from "../../features/freelancer/components/FreelancerProposals";
+import FreelancerProposalas from "@/features/freelancer/components/FreelancerProposals";
 
 function FreelancerProposalsPage() {
   return <FreelancerProposalas />;

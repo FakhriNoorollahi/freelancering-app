@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteProjectApi } from "../../../services/projectService";
 import toast from "react-hot-toast";
+import { deleteProjectApi } from "@/services/projectService";
 
 export function useDeleteProject() {
   const queryClient = useQueryClient();

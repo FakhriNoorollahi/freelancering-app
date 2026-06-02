@@ -1,7 +1,7 @@
-import TextField from "../../ui/TextField";
-import Button from "../../ui/Button";
-import Sppiner from "../../ui/Sppiner";
+import TextField from "@/ui/TextField";
 import AuthLayout from "./AuthLayout";
+import Sppiner from "@/ui/Sppiner";
+import Button from "@/ui/Button";
 
 function Signin({
   sendOtpHandler,

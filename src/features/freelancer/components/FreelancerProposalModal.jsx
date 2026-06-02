@@ -1,8 +1,8 @@
-import TextField from "../../../ui/TextField";
-import Button from "../../../ui/Button";
-import Sppiner from "../../../ui/Sppiner";
 import { useForm } from "react-hook-form";
 import { useAddProposal } from "../hooks/useAddProposal";
+import TextField from "@/ui/TextField";
+import Sppiner from "@/ui/Sppiner";
+import Button from "@/ui/Button";
 
 function FreelancerProposalModal({ onClose, projectId }) {
   const {

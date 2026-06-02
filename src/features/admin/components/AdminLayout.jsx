@@ -1,5 +1,5 @@
-import AppLayout from "../../../ui/AppLayout";
-import NavLinkItem from "../../../ui/NavLink";
+import AppLayout from "@/ui/AppLayout";
+import NavLinkItem from "@/ui/NavLink";
 import ADMIN_SIDEBAR_DATA from "../constants/adminSidebarData";
 
 function AdminLayout() {
