@@ -5,7 +5,7 @@ import Sppiner from "../../../ui/Sppiner";
 import Button from "../../../ui/Button";
 import useChangeUserStatus from "../hooks/useChangeUserStatus";
 
-function AdminChangeUserStatus({ userId, onClose }) {
+function AdminChangeUserStatusModal({ userId, onClose }) {
   const {
     register,
     handleSubmit,
@@ -45,4 +45,4 @@ function AdminChangeUserStatus({ userId, onClose }) {
   );
 }
 
-export default AdminChangeUserStatus;
+export default AdminChangeUserStatusModal;

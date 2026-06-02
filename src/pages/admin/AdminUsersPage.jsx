@@ -1,7 +1,7 @@
-import AdminUsersTable from "../../features/admin/components/AdminUsersTable";
+import AdminUsers from "../../features/admin/components/AdminUsers";
 
 function AdminUsersPage() {
-  return <AdminUsersTable />;
+  return <AdminUsers />;
 }
 
 export default AdminUsersPage;

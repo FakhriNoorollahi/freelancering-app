@@ -1,4 +1,4 @@
-const ProjectStatusData = {
+const PROJECT_STATUS_DATA = {
   OPEN: {
     title: "باز",
     classes: "bg-success",
@@ -9,4 +9,4 @@ const ProjectStatusData = {
   },
 };
 
-export default ProjectStatusData;
+export default PROJECT_STATUS_DATA;

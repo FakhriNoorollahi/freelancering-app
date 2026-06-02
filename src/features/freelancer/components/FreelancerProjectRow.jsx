@@ -2,12 +2,12 @@ import { DocumentPlusIcon } from "@heroicons/react/24/outline";
 import Table from "../../../ui/Table";
 import FreelancerProposalModal from "./FreelancerProposalModal";
 import { useState } from "react";
-import ProjectStatusData from "../../../constants/projectStatusData";
 import Tag from "../../../ui/Tag";
 import { toPersianNumberWithComma } from "../../../utils/toPersianNumber";
 import toLoaclDateShort from "../../../utils/toLocalDateShort";
 import Modal from "../../../ui/Modal";
 import truncateText from "../../../utils/truncateText";
+import PROJECT_STATUS_DATA from "../../../constants/projectStatusData";
 
 function FreelancerProjectRow({
   title,
@@ -34,8 +34,8 @@ function FreelancerProjectRow({
       <td>{toPersianNumberWithComma(budget)}</td>
       <td>{toLoaclDateShort(deadline)}</td>
       <td>
-        <Tag classes={`mx-auto ${ProjectStatusData[status].classes}`}>
-          {ProjectStatusData[status].title}
+        <Tag classes={`mx-auto ${PROJECT_STATUS_DATA[status].classes}`}>
+          {PROJECT_STATUS_DATA[status].title}
         </Tag>
       </td>
       <td>

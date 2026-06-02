@@ -1,6 +1,6 @@
+import USER_PROPOSAL_STATUS_DATA from "../../../constants/proposalStatusData";
 import Table from "../../../ui/Table";
 import Tag from "../../../ui/Tag";
-import proposalStatusData from "../../../constants/proposalStatusData";
 import {
   toPersianNumbers,
   toPersianNumberWithComma,
@@ -23,8 +23,8 @@ function FreelancerProposalRow({
       <td>{toPersianNumbers(duration)} روز</td>
       <td>{toPersianNumberWithComma(price)}</td>
       <td>
-        <Tag classes={`mx-auto ${proposalStatusData[status].classes}`}>
-          {proposalStatusData[status].title}
+        <Tag classes={`mx-auto ${USER_PROPOSAL_STATUS_DATA[status].classes}`}>
+          {USER_PROPOSAL_STATUS_DATA[status].title}
         </Tag>
       </td>
     </Table.Row>
