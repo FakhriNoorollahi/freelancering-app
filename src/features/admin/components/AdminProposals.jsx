@@ -1,10 +1,10 @@
-import { useProposalLists } from "@/hooks/useProposal";
+import useProposalsList from "@/hooks/useProposalsList";
 import AdminProposalsRow from "./AdminProposalsRow";
 import Sppiner from "@/ui/Sppiner";
 import Table from "@/ui/Table";
 
 function AdminProposals() {
-  const { proposals, isPending: isGettingProposals } = useProposalLists();
+  const { proposals, isPending: isGettingProposals } = useProposalsList();
 
   return (
     <div className="flex flex-col gap-y-10">

@@ -1,12 +1,12 @@
-import { getOwnerProjectsApi } from "@/services/projectService";
 import { useQuery } from "@tanstack/react-query";
+import { getOwnerProjectsApi } from "@/services/projectService";
 
 export function useOwnerProjects() {
-  const { data, isPending } = useQuery({
+  const { data, isOwnerProjecting } = useQuery({
     queryKey: ["owner-projects"],
     queryFn: getOwnerProjectsApi,
   });
   const { projects: allProjects } = data || {};
 
-  return { allProjects, isPending };
+  return { allProjects, isOwnerProjecting };
 }

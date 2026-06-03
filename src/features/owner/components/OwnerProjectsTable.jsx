@@ -2,18 +2,18 @@ import { PlusIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import OwnerProjectModal from "./OwnerProjectModal";
 import OwnerProjectRow from "./OwnerProjectRow";
-import { useOwnerProjects } from "@/hooks/useOwner";
 import Sppiner from "@/ui/Sppiner";
 import Table from "@/ui/Table";
 import Modal from "@/ui/Modal";
 import Empty from "@/ui/Empty";
 import Button from "@/ui/Button";
+import { useOwnerProjects } from "../hooks/useOwnerProjects";
 
 function OwnerProjectsTable() {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const { allProjects, isPending: isAllProjecting } = useOwnerProjects();
+  const { allProjects, isOwnerProjecting } = useOwnerProjects();
 
-  if (isAllProjecting)
+  if (isOwnerProjecting)
     return (
       <div className="center-all h-full">
         <Sppiner />

@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
-import { useChangeProposalStatus } from "@/hooks/useProposal";
 import Select from "@/ui/Select";
 import USER_PROPOSAL_STATUS_DATA from "@/constants/userProposalStatusData";
 import Button from "@/ui/Button";
 import Sppiner from "@/ui/Sppiner";
+import useUpdateProposalStatus from "../hooks/useUpdateProposalStatus";
 
 function OwnerProposalStateChangeModal({ proposalId, onClose }) {
   const { id: projectId } = useParams();
@@ -16,7 +16,7 @@ function OwnerProposalStateChangeModal({ proposalId, onClose }) {
   } = useForm();
 
   const queryClient = useQueryClient();
-  const { changeProposalStatus, isUpdating } = useChangeProposalStatus();
+  const { changeProposalStatus, isUpdating } = useUpdateProposalStatus();
 
   const onSubmit = async (data) => {
     await changeProposalStatus(

@@ -1,10 +1,10 @@
-import { useProposalLists } from "@/hooks/useProposal";
 import FreelancerProposalRow from "./FreelancerProposalRow";
 import Table from "@/ui/Table";
 import Sppiner from "@/ui/Sppiner";
+import useProposalsList from "@/hooks/useProposalsList";
 
 function FreelancerProposalas() {
-  const { proposals, isPending: isGettingProposals } = useProposalLists();
+  const { proposals, isPending: isGettingProposals } = useProposalsList();
 
   return (
     <div className="flex flex-col gap-y-10">

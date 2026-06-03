@@ -4,17 +4,17 @@ import {
   UsersIcon,
 } from "@heroicons/react/16/solid";
 import useUsers from "../hooks/useUsers";
-import { useProjectLists } from "@/hooks/useOwner";
-import { useProposalLists } from "@/hooks/useProposal";
 import Card from "@/ui/Card";
 import Sppiner from "@/ui/Sppiner";
+import { useProjectsList } from "@/hooks/useProjectsList";
+import useProposalsList from "@/hooks/useProposalsList";
 
 function AdminDashboard() {
-  const { projects, isPending: isProjecting } = useProjectLists();
-  const { isProposaling, proposals } = useProposalLists();
+  const { projects, isProjectingList } = useProjectsList();
+  const { isProposaling, proposals } = useProposalsList();
   const { users, isUsering } = useUsers();
 
-  const isLoading = isProjecting || isProposaling || isUsering;
+  const isLoading = isProjectingList || isProposaling || isUsering;
 
   return (
     <div className="space-y-10">

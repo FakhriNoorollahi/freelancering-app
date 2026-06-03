@@ -3,12 +3,12 @@ import {
   ComputerDesktopIcon,
   FolderIcon,
 } from "@heroicons/react/24/outline";
-import { useOwnerProjects } from "@/hooks/useOwner";
 import Card from "@/ui/Card";
 import Sppiner from "@/ui/Sppiner";
+import { useOwnerProjects } from "../hooks/useOwnerProjects";
 
 function OwnerDashboard() {
-  const { allProjects, isPending } = useOwnerProjects();
+  const { allProjects, isOwnerProjecting } = useOwnerProjects();
   const completedProjects = allProjects?.reduce(
     (acc, cur) => acc + !!cur.freelancer,
     0,
@@ -22,7 +22,7 @@ function OwnerDashboard() {
   return (
     <div className="space-y-10">
       <p className="text-xl font-semibold lg:text-2xl lg:font-bold">آمار کلی</p>
-      {!isPending ? (
+      {!isOwnerProjecting ? (
         <div className="grid grid-cols-3 gap-3">
           <Card
             label="پروژه ها"

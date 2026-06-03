@@ -3,16 +3,16 @@ import { useSearchParams } from "react-router-dom";
 import { BarsArrowDownIcon } from "@heroicons/react/24/outline";
 import FreelancerFiltersModal from "./FreelancerFiltersModal";
 import FreelancerProjectRow from "./FreelancerProjectRow";
-import { useProjectLists } from "@/hooks/useOwner";
 import ButtonSecondary from "@/ui/ButtonSecondary";
 import Modal from "@/ui/Modal";
 import Sppiner from "@/ui/Sppiner";
 import Table from "@/ui/Table";
+import { useProjectsList } from "@/hooks/useProjectsList";
 
 function FreelancerProjects() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [isOpenFilterModal, setIsOpenFilterModal] = useState(false);
-  const { projects, isPending: isAllProjecting } = useProjectLists();
+  const { projects, isProjectingList } = useProjectsList();
 
   const onHandleFilter = (data) => {
     const { sort, status, category } = data;
@@ -55,7 +55,7 @@ function FreelancerProjects() {
             />
           </Modal>
         </div>
-        {isAllProjecting ? (
+        {isProjectingList ? (
           <Sppiner />
         ) : projects.length > 0 ? (
           <Table>
