@@ -23,7 +23,7 @@ function OwnerProjectsTable() {
   return (
     <div className="flex flex-col gap-y-10 h-full">
       <div className="flex justify-between items-center flex-wrap gap-y-2">
-        <p className="text-xl font-semibold lg:text-4xl lg:font-bold">
+        <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
           پروژه های شما
         </p>
         <Button

@@ -9,13 +9,14 @@ import { useOwnerProjects } from "../hooks/useOwnerProjects";
 
 function OwnerDashboard() {
   const { allProjects, isOwnerProjecting } = useOwnerProjects();
+
   const completedProjects = allProjects?.reduce(
-    (acc, cur) => acc + !!cur.freelancer,
+    (acc, cur) => acc + !!cur?.freelancer,
     0,
   );
 
   const proposals = allProjects?.reduce(
-    (acc, cur) => acc + cur.proposals.length,
+    (acc, cur) => acc + cur?.proposals?.length,
     0,
   );
 

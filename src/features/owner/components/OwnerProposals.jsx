@@ -29,7 +29,7 @@ function OwnerProposals() {
       </div>
       {isProjecting ? (
         <Sppiner />
-      ) : project.proposals.length ? (
+      ) : project?.proposals?.length ? (
         <Table>
           <Table.Header>
             <th>#</th>

@@ -102,6 +102,13 @@ button {
   @apply rounded-full bg-brand-primary;
 }
 
+/* button */
+
+button:disabled:hover {
+  border-color: var(--color-border-opacity);
+  box-shadow: none;
+}
+
 /* table */
 
 table {

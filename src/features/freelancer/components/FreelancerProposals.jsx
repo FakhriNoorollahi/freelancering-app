@@ -8,7 +8,7 @@ function FreelancerProposalas() {
   const { proposals, isPending: isGettingProposals } = useProposalsList();
 
   return (
-    <div className="flex flex-col gap-y-10">
+    <div className="flex flex-col gap-y-10 h-full">
       <>
         <div className="flex justify-between items-center">
           <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
@@ -37,7 +37,9 @@ function FreelancerProposalas() {
             </Table.Body>
           </Table>
         ) : (
-          <Empty title="پروپوزالی" />
+          <div className="center-all flex-1">
+            <Empty title="پروپوزالی" />
+          </div>
         )}
       </>
     </div>

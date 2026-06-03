@@ -31,13 +31,14 @@ function FreelancerProjects() {
   };
 
   return (
-    <div className="flex flex-col gap-y-10">
+    <div className="flex flex-col gap-y-10 h-full">
       <>
-        <div className="flex justify-between items-center flex-wrap gap-y-2">
+        <div className="flex justify-between items-center flex-wrap gap-y-2 ">
           <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
             پروژه های شما
           </p>
           <ButtonSecondary
+            disabled={isProjectingList}
             classes="flex items-center text-sm gap-x-3 border-border-opacity hover:border-brand-primary"
             onClick={() => setIsOpenFilterModal(true)}
           >
@@ -58,7 +59,7 @@ function FreelancerProjects() {
         </div>
         {isProjectingList ? (
           <Sppiner />
-        ) : projects.length > 0 ? (
+        ) : projects?.length > 0 ? (
           <Table>
             <Table.Header>
               <th>#</th>
@@ -81,7 +82,9 @@ function FreelancerProjects() {
             </Table.Body>
           </Table>
         ) : (
-          <Empty title="پروژه ای" />
+          <div className="flex-1 center-all">
+            <Empty title="پروژه ای" />
+          </div>
         )}
       </>
     </div>

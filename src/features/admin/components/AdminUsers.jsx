@@ -8,7 +8,7 @@ function AdminUsers() {
   const { isUsering, users } = useUsers();
 
   return (
-    <div className="flex flex-col gap-y-10">
+    <div className="flex flex-col gap-y-10 h-full">
       <>
         <div className="flex justify-between items-center flex-wrap gap-y-2">
           <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
@@ -17,7 +17,7 @@ function AdminUsers() {
         </div>
         {isUsering ? (
           <Sppiner />
-        ) : users.length > 0 ? (
+        ) : users?.length > 0 ? (
           <Table>
             <Table.Header>
               <th>#</th>
@@ -35,7 +35,9 @@ function AdminUsers() {
             </Table.Body>
           </Table>
         ) : (
-          <Empty title="کاربری" />
+          <div className="flex-1 center-all">
+            <Empty title="کاربری" />
+          </div>
         )}
       </>
     </div>

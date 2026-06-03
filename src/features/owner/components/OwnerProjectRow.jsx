@@ -53,7 +53,7 @@ function OwnerProjectRow({ project, index }) {
       <td>{toLoaclDateShort(deadline)}</td>
       <td>
         <div className="center-all flex-wrap gap-1 max-w-40 mx-auto">
-          {tags.length
+          {tags?.length
             ? tags.map((t) => (
                 <Tag key={t} classes="bg-tag">
                   {t}
