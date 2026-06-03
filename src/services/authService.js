@@ -1,24 +1,24 @@
 import http from "./httpService";
 
-export function getOtp(data) {
+export function getOtpApi(data) {
   return http.post("/user/get-otp", data).then(({ data }) => data.data);
 }
 
-export function checkOtp(data) {
+export function checkOtpApi(data) {
   return http.post("/user/check-otp", data).then(({ data }) => data.data);
 }
 
-export function completeProfile(data) {
+export function completeProfileApi(data) {
   return http
     .post("/user/complete-profile", data)
     .then(({ data }) => data.data);
 }
 
-export function logout() {
+export function logoutApi() {
   return http.post("/user/logout").then(({ data }) => data.data);
 }
 
-export function profile() {
+export function profileApi() {
   return http.get("/user/profile").then(({ data }) => data.data);
 }
 

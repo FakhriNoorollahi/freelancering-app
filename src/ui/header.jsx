@@ -8,8 +8,8 @@ import { useLogout, useProfile } from "@/hooks/useAuth";
 import USER_ROLES from "@/constants/userRolesData";
 
 function Header({ onOpen }) {
-  const { user, isPending: isProfiling } = useProfile();
-  const { mutateAsync: logout } = useLogout();
+  const { user, isProfiling } = useProfile();
+  const { logout } = useLogout();
   const navigate = useNavigate();
 
   const onHandleLogout = async () => {

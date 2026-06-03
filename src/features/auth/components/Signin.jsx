@@ -5,7 +5,7 @@ import Button from "@/ui/Button";
 
 function Signin({
   sendOtpHandler,
-  isSendingOtp,
+  isGetingOtp,
   handleSubmit,
   register,
   errors,
@@ -34,7 +34,7 @@ function Signin({
           required
           errors={errors}
         />
-        {isSendingOtp ? (
+        {isGetingOtp ? (
           <Sppiner />
         ) : (
           <Button classes="w-full">ارسال کد تایید</Button>

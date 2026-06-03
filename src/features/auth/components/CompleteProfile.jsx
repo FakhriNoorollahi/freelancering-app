@@ -1,12 +1,12 @@
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useCompleteProfile } from "@/hooks/useAuth";
 import TextField from "@/ui/TextField";
 import RadioInputGroup from "@/ui/RadioInputGroup";
 import Sppiner from "@/ui/Sppiner";
 import Button from "@/ui/Button";
 import AuthLayout from "./AuthLayout";
+import { useCompleteProfile } from "../hooks/useCompleteProfile";
+import toast from "react-hot-toast";
 
 function CompleteProfile() {
   const {
@@ -16,27 +16,22 @@ function CompleteProfile() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const { isPending: isCompleteingProfile, mutateAsync } = useCompleteProfile();
+  const { isCompletingProfile, completeProfile } = useCompleteProfile();
 
   const onHandleSubmit = async (data) => {
-    try {
-      const {
-        message,
-        user: { status, role: userRole },
-      } = await mutateAsync(data);
-      toast.success(message);
-
-      if (status !== 2) {
-        navigate("/");
-        toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
-        return;
-      }
-      if (userRole === "OWNER") return navigate("/owner");
-      if (userRole === "ADMIN") return navigate("/admin");
-      if (userRole === "FREELANCER") return navigate("/freelancer");
-    } catch (error) {
-      toast.error(error?.response?.data?.message);
-    }
+    await completeProfile(data, {
+      onSuccess: (user) => {
+        const { status, role: userRole } = user;
+        if (status !== 2) {
+          navigate("/");
+          toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
+          return;
+        }
+        if (userRole === "OWNER") return navigate("/owner");
+        if (userRole === "ADMIN") return navigate("/admin");
+        if (userRole === "FREELANCER") return navigate("/freelancer");
+      },
+    });
   };
 
   return (
@@ -84,7 +79,7 @@ function CompleteProfile() {
             ],
           }}
         />
-        {isCompleteingProfile ? (
+        {isCompletingProfile ? (
           <Sppiner />
         ) : (
           <Button classes="w-full">تایید</Button>

@@ -1,9 +1,8 @@
 import { useState } from "react";
-import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import Signin from "./Signin";
 import CheckOtp from "./CheckOtp";
-import { useGetOtp } from "@/hooks/useAuth";
+import useGetOtp from "../hooks/useGetOtp";
 
 function Auth() {
   const [step, setStep] = useState(1);
@@ -14,18 +13,19 @@ function Auth() {
     formState: { errors },
     getValues,
   } = useForm();
-  const { isPending: isSendingOtp, mutateAsync } = useGetOtp();
+  const { isGetingOtp, getOtp } = useGetOtp();
 
   const sendOtpHandler = async (data) => {
     const { phoneNumber } = data;
-    try {
-      const { expiresIn, message } = await mutateAsync({ phoneNumber });
-      toast.success(message, { duration: 10000 });
-      setExpireTime(expiresIn / 1000);
-      setStep(2);
-    } catch (error) {
-      toast.error(error?.response?.data?.message);
-    }
+    await getOtp(
+      { phoneNumber },
+      {
+        onSuccess: ({ expiresIn }) => {
+          setExpireTime(expiresIn / 1000);
+          setStep(2);
+        },
+      },
+    );
   };
 
   const render = () => {
@@ -35,7 +35,7 @@ function Auth() {
           register={register}
           errors={errors}
           handleSubmit={handleSubmit}
-          isSendingOtp={isSendingOtp}
+          isGetingOtp={isGetingOtp}
           sendOtpHandler={sendOtpHandler}
         />
       );

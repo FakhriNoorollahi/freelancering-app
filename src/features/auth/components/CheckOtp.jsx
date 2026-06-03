@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import { PencilIcon } from "@heroicons/react/24/solid";
 import AuthLayout from "./AuthLayout";
-import { useCheckOtp } from "@/hooks/useAuth";
 import Sppiner from "@/ui/Sppiner";
 import Button from "@/ui/Button";
 import { timeFormat } from "@/utils/timeFormat";
+import { useCheckOtp } from "../hooks/useCheckOtp";
 
 function CheckOtp({
   phoneNumber,
@@ -17,7 +17,7 @@ function CheckOtp({
   onResendOtp,
 }) {
   const [otp, setOtp] = useState("");
-  const { isPending: isCheckingOtp, mutateAsync } = useCheckOtp();
+  const { checkOtp, isCheckingOtp } = useCheckOtp();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function CheckOtp({
     return () => {
       if (timer) clearInterval(timer);
     };
-  }, [expireTime]);
+  }, [expireTime, setExpireTime]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,25 +36,23 @@ function CheckOtp({
       return;
     }
 
-    try {
-      const {
-        message,
-        user: { isActive, status, role },
-      } = await mutateAsync({ otp, phoneNumber });
-      toast.success(message);
-
-      if (!isActive) return navigate("/complete-profile");
-      if (status !== 2) {
-        navigate("/");
-        toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
-        return;
-      }
-      if (role === "OWNER") return navigate("/owner");
-      if (role === "ADMIN") return navigate("/admin");
-      if (role === "FREELANCER") return navigate("/freelancer");
-    } catch (error) {
-      toast.error(error?.response?.data?.message);
-    }
+    await checkOtp(
+      { otp, phoneNumber },
+      {
+        onSuccess: ({ user }) => {
+          const { isActive, status, role } = user;
+          if (!isActive) return navigate("/complete-profile");
+          if (status !== 2) {
+            navigate("/");
+            toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
+            return;
+          }
+          if (role === "OWNER") return navigate("/owner");
+          if (role === "ADMIN") return navigate("/admin");
+          if (role === "FREELANCER") return navigate("/freelancer");
+        },
+      },
+    );
   };
 
   return (
