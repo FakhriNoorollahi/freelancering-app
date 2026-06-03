@@ -29,7 +29,6 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
     };
   }
 
-  const [date, setDate] = useState(new Date(deadline || ""));
   const [selectedTags, setSelectedTags] = useState(
     tags?.map((t) => ({ id: t, text: t })) || [],
   );
@@ -39,6 +38,7 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
     handleSubmit,
     reset,
     formState: { errors },
+    control,
   } = useForm({ defaultValues: editValues });
 
   const { addProject, isAdding } = useAddProject();
@@ -47,7 +47,6 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
   const onHandleSubmit = async (data) => {
     const newProject = {
       ...data,
-      deadline: new Date(date).toISOString(),
       tags: selectedTags.map((t) => t.text),
     };
 
@@ -107,7 +106,16 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
         }}
         required
       />
-      <DatePickerField label="ددلاین" date={date} setDate={setDate} />
+      <DatePickerField
+        label="ددلاین"
+        name="deadline"
+        control={control}
+        errors={errors}
+        required
+        validationSchema={{
+          required: "ددلاین ضروری است",
+        }}
+      />
       <TextField
         register={register}
         label="بودجه"

@@ -34,7 +34,7 @@ function OwnerProjectsTable() {
           <span className="text-sm">اضافه کردن پروژه</span>
         </Button>
       </div>
-      {allProjects.length ? (
+      {allProjects?.length ? (
         <Table>
           <Table.Header>
             <th>#</th>

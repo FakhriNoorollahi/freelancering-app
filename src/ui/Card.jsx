@@ -1,6 +1,6 @@
 import { toPersianNumbers } from "@/utils/toPersianNumber";
 
-function Card({ IconComponent, label, data, cardClasses }) {
+function Card({ IconComponent, label, data = 0, cardClasses }) {
   return (
     <div
       className={`border border-border-opacity rounded-xl bg-white col-span-3 md:col-span-2 lg:col-span-1 ${cardClasses}`}

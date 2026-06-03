@@ -27,7 +27,7 @@ function OwnerDashboard() {
           <Card
             label="پروژه ها"
             IconComponent={FolderIcon}
-            data={allProjects.length}
+            data={allProjects?.length}
           />
           <Card
             label="پروژه های واگذار شده"
