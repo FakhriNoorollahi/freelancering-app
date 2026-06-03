@@ -47,6 +47,7 @@ function CheckOtp({
             toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
             return;
           }
+
           if (role === "OWNER") return navigate("/owner");
           if (role === "ADMIN") return navigate("/admin");
           if (role === "FREELANCER") return navigate("/freelancer");

@@ -1,6 +1,4 @@
 function ButtonSecondary({ children, classes, onClick, disabled }) {
-  console.log(disabled);
-
   return (
     <button
       onClick={onClick}
