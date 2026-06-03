@@ -2,6 +2,7 @@ import useProposalsList from "@/hooks/useProposalsList";
 import AdminProposalsRow from "./AdminProposalsRow";
 import Sppiner from "@/ui/Sppiner";
 import Table from "@/ui/Table";
+import Empty from "@/ui/Empty";
 
 function AdminProposals() {
   const { proposals, isPending: isGettingProposals } = useProposalsList();
@@ -36,7 +37,7 @@ function AdminProposals() {
             </Table.Body>
           </Table>
         ) : (
-          <p> پروژه ای وجود ندارد</p>
+          <Empty title="پروپوزالی" />
         )}
       </>
     </div>

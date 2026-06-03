@@ -2,6 +2,7 @@ import Sppiner from "@/ui/Sppiner";
 import useUsers from "../hooks/useUsers";
 import AdminUserRow from "./AdminUserRow";
 import Table from "@/ui/Table";
+import Empty from "@/ui/Empty";
 
 function AdminUsers() {
   const { isUsering, users } = useUsers();
@@ -34,7 +35,7 @@ function AdminUsers() {
             </Table.Body>
           </Table>
         ) : (
-          <p> پروژه ای وجود ندارد</p>
+          <Empty title="کاربری" />
         )}
       </>
     </div>

@@ -8,6 +8,7 @@ import Modal from "@/ui/Modal";
 import Sppiner from "@/ui/Sppiner";
 import Table from "@/ui/Table";
 import { useProjectsList } from "@/hooks/useProjectsList";
+import Empty from "@/ui/Empty";
 
 function FreelancerProjects() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -80,7 +81,7 @@ function FreelancerProjects() {
             </Table.Body>
           </Table>
         ) : (
-          <p> پروژه ای وجود ندارد</p>
+          <Empty title="پروژه ای" />
         )}
       </>
     </div>

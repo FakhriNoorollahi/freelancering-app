@@ -8,6 +8,7 @@ import ButtonSecondary from "@/ui/ButtonSecondary";
 import Modal from "@/ui/Modal";
 import Sppiner from "@/ui/Sppiner";
 import Table from "@/ui/Table";
+import Empty from "@/ui/Empty";
 
 function AdminProjects() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -79,7 +80,7 @@ function AdminProjects() {
             </Table.Body>
           </Table>
         ) : (
-          <p> پروژه ای وجود ندارد</p>
+          <Empty title="پروژه ای" />
         )}
       </>
     </div>

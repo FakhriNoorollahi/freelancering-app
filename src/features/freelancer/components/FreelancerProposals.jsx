@@ -2,6 +2,7 @@ import FreelancerProposalRow from "./FreelancerProposalRow";
 import Table from "@/ui/Table";
 import Sppiner from "@/ui/Sppiner";
 import useProposalsList from "@/hooks/useProposalsList";
+import Empty from "@/ui/Empty";
 
 function FreelancerProposalas() {
   const { proposals, isPending: isGettingProposals } = useProposalsList();
@@ -36,7 +37,7 @@ function FreelancerProposalas() {
             </Table.Body>
           </Table>
         ) : (
-          <p> پروژه ای وجود ندارد</p>
+          <Empty title="پروپوزالی" />
         )}
       </>
     </div>
