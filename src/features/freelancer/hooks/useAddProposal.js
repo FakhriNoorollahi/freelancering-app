@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import toast from "react-hot-toast";
 import { addProposalApi } from "@/services/proposalService";
+import { showCustomToast } from "@/utils/showCustomToast";
 
 export function useAddProposal() {
   const queryClient = useQueryClient();
@@ -8,11 +8,11 @@ export function useAddProposal() {
     useMutation({
       mutationFn: addProposalApi,
       onSuccess: ({ message }) => {
-        toast.success(message);
+        showCustomToast.success(message);
         queryClient.invalidateQueries({ queryKey: ["all-proposals"] });
       },
       onError: (error) => {
-        toast.error(error?.response?.data?.message);
+        showCustomToast.error(error?.response?.data?.message);
       },
     });
 

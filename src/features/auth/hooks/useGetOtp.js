@@ -1,15 +1,15 @@
 import { getOtpApi } from "@/services/authService";
+import { showCustomToast } from "@/utils/showCustomToast";
 import { useMutation } from "@tanstack/react-query";
-import toast from "react-hot-toast";
 
 function useGetOtp() {
   const { mutateAsync: getOtp, isPending: isGetingOtp } = useMutation({
     mutationFn: getOtpApi,
     onSuccess: ({ message }) => {
-      toast.success(message, { duration: 10000 });
+      showCustomToast.success(message, { duration: 15000 });
     },
     onError: (error) => {
-      toast.error(error?.response?.data?.message);
+      showCustomToast.error(error?.response?.data?.message);
     },
   });
 

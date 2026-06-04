@@ -1,17 +1,17 @@
-import toast from "react-hot-toast";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { userChangeUserStatusApi } from "@/services/authService";
+import { showCustomToast } from "@/utils/showCustomToast";
 
 function useChangeUserStatus() {
   const queryClient = useQueryClient();
   const { isPending: isUpdating, mutateAsync: changeUserStatus } = useMutation({
     mutationFn: userChangeUserStatusApi,
     onSuccess: ({ message }) => {
-      toast.success(message);
+      showCustomToast.success(message);
       queryClient.invalidateQueries({ queryKey: ["users"] });
     },
     onError: (error) => {
-      toast.error(error?.response?.data?.message);
+      showCustomToast.error(error?.response?.data?.message);
     },
   });
 

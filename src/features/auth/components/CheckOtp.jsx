@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
-import toast from "react-hot-toast";
 import { PencilIcon } from "@heroicons/react/24/solid";
 import AuthLayout from "./AuthLayout";
 import Sppiner from "@/ui/Sppiner";
 import Button from "@/ui/Button";
 import { timeFormat } from "@/utils/timeFormat";
 import { useCheckOtp } from "../hooks/useCheckOtp";
+import { showCustomToast } from "@/utils/showCustomToast";
 
 function CheckOtp({
   phoneNumber,
@@ -32,7 +32,7 @@ function CheckOtp({
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!otp) {
-      toast.error("لطفا کد تایید را وارد کنید.");
+      showCustomToast.error("لطفا کد تایید را وارد کنید.");
       return;
     }
 
@@ -44,7 +44,7 @@ function CheckOtp({
           if (!isActive) return navigate("/complete-profile");
           if (status !== 2) {
             navigate("/");
-            toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
+            showCustomToast.info("پروفایل شما در انتظار تایید است");
             return;
           }
 

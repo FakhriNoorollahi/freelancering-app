@@ -6,7 +6,7 @@ import Sppiner from "@/ui/Sppiner";
 import Button from "@/ui/Button";
 import AuthLayout from "./AuthLayout";
 import { useCompleteProfile } from "../hooks/useCompleteProfile";
-import toast from "react-hot-toast";
+import { showCustomToast } from "@/utils/showCustomToast";
 
 function CompleteProfile() {
   const {
@@ -24,7 +24,7 @@ function CompleteProfile() {
         const { status, role: userRole } = user;
         if (status !== 2) {
           navigate("/");
-          toast("پروفایل شما در انتظار تایید است", { icon: "⏳" });
+          showCustomToast.info("پروفایل شما در انتظار تایید است.");
           return;
         }
         if (userRole === "OWNER") return navigate("/owner");

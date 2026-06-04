@@ -1,16 +1,16 @@
 import { completeProfileApi } from "@/services/authService";
+import { showCustomToast } from "@/utils/showCustomToast";
 import { useMutation } from "@tanstack/react-query";
-import toast from "react-hot-toast";
 
 export function useCompleteProfile() {
   const { mutateAsync: completeProfile, isPending: isCompletingProfile } =
     useMutation({
       mutationFn: completeProfileApi,
       onSuccess: ({ message }) => {
-        toast.success(message);
+        showCustomToast.success(message);
       },
       onError: (error) => {
-        toast.error(error?.response?.data?.message);
+        showCustomToast.error(error?.response?.data?.message);
       },
     });
 
