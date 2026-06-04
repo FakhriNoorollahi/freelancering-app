@@ -131,13 +131,16 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
         register={register}
         label="دسته بندی"
         name="category"
-        validationSchema={{ required: "دسته بندی ضروری است." }}
+        errors={errors}
+        validationSchema={{
+          required: "دسته بندی ضروری است",
+        }}
+        required
         options={
           isCategoring
             ? [{ id: "1", value: "", title: "در حال بارگذاری..." }]
             : transformedCategories
         }
-        required
       />
       <TagInput
         tags={selectedTags}
