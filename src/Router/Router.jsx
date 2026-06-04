@@ -20,6 +20,7 @@ import ProtectRoute from "./ProtectedRoute";
 function Router() {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/auth" replace />} />
       <Route path="/auth" element={<AuthPage />} />
       <Route path="/complete-profile" element={<CompleteProfilePage />} />
       <Route
@@ -30,7 +31,7 @@ function Router() {
           </ProtectRoute>
         }
       >
-        <Route index element={<Navigate to="dashboard" />} />
+        <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<OwnerDashboardPage />} />
         <Route path="projects" element={<OwnerProjectsPage />} />
         <Route path="projects/:id" element={<OwnerProposalsPage />} />
@@ -43,7 +44,7 @@ function Router() {
           </ProtectRoute>
         }
       >
-        <Route index element={<Navigate to="dashboard" />} />
+        <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<FreelancerDashboardPage />} />
         <Route path="projects" element={<FreelancerProjectsPage />} />
         <Route path="proposals" element={<FreelancerProposalsPage />} />
@@ -56,7 +57,7 @@ function Router() {
           </ProtectRoute>
         }
       >
-        <Route index element={<Navigate to="dashboard" />} />
+        <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<AdminDashboardPage />} />
         <Route path="projects" element={<AdminProjectsPage />} />
         <Route path="proposals" element={<AdminProposalsPage />} />

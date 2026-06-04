@@ -7,7 +7,7 @@ const queryClient = new QueryClient();
 function AppProvider({ children }) {
   return (
     <BrowserRouter>
-      <Toaster position="top left" toastOptions={{ duration: 5000 }} />
+      <Toaster />
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </BrowserRouter>
   );
