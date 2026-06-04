@@ -5,8 +5,10 @@ import { showCustomToast } from "@/utils/showCustomToast";
 export function useCheckOtp() {
   const { mutateAsync: checkOtp, isPending: isCheckingOtp } = useMutation({
     mutationFn: checkOtpApi,
-    onSuccess: ({ message }) => {
-      showCustomToast.success(message);
+    onSuccess: ({ message, user }) => {
+      if (user.status == 2) {
+        showCustomToast.success(message);
+      }
     },
     onError: (error) => {
       showCustomToast.error(error?.response?.data?.message);

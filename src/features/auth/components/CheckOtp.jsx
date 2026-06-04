@@ -43,8 +43,13 @@ function CheckOtp({
           const { isActive, status, role } = user;
           if (!isActive) return navigate("/complete-profile");
           if (status !== 2) {
+            if (status === 0) {
+              showCustomToast.error("پروفایل شما مورد تایید قرار نگرفته است");
+            }
+            if (status === 1) {
+              showCustomToast.info("پروفایل شما در انتظار تایید است");
+            }
             navigate("/");
-            showCustomToast.info("پروفایل شما در انتظار تایید است");
             return;
           }
 

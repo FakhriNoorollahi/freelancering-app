@@ -15,8 +15,6 @@ function AdminChangeUserStatusModal({ userId, onClose }) {
   const { isUpdating, changeUserStatus } = useChangeUserStatus();
 
   const onSubmit = async (data) => {
-    console.log(userId, data);
-
     await changeUserStatus(
       { userId, data },
       {

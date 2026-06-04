@@ -19,7 +19,9 @@ function useAuthorize() {
   const currentRoute = pathname.split("/")[1];
 
   if (Object.keys(ROLES).includes(currentRoute)) {
-    if (user && user.role === ROLES[currentRoute]) isAuthorized = true;
+    if (!!user && user.role === ROLES[currentRoute]) {
+      isAuthorized = true;
+    }
   }
 
   return { isAuthenticated, isAuthorized, user, isProfiling };

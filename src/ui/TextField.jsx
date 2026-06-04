@@ -8,8 +8,6 @@ function TextField({
   required,
   type = "text",
 }) {
-  console.log(errors[name]);
-
   return (
     <div className="flex flex-col gap-y-0.5">
       <div className="flex flex-col gap-y-2">
