@@ -20,9 +20,10 @@ function CompleteProfile() {
 
   const onHandleSubmit = async (data) => {
     await completeProfile(data, {
-      onSuccess: (user) => {
-        const { status, role: userRole } = user;
-        if (status !== 2) {
+      onSuccess: ({ user }) => {
+        const { status: userStatus, role: userRole } = user;
+
+        if (userStatus !== 2) {
           navigate("/");
           showCustomToast.info("پروفایل شما در انتظار تایید است.");
           return;
