@@ -126,6 +126,7 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
           required: "بودجه ضروری است",
         }}
         required
+        icon="تومان"
       />
       <Select
         register={register}

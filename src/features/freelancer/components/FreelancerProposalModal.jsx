@@ -18,7 +18,6 @@ function FreelancerProposalModal({ onClose, projectId }) {
 
     await addProposal(res, {
       onSuccess: () => onClose(),
-      onError: () => onClose(),
     });
   };
 
@@ -56,8 +55,8 @@ function FreelancerProposalModal({ onClose, projectId }) {
           validationSchema={{
             required: "قیمت ضروری است",
           }}
-          type="number"
           required
+          icon="تومان"
         />
         <TextField
           register={register}
@@ -65,11 +64,11 @@ function FreelancerProposalModal({ onClose, projectId }) {
           name="duration"
           placeholder="نمونه: 30 روز "
           errors={errors}
-          type="number"
           validationSchema={{
             required: "مدت زمان ضروری است",
           }}
           required
+          icon="روز"
         />
       </div>
 

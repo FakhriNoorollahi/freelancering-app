@@ -7,6 +7,7 @@ function TextField({
   errors,
   required,
   type = "text",
+  icon = "",
 }) {
   return (
     <div className="flex flex-col gap-y-0.5">
@@ -14,12 +15,15 @@ function TextField({
         <label htmlFor={name} className="textField__label">
           {label} {required && <span className="text-danger">*</span>}
         </label>
-        <input
-          {...register(name, validationSchema)}
-          placeholder={placeholder}
-          className="textField__input"
-          type={type}
-        />
+        <div className="textField__input flex items-center">
+          <input
+            {...register(name, validationSchema)}
+            placeholder={placeholder}
+            className="flex-1"
+            type={type}
+          />
+          <div className="text-xs font-bold">{icon}</div>
+        </div>
       </div>
       <div className="h-6 text-start">
         {errors && errors[name] && (
