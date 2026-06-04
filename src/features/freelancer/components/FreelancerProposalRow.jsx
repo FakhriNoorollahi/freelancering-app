@@ -16,7 +16,7 @@ function FreelancerProposalRow({
 }) {
   return (
     <Table.Row>
-      <td>{index}</td>
+      <td>{toPersianNumbers(index)}</td>
       <td className="w-max-60">
         <p title={description}>{truncateText(description, 60)}</p>
       </td>

@@ -2,7 +2,10 @@ import PROJECT_STATUS_DATA from "@/constants/projectStatusData";
 import Table from "@/ui/Table";
 import Tag from "@/ui/Tag";
 import toLoaclDateShort from "@/utils/toLocalDateShort";
-import { toPersianNumberWithComma } from "@/utils/toPersianNumber";
+import {
+  toPersianNumbers,
+  toPersianNumberWithComma,
+} from "@/utils/toPersianNumber";
 import truncateText from "@/utils/truncateText";
 
 function AdminProjectRow({
@@ -16,7 +19,7 @@ function AdminProjectRow({
 }) {
   return (
     <Table.Row>
-      <td>{index}</td>
+      <td>{toPersianNumbers(index)}</td>
       <td className="w-max-60">
         <p title={title}>{truncateText(title, 30)}</p>
       </td>

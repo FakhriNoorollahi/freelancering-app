@@ -12,7 +12,7 @@ function AdminUserRow({ name, email, phoneNumber, role, status, index, _id }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
   return (
     <Table.Row>
-      <td>{index}</td>
+      <td>{toPersianNumbers(index)}</td>
       <td>{name}</td>
       <td>{email}</td>
       <td>{toPersianNumbers(phoneNumber)}</td>

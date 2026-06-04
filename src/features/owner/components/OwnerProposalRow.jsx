@@ -21,7 +21,7 @@ function OwnerProposalRow({ proposal, index }) {
       <td>
         <p title={description}>{truncateText(description, 40)}</p>
       </td>
-      <td>{duration}</td>
+      <td>{toPersianNumbers(duration)} روز</td>
       <td>{toPersianNumberWithComma(price)}</td>
       <td>
         <Tag classes={`mx-auto ${USER_PROPOSAL_STATUS_DATA[status].classes}`}>
