@@ -21,6 +21,7 @@ function TextField({
             placeholder={placeholder}
             className="flex-1"
             type={type}
+            id={name}
           />
           <div className="text-xs font-bold">{icon}</div>
         </div>

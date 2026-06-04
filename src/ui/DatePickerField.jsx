@@ -16,6 +16,7 @@ function DatePickerField({ control, name, label, required, validationSchema }) {
         render={({ field, formState: { errors } }) => (
           <div className="flex flex-col gap-y-0.5">
             <DatePicker.default
+              id={name}
               format="YYYY/MM/DD"
               placeholder="نمونه : ۱۴۰۵/۰۲/۲۸"
               containerClassName="w-full"

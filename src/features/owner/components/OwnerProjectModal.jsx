@@ -148,6 +148,7 @@ function OwnerProjectModal({ onClose, projectToEdit = {} }) {
         setTags={setSelectedTags}
         label="تگ ها"
         placeholder="نمونه : برنامه نویسی یا UI/UX"
+        id="tag"
       />
       {(editId ? isEditting : isAdding) ? (
         <Sppiner />

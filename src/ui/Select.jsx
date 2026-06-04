@@ -10,10 +10,11 @@ function Select({
   return (
     <div className="flex flex-col gap-y-0.5">
       <div className="flex flex-col gap-2">
-        <label className="textField__label">
+        <label htmlFor={name} className="textField__label">
           {label} {required && <span className="text-danger">*</span>}
         </label>
         <select
+          id={name}
           className="textField__input text-sm!"
           {...register(name, validationSchema)}
           defaultValue=""
