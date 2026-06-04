@@ -71,7 +71,7 @@
   }
 
   .active__navlink__item {
-    @apply focus:text-brand-secondary focus:bg-background focus:font-semibold;
+    @apply text-brand-secondary bg-background font-semibold;
   }
 
   .tag {
