@@ -6,8 +6,8 @@ const STATUS_OPTIONS = [
 
 const ORDER_OPTIONS = [
   { id: 1, title: "همه", value: "ALL" },
-  { id: 2, title: "جدیدترین", value: "newest" },
-  { id: 3, title: "قدیمی ترین", value: "latest" },
+  { id: 2, title: "جدیدترین", value: "latest" },
+  { id: 3, title: "قدیمی ترین", value: "newest" },
 ];
 
 export { STATUS_OPTIONS, ORDER_OPTIONS };
