@@ -1,4 +1,5 @@
 import useOutsideClick from "@/hooks/useOutsideClick";
+import truncateText from "@/utils/truncateText";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 
 function Modal({ open, children, title, onClose }) {
@@ -14,7 +15,9 @@ function Modal({ open, children, title, onClose }) {
             className="bg-white rounded-xl p-6 w-80 sm:w-110 z-100"
           >
             <div className="flex justify-between items-center border-b border-border pb-2 mb-5">
-              <p className="text-base font-bold">{title}</p>
+              <p title={title} className="text-base font-bold text-right">
+                {truncateText(title, 30)}
+              </p>
               <button onClick={onClose} className="cursor-pointer">
                 <XCircleIcon className="size-6 text-danger" />
               </button>
