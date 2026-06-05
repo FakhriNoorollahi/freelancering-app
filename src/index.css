@@ -278,3 +278,14 @@ table tr:last-child {
 .animate-custom-leave {
   animation: custom-leave 0.2s ease-in forwards;
 }
+
+/*  */
+
+.rmdp-arrow-container {
+  display: block !important;
+  align-items: center !important;
+}
+
+.rmdp-rtl .rmdp-left i {
+  margin-right: 0 !important;
+}

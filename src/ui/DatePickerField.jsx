@@ -1,6 +1,7 @@
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+import transition from "react-element-popper/animations/transition";
 import { Controller } from "react-hook-form";
 
 function DatePickerField({ control, name, label, required, validationSchema }) {
@@ -23,6 +24,7 @@ function DatePickerField({ control, name, label, required, validationSchema }) {
               inputClass="textField__input"
               calendar={persian}
               locale={persian_fa}
+              animations={[transition()]}
               value={field.value}
               onChange={(date) => {
                 field.onChange(date?.toDate?.() ?? date);
