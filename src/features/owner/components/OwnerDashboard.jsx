@@ -22,7 +22,9 @@ function OwnerDashboard() {
 
   return (
     <div className="space-y-10">
-      <p className="text-xl font-semibold lg:text-2xl lg:font-bold">آمار کلی</p>
+      <p className="text-lg font-semibold lg:text-xl lg:font-bold">
+        خلاصه آمار
+      </p>
       {!isOwnerProjecting ? (
         <div className="grid grid-cols-3 gap-3">
           <Card

@@ -12,7 +12,7 @@ function AdminUsers() {
       <>
         <div className="flex justify-between items-center flex-wrap gap-y-2">
           <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
-            کاربران
+            لیست کاربران
           </p>
         </div>
         {isUsering ? (

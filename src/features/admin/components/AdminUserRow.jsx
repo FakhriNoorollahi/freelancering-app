@@ -32,7 +32,7 @@ function AdminUserRow({ name, email, phoneNumber, role, status, index, _id }) {
         <Modal
           open={isOpenModal}
           onClose={() => setIsOpenModal(false)}
-          title="تغییر وضعیت پروپوزال"
+          title={`تغییر وضعیت ${name}`}
         >
           <AdminChangeUserStatusModal
             onClose={() => setIsOpenModal(false)}

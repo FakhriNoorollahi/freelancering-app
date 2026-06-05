@@ -15,7 +15,9 @@ function FreelancerDashboard() {
 
   return (
     <div className="space-y-10">
-      <p className="text-xl font-semibold lg:text-2xl lg:font-bold">آمار کلی</p>
+      <p className="text-xl font-semibold lg:text-2xl lg:font-bold">
+        خلاصه آمار
+      </p>
       {!isProposaling ? (
         <div className="grid grid-cols-3 gap-3">
           <Card

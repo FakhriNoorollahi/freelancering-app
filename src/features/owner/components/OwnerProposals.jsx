@@ -23,8 +23,8 @@ function OwnerProposals() {
           iconClasses="size-6 group-hover:text-tag"
           buttonClasses="hover:bg-tag/5 hover:border-tag/5"
         />
-        <p className="text-lg font-semibold lg:text-2xl lg:font-bold">
-          درخواست های پروژه ی شما
+        <p className="text-md font-semibold lg:text-lg lg:font-bold">
+          لیست درخواست‌ها | {project?.title}
         </p>
       </div>
       {isProjecting ? (
