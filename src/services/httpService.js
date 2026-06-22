@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "https://freelancering-app-backend.onrender.com/api";
 
 const app = axios.create({
   baseURL: BASE_URL,
@@ -15,6 +15,8 @@ app.interceptors.request.use(
 app.interceptors.response.use(
   (res) => res,
   async (err) => {
+    console.log("1", err);
+
     const originalConfig = err.config;
     if (err.response.status === 401 && !originalConfig._retry) {
       originalConfig._retry = true;
@@ -24,6 +26,8 @@ app.interceptors.response.use(
         });
         if (data) return app(originalConfig);
       } catch (err) {
+        console.log("2", err);
+
         return Promise.reject(err);
       }
     }
